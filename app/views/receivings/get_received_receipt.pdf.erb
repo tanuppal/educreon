@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body style="">
+	<div class="hole-recipt">
+		<div class="title-section">
+			<table style="width: 100%; margin-bottom: 20px;margin-top: 20px;">
+				<tbody>
+					<tr>
+						<td style="width: 33%;">
+							<%=wicked_pdf_image_tag @company_last.logo.url(:mediumb),:class=>"logo-image"%>
+						</td>
+						<td style="width: 34%;">
+							<center>
+								<span style="margin-bottom: 5px;padding: 10px; "><%=@company_last.address%></span>
+							</center>
+						</td>
+						<td style="width: 33%;">
+							<h4>Received Date : <%= @last_receive.received_date.strftime("%d - %b - %Y")%></h4>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="next-title">
+			<table style="width: 100%; margin-bottom: 20px;margin-top: 20px;font-size: 17px;">
+				<thead style="background-color: #CFCFCF;">
+					<tr>
+						<th>Product Name</th>
+						<th>Order ID</th>
+						<th>From Date</th>
+						<th>To Date</th>
+						<th>Fine</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%@last_receive.receiving_products.each do |x|%>
+							<tr style="text-align: center;">
+								<td style="width: 20%;">
+									<%= x.product.try(:name)%>
+								</td>
+								<td style="width: 20%;">
+									<%= x.order.try(:number)%>
+								</td>
+								<td style="width: 20%;">
+									<% x.order.order_schedulings.each do |s|%>
+										<%= s.rental_picup%>
+									<%end%>
+								</td>
+								<td style="width: 20%;">
+									<% x.order.order_schedulings.each do |s|%>
+										<%= s.rental_return%>
+									<%end%>
+								</td>
+								<td style="width: 20%;">
+									<%= x.fine%>
+								</td>
+							</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+
+
+		<div class="sugnature">
+			Signature & Seal
+		</div>
+
+	</div>
+</body>
+</html>
+<style type="text/css">
+.aaaa {
+	border: 1px solid #999;
+	background-color: #999;
+}
+.all_h3 {
+	border: 1px solid #999;
+	background-color: #eee;
+}
+.sugnature{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: gray;
+	text-align: right;
+	font-size: 20px;
+	padding: 30px;
+}
+
+/*	.next-title{
+		
+		border-bottom: solid 2px gray;
+	}*/
+	.hole-recipt{
+		border: solid 2px gray;
+		height: 100%;
+		padding: 10px;
+		font-size: 16px;
+	}
+	.title-section{
+		width:100%;
+		/*border-bottom: solid 2px gray;*/
+		/*display: inline-flex;*/
+	}
+	.logo-image{
+		width: 250px;
+		height: 100%;
+		padding: 10px;
+	}
+</style>

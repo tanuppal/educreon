@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost: MyString
+  price: MyString
+  taxable: false
+  vendor: one
+  product: one
+
+two:
+  cost: MyString
+  price: MyString
+  taxable: false
+  vendor: two
+  product: two

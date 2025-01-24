@@ -1,0 +1,29 @@
+<div class="form-group">
+	<label>Account Name</label>
+	<%=fff.text_field :account_name, :class => "form-control edit-field", placeholder: "Enter Account Name", :readonly=>true %>
+</div>
+<div class="form-group">	
+	<label>Display Name</label>
+	<%=fff.text_field :display_name, :class => "form-control edit-field", placeholder: "Enter Display Name",:readonly=>true  %>
+</div>
+<div class="form-group">	
+	<label>Privilege Set</label>
+	<%=fff.text_field :privilege_set, :class => "form-control edit-field", placeholder: "Enter Privilege",:readonly=>true  %>
+</div>	
+<div class="actions">
+  <div class="col-sm-12">
+	<div class="text-right">
+	    <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+	        <%=fff.submit "Submit",:class=>"btn btn-info edit-btn"%>
+	</div>
+  </div>
+</div> 
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".edit_button").click(function() {
+        //alert("hello");
+        $(".edit-field").prop("readonly", false);
+        $(".edit-field").prop("disabled", false);
+    });
+});
+</script>

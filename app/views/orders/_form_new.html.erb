@@ -1,0 +1,135 @@
+<div class="content">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                   <li class="active"><a href="#orderGeneral" data-toggle="tab">General</a></li>
+                   <li><a href="#orderScheduling" data-toggle="tab">Scheduling</a></li>
+                   <li><a href="#orderBillTo" data-toggle="tab">Bill To</a></li>
+                   <li><a href="#orderBillShipto" data-toggle="tab">Ship To</a></li>
+                   <!-- <li><a href="#orderItems" data-toggle="tab">Items</a></li> -->
+                   <!-- <li><a href="#productBarcode" data-toggle="tab">Deliveries</a></li> -->
+                   <li><a href="#orderPayments" data-toggle="tab">Payments</a></li>
+                   <li><a href="#orderNotes" data-toggle="tab">Notes</a></li>
+                   <!-- <li><a href="#orderInvoices" data-toggle="tab">Invoices</a></li> -->
+                </ul>
+            </div>
+            <div class="panel-body">
+            <%#= form_for @general_order, html: {multipart: true} do |t| %>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="orderGeneral">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">General</div>
+                                <div class="panel-body orders-general-info">
+                                  <%= render  partial: 'orders/order_general', :locals=> {:t=> t} %>
+                                </div>
+                            </div>
+                        </div>
+                       <!--  <div class="col-sm-7"> 
+                           <%#= render  partial: 'orders/order_general_new' %>
+                         </div>  --> 
+                    </div>
+                    <div class="tab-pane fade" id="orderScheduling">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Scheduling</div>
+                                <div class="panel-body order-scheduling">
+                                    <%= render  partial: 'orders/order_scheduling' , :locals=> {:t=> t} %>
+                                </div>
+                            </div>
+                       </div>   
+                    </div>
+                    <div class="tab-pane fade" id="orderBillTo">
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Bill To</div>
+                                <div class="panel-body product-pricing">
+                                   <%= render  partial: 'orders/bill_form' , :locals=> {:t=> t}%>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                       <!--  <div class="col-sm-6">  
+                          <%#= render  partial: 'orders/order_bill_to_new' %>
+                        </div> -->
+                    </div>
+                    <div class="tab-pane fade" id="orderBillShipto">
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Ship To</div>
+                                <div class="panel-body product-pricing">
+                                   <%= render  partial: 'orders/ship_form', :locals=> {:t=> t} %>
+                                </div>
+                            </div>
+                        </div>
+                            <!--  <div class="col-sm-7"> 
+                                <%#= render  partial: 'orders/order_bill_shipto_new' %>
+                             </div>  -->
+                      </div>
+                    </div>
+                        
+<!--                         <div class="tab-pane fade" id="orderItems">
+                          <div class="col-sm-6">
+                            <div class="panel panel-info">
+                               <div class="panel-heading text-center">Items</div>
+                               <div class="panel-body product-pricing">
+                            <%#= render partial: 'orders/order_item_form',:locals=> {:t=> t} %>
+                                  
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                         <%#= render  partial: 'orders/order_items', :locals=> {:t=> t}  %>
+                       </div>
+                    </div> -->
+                    <div class="tab-pane fade" id="orderPayments">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Payments</div>
+                                <div class="panel-body products-general-info">
+                                   <%= render  partial: 'orders/order_payment', :locals=> {:t=> t} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Orders</div>
+                                <div class="panel-body products-general-info">
+                                   <%#= render  partial: 'products/product_orders' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade " id="orderNotes">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Notes</div>
+                                <div class="panel-body orders-general-info">
+                                  <%= render  partial: 'orders/order_notes', :locals=> {:t=> t} %>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-sm-7">  
+                           <%#= render  partial: 'orders/order_notes_new' %>
+                           </div>   
+                    </div> 
+                    <div class="tab-pane fade" id="">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Bills</div>
+                                <div class="panel-body products-general-info">
+                                   <%#= render  partial: 'products/product_bills' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%#end%>
+        </div>
+    </div>
+</div></div>

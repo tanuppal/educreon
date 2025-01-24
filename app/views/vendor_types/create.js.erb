@@ -1,0 +1,10 @@
+$("#vendorType").modal('hide');
+ $(".type_content").val('');
+var url = "<%=all_vendor_type_vendor_types_path%>";
+$.getJSON(url, function(data) {
+	$('#vendor_vendor_type_id').html('<option>Select Vendor Type </option>');
+	$.each(data, function(index, type) {   
+	//alert(batch.name);
+	 $('#vendor_vendor_type_id').append($('<option>', { value : type.id }).text(type.name)); 
+	});
+});

@@ -1,0 +1,10 @@
+$("#myModalTerm").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_term_customer_terms_path%>";
+$.getJSON(url, function(data) {
+	// $('#customer_customer_term_id').html('<option>Select Customer Term</option>');
+	$.each(data, function(index, term) {   
+	//alert(batch.name);
+	 $('#customer_customer_term_id').append($('<option>', { value : term.id }).text(term.name)); 
+	});
+});

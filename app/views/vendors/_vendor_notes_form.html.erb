@@ -1,0 +1,22 @@
+  <div class="row">
+      <% @general_vendor.vendor_notes.build if @general_vendor.vendor_notes.blank?%>
+      <div class="col-sm-12">
+          <%= f.nested_fields_for :vendor_notes do |ff|%>
+           <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right', role: 'button' do%>
+            <i class="fa fa-minus-square"></i>
+          <%end%><br>
+              <div class="form-group">
+                <%= ff.label :notes%>
+                <%= ff.text_area :note, :class=>"form-control"%>
+              </div>
+              <div class="row">
+        			<div class="col-sm-12 text-center">
+        				<%#= ff.submit "Save Notes", :class=>"btn btn-primary"%>
+        			</div>
+      		</div>
+          <%end%>
+          <%=f.add_nested_fields_link :vendor_notes,  class: 'btn btn-info', role: 'button' do%>
+          <i class="fa fa-plus-square"></i>
+          <%end%>
+      </div>
+  </div>

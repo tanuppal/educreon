@@ -1,0 +1,88 @@
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <%=f.label :Name%>
+              <span class="required_field">*</span>
+            <%=f.text_field :name, :class => "form-control edit-field", :placeholder=>"Name", disabled: true,:required=>true%>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <label for="inputType">Customer type</label>
+            <span class="required_field">*</span>
+            <div class="input-group">
+                <%=f.select :customer_type_id, options_for_select(@all_customer_type.collect{ |u| [u.name, u.id]},@general_customer.customer_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+            </div>
+            <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide ", :"data-toggle"=>"modal", :"data-target"=>"#myModalType"%>
+        </div>
+        <div class="col-md-4"> 
+            <label for="inputTerms">Terms</label>
+            <span class="required_field">*</span>
+            <div class="input-group">
+                <%=f.select :customer_term_id, options_for_select(@all_customer_term.collect{ |u| [u.name, u.id]},@general_customer.customer_term_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+            </div>
+            <%= link_to "Add Term", "#", class: "btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#myModalTerm"%>
+        </div> 
+    </div>
+</div>           
+<div class="form-group">        
+    <div class="row">
+        <div class="col-md-4">    
+            <label for="inputUrl">URL</label>
+            <%=f.url_field :url, :class => "form-control edit-field", :placeholder=>"URL", disabled: true%>
+        </div>
+        <div class="col-md-4">    
+            <label for="inputSource">Source</label>
+            <div class="input-group">
+                <%=f.select :customer_source_id, options_for_select(@all_customer_source.collect{ |u| [u.name, u.id]},@general_customer.customer_source_id), {:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled" } %>
+            </div>
+            <%= link_to "Add Source", "#", class: "btn btn-xs btn-primary pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#myModalSource"%>
+        </div>
+        <div class="col-md-4">    
+            <label for="inputShipping">Shipping</label>
+            <span class="required_field">*</span>
+            <div class="input-group">
+                <%=f.select :customer_shipping_id, options_for_select(@all_customer_shipping.collect{ |u| [u.name, u.id]},@general_customer.customer_shipping_id), {:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true} %>
+                <%=link_to "Add Shipping", "#", class: "btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#myModalShipping"%>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="inputStatus">Status</label>
+            <span class="required_field">*</span>
+            <%#=f.select :customer_status_id, options_for_select(@all_customer_status.collect{ |u| [u.status, u.id]},@general_customer.customer_status_id), {:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+            <%= f.select :status, options_for_select([["Active","Active"],["Inactive","Inactive"]],@general_customer.status),{:prompt=>"--Please Select--"}, {:class=>"form-control edit-field",:required=>true, disabled: "true"} %>
+            <%#= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#myModalStatus"%>
+
+        </div>
+        <div class="col-md-8">  </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class ="col-sm-12">
+            <div class="text-right">
+              <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+              <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+            </div>
+        </div>    
+    </div>
+</div> 
+
+<style type="text/css">
+    .fa-plus-square{
+        font-size: 1.5em;
+    }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".edit_button").click(function(){
+    //alert("hello");
+    $(".edit-field").prop("readonly", false);
+    $(".edit-field").prop("disabled", false);
+    $(".edit-field").removeClass("hide");
+  });
+});
+</script>
+

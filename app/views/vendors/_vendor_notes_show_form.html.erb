@@ -1,0 +1,35 @@
+  <div class="row">
+      <% @general_vendor.vendor_notes.build if @general_vendor.vendor_notes.blank?%>
+      <div class="col-sm-12">
+          <%= f.nested_fields_for :vendor_notes do |ff|%>
+           <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right edit-field hide', role: 'button' do%>
+            <i class="fa fa-minus-square"></i>
+            <%end%><br>
+              <div class="form-group">
+                <%= ff.label :notes%>
+                <%= ff.text_area :note, :class=>"form-control edit-field",:readonly => true%>
+              </div>
+              <%end%>
+              <%=f.add_nested_fields_link :vendor_notes,  class: 'btn btn-info edit-field hide', role: 'button' do%>
+                <i class="fa fa-plus-square"></i>
+                <%end%>
+              <div class="row">
+        			<div class="col-sm-12 text-center">
+        				<div class="text-right">
+                <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+                <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+                </div>
+        			</div>
+      		</div>
+      </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".edit_button").click(function() {
+        //alert("hello");
+        $(".edit-field").prop("readonly", false);
+        $(".edit-field").prop("disabled", false);
+        $(".edit-field").removeClass("hide");
+    });
+});
+</script>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  url: MyString
+  customer_type: one
+  customer_term: one
+  customer_source: one
+  customer_shipping: one
+  customer_status: one
+
+two:
+  name: MyString
+  url: MyString
+  customer_type: two
+  customer_term: two
+  customer_source: two
+  customer_shipping: two
+  customer_status: two

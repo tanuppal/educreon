@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_name: MyString
+  display_name: MyString
+  privilege_set: one
+  is_sales_person: false
+
+two:
+  account_name: MyString
+  display_name: MyString
+  privilege_set: two
+  is_sales_person: false

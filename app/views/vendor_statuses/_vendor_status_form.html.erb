@@ -1,0 +1,25 @@
+<div class="col-md-12 col-xs-12">
+    <div class="modal fade" id="vendorStatus" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Vendor Status</h4>
+                </div>
+
+                <div class="modal-body">
+                    <%= form_for(@vendor_status, remote: true) do |f| %>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <%=f.text_field :status,:class => "form-control status_content", :placeholder=>"Enter Vendor Type Name"%>
+                    </div>
+                    <%= f.submit "Save", :class=>"btn btn-primary save-btn"%>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <% end %>
+                </div>
+                <div class="modal-footer text-center">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

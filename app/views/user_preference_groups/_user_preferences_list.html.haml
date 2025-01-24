@@ -1,0 +1,35 @@
+.card-body
+  .table-responsive
+    %table.table-bordered.table-hover#productPricing{:width=>"100%", :cellspacing=>"0"}
+      %thead
+        %tr.info
+          %th
+            Sl No.
+          %th
+            Name
+          %th
+            Create at
+          %th
+            Actions 
+          %th
+            Manage     
+      %tbody
+        -@user_preferences_group_list.each_with_index do |x,index|
+          %tr
+            %td
+              = index+1
+            %td
+              =x.try(:name)
+            %td
+              =x.created_at.to_date
+            %td
+              -x.child_preferences.each_with_index do |z,index| 
+                =x.child_preferences.length > index+1 ? "#{z.controller_name}," : "#{z.controller_name }"
+            %td
+              =link_to "Edit",edit_user_preference_group_path(x),:class=>"btn btn-success edit_button"
+
+:Javascript
+  $(document).ready(function() {
+    $('#productPricings').DataTable({"lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+    });
+  });

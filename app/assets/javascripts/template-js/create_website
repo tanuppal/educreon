@@ -1,0 +1,22 @@
+ValidateEmail = function () {
+    var email = document.getElementById("email").value;  /* Retrieve email from input field */
+    var requestemail = ("{email: " + '"' + email + '"' + "}"); /* Build email request format */
+    $.ajax({/* Send email packet to server */
+        url: "https://api.experianmarketingservices.com/sync/queryresult/EmailValidate/1.0/",
+        async: true, /* Set sync or async website behaviour */
+        type: "POST",
+        data: (requestemail),
+        dataType: "json",
+        headers: {"Auth-Token": "319c4b2d-e675-4446-98c3-1d82a8d826e2", "Content-Type": "application/json"},
+        success: function (EmailResult) {  /* Bind result to EmailResult */
+            document.getElementById("EmailResult").value = EmailResult.Certainty;                      
+            if (EmailResult.Certainty === 'verified') {   /* Display icon based on result */
+                document.getElementById("ValidateIcon").className = "glyphicon glyphicon-ok-sign";
+            } else if (EmailResult.Certainty === 'undeliverable') {
+                document.getElementById("ValidateIcon").className = "glyphicon glyphicon-remove-sign";
+            } else {
+                document.getElementById("ValidateIcon").className = "glyphicon glyphicon-question-sign";
+            }
+        }
+    });
+};

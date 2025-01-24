@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="col-sm-12">
+    <% @general_order.order_items.build if @general_order.order_items.blank?%>
+    <%= t.nested_fields_for :order_items do |ff|%>
+      <div class="form-group">
+        <label for="ordercategory">Product Kind Category</label>
+        <%=ff.select :product_kind_category_id, options_for_select(@all_product_kind_category.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, :class => "form-control product-category", :id=> "select_category"%>
+      </div>
+      <%= ff.submit "Submit", :class=>"btn btn-primary product_category1"%>
+    <%end%>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // $(document).on('turbolinks:load', function(){
+  //   $(".product-details").change(function(){
+  //     var url = '/orders/get_description_image?product_id=' + $(this).val();
+  //     $.getJSON(url, function(data) {
+  //       $('#inputDescription').val(data.description.description);
+  //       $('#inputImage').val(data.image.image)
+  //       });
+  //   });
+  // });
+
+  // $( document ).on('turbolinks:load', function(){
+  //   $(".product_category").click(function(){
+  //     // alert("rahul");
+  //     var url = '/orders/product_kind_category'
+  //     $.ajax({
+  //       type : "get",
+  //       url : url ,
+  //       data : {
+  //         "product_kind_category_id" : $(".product-category").val()
+  //       }
+  //     });
+  //   });
+  // });
+</script>

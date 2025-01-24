@@ -1,0 +1,403 @@
+<div class="modal fade product_form" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content product-modal">
+            <br>
+            <div class="bs-example bs-example-tabs">
+                <div class="modal-header modal-header-info">
+                    <h2>Products Form</h2>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#productGeneral" data-toggle="tab">General</a></li>
+                    <li class=""><a href="#productPricing" data-toggle="tab">Pricing</a></li>
+                    <li class=""><a href="#productRentalRate" data-toggle="tab">Rental Rate</a></li>
+                    <li class=""><a href="#productRentalCost" data-toggle="tab">Rental Cost</a></li>
+                    <li class=""><a href="#productImage" data-toggle="tab">Image</a></li>
+                    <li class=""><a href="#productBarcodes" data-toggle="tab">Barcodes</a></li>
+                <ul>    
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="productGeneral">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- General -->
+                                <!-- product name-->
+                                <div class="control-group">
+                                   <label for="productName" class="control-label">Name</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Product Name" id="productName" name="productName">
+                                    </div>
+                                </div>
+
+                                <!-- product manufacturer-->
+                                <div class="control-group">
+                                   <label for="productManufacturer" class="control-label">Manufacturer</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Manufacturer Name" id="productManufacturer" name="productManufacturer">
+                                    </div>
+                                </div>
+
+
+                                <!-- product type-->
+                                 <div class="control-group">
+                                   <label for="productType" class="control-label">Type</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product type" id="productType" name="productType">
+                                    </div>
+                                </div>
+
+                                <!-- product barcode -->
+                                <div class="control-group">
+                                    <label for="productBarcode" class="control-label">Barcode
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product barcode" id="productBarcode" name="productBarcode">
+                                    </div>
+                                </div>
+
+                                 <!-- product cost -->
+                                <div class="control-group">
+                                    <label for="productCost" class="control-label">Cost
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product cost" id="productCost" name="productCost">
+                                    </div>
+                                </div>
+
+                                 <!-- product price -->
+                                <div class="control-group">
+                                    <label for="productPrice" class="control-label">Price
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product price" id="productPrice" name="productPrice">
+                                    </div>
+                                </div>
+
+                                <!-- product catogory  -->
+                                <div class="control-group">
+                                   <label for="productcategory" class="control-label">Category
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product category" id="productcategory" name="productcategory">
+                                    </div>
+                                </div>
+
+                                <!-- product status -->
+                                <div class="control-group">
+                                   <label for="productStatus" class="control-label">Status
+                                 </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="Status" id="productStatus" name="productStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="productGeneral"></label>
+                                    <div class="controls">
+                                        <button id="productGeneral" name="productGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="productPricing">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Pricing -->
+                                <!-- cost-->
+                                <div class="control-group">
+                                     <label for="productCost" class="control-label">Cost
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product cost" id="productCost" name="productCost">
+                                    </div>
+                                </div>
+
+                                <!--price-->
+                                <div class="control-group">
+                                    <label for="productPrice" class="control-label">Price
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product price" id="productPrice" name="productPrice">
+                                    </div>
+                                </div>
+
+                                <!-- vendor-->
+                                <div class="control-group">
+                                    <label for="productVendor" class="control-label">
+                                    Preferred Vendor
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="vendor name" id="productVendor" name="productVendor">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="productPricing"></label>
+                                    <div class="controls">
+                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="productRentalRate">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- product Rental Rate -->
+                                <!-- Day-->
+                                <div class="control-group">
+                                    <label for="RentalRateDay" class="control-label">Day
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="rate/day" id="RentalRateDay" name="RentalRateDay">
+                                    </div>
+                                </div>
+
+                                <!-- 2 day-->
+                                <div class="control-group">
+                                    <label for="RentalRate2day" class="control-label">2 Day
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="RentalRate2day" name="RentalRate2day">
+                                    </div>
+                                </div>
+
+                                <!-- week-->
+                                <div class="control-group">
+                                    <label for="RentalRateWeek" class="control-label">Week
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="rate/week" id="RentalRateWeek" name="RentalRateWeek">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="productRentalRate"></label>
+                                    <div class="controls">
+                                        <button id="productRentalRate" name="productRentalRate" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="productRentalCost">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Ship To -->
+                                <!-- Location-->
+                                <div class="control-group">
+                                    <label for="orderShipLocation" class="control-label">Location
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipLocation" name="ordershiplocation">
+                                    </div>
+                                </div>
+
+                                <!-- Attn-->
+                                <div class="control-group">
+                                    <label for="orderShipAttn" class="control-label">Attn
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAttn" name="ordershipattn">
+                                    </div>
+                                </div>
+
+                                <!-- Name-->
+                                <div class="control-group">
+                                    <label for="orderShipName" class="control-label">Name
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipName" name="ordershipname">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress1" name="ordershipaddress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress2" name="ordershipaddress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="orderShipCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCity" name="ordershipcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="orderShipCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCountry" name="ordershipcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="orderShipphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipphone" name="ordershipphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderShipTo"></label>
+                                    <div class="controls">
+                                        <button id="orderShipTo" name="ordershipto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="productImage">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- product Rental Rate -->
+                                <!-- Day-->
+                                <div class="control-group">
+                                    <label for="RentalRateDay" class="control-label">Day
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="rate/day" id="RentalRateDay" name="RentalRateDay">
+                                    </div>
+                                </div>
+
+                                <!-- 2 day-->
+                                <div class="control-group">
+                                    <label for="RentalRate2day" class="control-label">2 Day
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="RentalRate2day" name="RentalRate2day">
+                                    </div>
+                                </div>
+
+                                <!-- week-->
+                                <div class="control-group">
+                                    <label for="RentalRateWeek" class="control-label">Week
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="rate/week" id="RentalRateWeek" name="RentalRateWeek">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="productRentalRate"></label>
+                                    <div class="controls">
+                                        <button id="productRentalRate" name="productRentalRate" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="productBarcodes">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- product Barcode -->
+                                <!-- product Date -->
+                                <div class="control-group">
+                                   <label for="productDate" class="control-label">Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="date" class="form-control" placeholder="product date" id="productDate" name="productDate">
+                                    </div>
+                                </div>
+
+                                <!-- serial number-->
+                                <div class="control-group">
+                                    <label for="barcodeNumber" class="control-label">Serial
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="serial number" id="barcodeNumber" name="barcodeNumber">
+                                    </div>
+                                </div>
+
+                                <!-- status-->
+                                <div class="control-group">
+                                    <label for="barcodeStatus" class="control-label">Status
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="status" id="barcodeStatus" name="barcodeStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="productImage1"></label>
+                                    <div class="controls">
+                                        <button id="productImage1" name="productImage1" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center> -->
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+/*.product-modal{
+    width: 40em;
+    top: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1px;
+    left: -5em;
+    zoom:85%;
+}*/
+@media (max-width: 768px) {     
+    .product-modal {
+        width: 26em;
+        top: 9.3em;
+        margin-left: 73px;
+        left: -5em;
+         zoom:92%;
+
+    }
+}
+</style>

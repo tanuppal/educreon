@@ -1,0 +1,4 @@
+<%if @new_address_bill_customer.present?%>
+	$('#bill_new_customer').html("<%= j render 'orders/customer_bill_add_address' %>");
+	$('#bill_new_address').modal();
+<%end%>

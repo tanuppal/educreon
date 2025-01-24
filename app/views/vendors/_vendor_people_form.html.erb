@@ -1,0 +1,101 @@
+<div class="row">
+    <% @general_vendor.vendor_persons.build if @general_vendor.vendor_persons.blank?%>
+        <div class="col-sm-12">
+            <%= f.nested_fields_for :vendor_persons do |ff|%>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= ff.label :first_name%>
+                                <!-- <span class="required_field">*</span> -->
+                                <%= ff.text_field :first_name, :class=>"form-control", :placeholder=>"Enter First Name"%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :last_name%>
+
+                                <%= ff.text_field :last_name, :class=>"form-control", :placeholder=>"Enter Last Name"%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :salutation%>
+                            <%= ff.select :salutation, options_for_select([["Mr.","mr."],["Mrs.","mrs."]], ff.object.salutation),{:prompt=>"--Please Select--"},{:class=>"form-control"} %>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= ff.label :title%>
+
+                                <%= ff.text_field :title, :class=>"form-control", :placeholder=>"Enter Title"%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :status%>
+                                <!-- <span class="required_field">*</span> -->
+                                <%= ff.select :status, options_for_select([["Active","active"],["Inactive","inactive"]], ff.object.status),{:prompt=>"--Please Select--"}, {:class=>"form-control"} %>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :department%>
+                                <!-- <span class="required_field">*</span> -->
+                                <%= ff.text_field :department, :class=>"form-control", :placeholder=>"Enter department"%>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Methods -->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">Contact Methods</h4>
+                    </div>
+                </div>
+                <% ff.object.vendor_people_contact_methods.build if ff.object.vendor_people_contact_methods.blank?%>
+                <div class="panel-body">
+                    <%= ff.nested_fields_for :vendor_people_contact_methods do |fff|%>
+                        <div class="form-group pull-right">
+                            <%=fff.remove_nested_fields_link '', class: 'btn btn-danger', role: 'button' do%>
+                                <i class="fa fa-minus-square"></i>
+                                <%end%>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= fff.label :type%>
+                                        <!-- <span class="required_field">*</span> -->
+                                        <%= fff.select :contact_method_type, options_for_select([["Work","work"],["Home","home"], ["Fax" , "fax"], ["Mobile", "mobile" ], ["Pager", "pager"]], fff.object.contact_method_type),{:prompt=>"--Please Select--"}, {:class=>"form-control"} %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= fff.label :phone%>
+                                        <!-- <span class="required_field">*</span> -->
+                                        <%= fff.telephone_field :phone, :class=>"form-control", :placeholder=>"Enter Phone"%>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= fff.label :email%>
+                                        <!-- <span class="required_field">*</span> -->
+                                        <%= fff.email_field :email, :class=>"form-control", :placeholder=>"Enter Email"%>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= fff.label :Default%>
+                                        <%= fff.check_box :is_primary, :class=>"radio_option_for_vendor_people"%>
+                                </div>
+                            </div>
+                        </div>
+                        <%end%>
+                            <%=ff.add_nested_fields_link :vendor_people_contact_methods,  class: 'btn btn-info', role: 'button' do%>
+                                <i class="fa fa-plus-square"></i>
+                                <%end%>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <%#= ff.submit " Save All", :class=>"btn btn-primary"%>
+                    </div>
+                </div>
+                <%end%>
+        </div>
+</div>
+<script type="text/javascript">
+$(document).on("click", ".radio_option_for_vendor_people", function(){
+$(".radio_option_for_vendor_people").prop("checked",false);
+$(this).prop("checked",true);
+});
+</script>

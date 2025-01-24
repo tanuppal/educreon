@@ -1,0 +1,10 @@
+$("#TrackBarcode").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_track_barcode_track_barcodes_path%>";
+$.getJSON(url, function(data) {
+	$('.product_track_barcode_id').html('<option>Select Track Barcode</option>');
+	$.each(data, function(index, barcode) {   
+	//alert(batch.name);
+	 $('.product_track_barcode_id').append($('<option>', { value : barcode.id }).text(barcode.barcode)); 
+	});
+});

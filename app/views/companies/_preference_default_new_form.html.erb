@@ -1,0 +1,33 @@
+<% @preference_company.build_company_default unless @preference_company.company_default%>
+<%= f.fields_for :company_default do |ff|%>
+  <div class="col-sm-12">
+      <div class="form-group">
+        <label for="inputName">Activity Type</label>
+        <%=ff.select :activity_type_id, options_for_select(@all_activity_type.collect{ |u| [u.name, u.id]}, ff.object.activity_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control"}%>
+        <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#activityType"%>
+      </div>
+  </div>
+  <div class="col-sm-4">    
+    <div class="form-group">
+      <label for="inputType">Sales Tax Rate</label>
+      <span class="required_field">*</span>
+      <%=ff.text_field :sales_tax_rate, :class => "form-control", :placeholder=>"enter sales tax rate",required: true%>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="inputTerms">Shipping Service</label>
+      <span class="required_field">*</span>
+      <%=ff.select :customer_shipping_id, options_for_select(  @all_customer_shipping.collect{ |u| [u.name, u.id]}, ff.object.customer_shipping_id),{:prompt=>"--Please Select--"}, {:class => "form-control",required: true}%>
+    </div>
+  </div>  
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="inputUrl">Shipping Charge</label>
+      <span class="required_field">*</span>
+      <%=ff.text_field :shipping_charge, :class => "form-control", :placeholder=>"enter shipping charge",required: true%>
+    </div>
+  </div>
+<%end%>
+
+

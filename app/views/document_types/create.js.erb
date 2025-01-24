@@ -1,0 +1,10 @@
+$("#myModalDocumentType").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_document_type_document_types_path%>";
+$.getJSON(url, function(data) {
+	// $('.myModalDocumentType').html('<option>Select Document Type</option>');
+	$.each(data, function(index, document_type) {   
+	//alert(batch.name);
+	 $('.myModalDocumentType').append($('<option>', { value : document_type.id }).text(document_type.name)); 
+	});
+});

@@ -1,0 +1,38 @@
+<div class="row">
+   <div class="col-sm-12">
+      <div class="panel with-nav-tabs panel-info">
+         <div class="panel-heading">
+            <ul class="nav nav-tabs">
+               <li class="active"><a href="#productRentalr" data-toggle="tab">Rental Rates</a></li>
+               <li><a href="#productrentalc" data-toggle="tab">Rental Cost</a></li>
+            </ul>
+         </div>
+         <div class="panel-body">
+            <%= form_for @general_product, html: {multipart: true} do |t| %>
+            <div class="tab-content">
+               <div class="tab-pane fade in active" id="productRentalr">
+                  <div class="col-sm-12">
+                     <div class="panel panel-info">
+                        <div class="panel-heading text-center">Rental Rates</div>
+                        <div class="panel-body products-general-info">
+                           <%= render  partial: 'products/product_rental_rate_show' , :locals=> {:t=> t}%>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="productrentalc">
+                  <div class="col-sm-12">
+                     <div class="panel panel-info">
+                        <div class="panel-heading text-center">Rental Cost</div>
+                        <div class="panel-body product-pricing">
+                           <%= render  partial: 'products/product_rental_cost_show', :locals=> {:t=> t} %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <%end%>
+         </div>
+      </div>
+   </div>
+</div>

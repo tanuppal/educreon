@@ -1,0 +1,367 @@
+<!-- Modal -->
+<div class="modal fade bill_form" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content bill-modal">
+            <br>
+            <div class="bs-example bs-example-tabs">
+               <div class="modal-header modal-header-info">
+                    <h2>Bills Form</h2>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#billGeneral" data-toggle="tab">General</a></li>
+                    <li class=""><a href="#billCurrentVendorInfo" data-toggle="tab">Current Vendor Info</a></li>
+                    <li class=""><a href="#vendorItems" data-toggle="tab">Items</a></li>
+                    <li class=""><a href="#vendorPayments" data-toggle="tab">Payments</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="billGeneral">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- General -->
+                                <!-- bill number-->
+                                <div class="control-group">
+                                   <label for="billNumber" class="control-label">Number</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="bill number" id="billNumber" name="billNumber">
+                                    </div>
+                                </div>
+
+                                <!-- vendor-->
+                                 <div class="control-group">
+                                   <label for="vendor" class="control-label">Vendor</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="vendor name" id="vendor" name="vendor">
+                                    </div>
+                                </div>
+
+                                  <!-- Bill Date -->
+                                <div class="control-group">
+                                   <label for="billDate" class="control-label">Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="date" class="form-control" placeholder="bill date" id="billDate" name="billDate">
+                                    </div>
+                                </div>
+
+                                <!-- bill payment -->
+                                <div class="control-group">
+                                   <label for="billPayment" class="control-label">Payment Terms
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="payment" id="billPayment" name="billPayment">
+                                    </div>
+                                </div>
+
+                               
+                                  <!-- shipment Date -->
+                                <div class="control-group">
+                                   <label for="shipmentDate" class="control-label"> Shipment Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="date" class="form-control" placeholder="shipment Date" id="shipmentDate" name="shipmentDate">
+                                    </div>
+                                </div>
+
+                                   <!-- invoice Date -->
+                                <div class="control-group">
+                                   <label for="invoiceDate" class="control-label"> Invoice Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="date" class="form-control" placeholder="Invoice Date" id="invoiceDate" name="invoiceDate">
+                                    </div>
+                                </div>
+
+                                <!-- bill status -->
+                                <div class="control-group">
+                                   <label for="billStatus" class="control-label">Status
+                                 </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="Status" id="billStatus" name="billStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="billGeneral"></label>
+                                    <div class="controls">
+                                        <button id="billGeneral" name="billGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="billCurrentVendorInfo">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Current Vendor Info -->
+                           
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="vendorAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Address 1" id="vendorAddress1" name="vendorAddress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address2-->
+                                <div class="control-group">
+                                    <label for="vendorlAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Address 2" id="vendorAddress2" name="vendorAddress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="vendorCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="city" id="vendorCity" name="vendorcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="vendorCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="country" id="vendorCountry" name="vendorcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="vendorphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="number" id="vendorphone" name="vendorphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderscheduling"></label>
+                                    <div class="controls">
+                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="vendorItems">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Bill To -->
+                                <!-- Location-->
+                                <div class="control-group">
+                                    <label for="orderBillLocation" class="control-label">Location
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillLocation" name="orderbilllocation">
+                                    </div>
+                                </div>
+
+                                <!-- Attn-->
+                                <div class="control-group">
+                                    <label for="orderBillAttn" class="control-label">Attn
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAttn" name="orderbillattn">
+                                    </div>
+                                </div>
+
+                                <!-- Name-->
+                                <div class="control-group">
+                                    <label for="orderBillName" class="control-label">Name
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillName" name="orderbillname">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderBillAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAddress1" name="orderbilladdress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderBillAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAddress2" name="orderbilladdress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="orderBillCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillCity" name="orderbillcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="orderBillCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillCountry" name="orderbillcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="orderBillphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillphone" name="orderbillphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderBillTo"></label>
+                                    <div class="controls">
+                                        <button id="orderBillTo" name="orderbillto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="vendorPayments">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Ship To -->
+                                <!-- Location-->
+                                <div class="control-group">
+                                    <label for="orderShipLocation" class="control-label">Location
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipLocation" name="ordershiplocation">
+                                    </div>
+                                </div>
+
+                                <!-- Attn-->
+                                <div class="control-group">
+                                    <label for="orderShipAttn" class="control-label">Attn
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAttn" name="ordershipattn">
+                                    </div>
+                                </div>
+
+                                <!-- Name-->
+                                <div class="control-group">
+                                    <label for="orderShipName" class="control-label">Name
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipName" name="ordershipname">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress1" name="ordershipaddress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress2" name="ordershipaddress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="orderShipCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCity" name="ordershipcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="orderShipCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCountry" name="ordershipcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="orderShipphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipphone" name="ordershipphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderShipTo"></label>
+                                    <div class="controls">
+                                        <button id="orderShipTo" name="ordershipto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center> -->
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.bill-modal{
+    width: 40em;
+    top: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1px;
+    left: -5em;
+    zoom:85%;
+}
+@media (max-width: 768px) {     
+    .bill-modal {
+        width: 26em;
+        top: 9.3em;
+        margin-left: 73px;
+        left: -4em;
+    }
+}
+</style>

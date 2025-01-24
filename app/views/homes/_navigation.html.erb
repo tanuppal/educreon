@@ -1,0 +1,353 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/user_dashboards">Inventory Tracker</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style=" overflow-y:auto;">
+            <li class="<%= is_active_controller('dashboards') %>">
+                <a class="nav-link" href="/dashboards/dashboard">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="<%= is_active_controller('customers') %>">
+                <a class="nav-link" href="/customers/customers_list">
+                    <i class="fa fa-fw fa-user-circle"></i>
+                    <span class="nav-link-text">Customers</span>
+                </a>
+            </li>
+            <li class="<%= is_active_controller('orders') %>">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">Orders</span>
+                </a>
+                <ul class="sidenav-second-level collapse <%= is_active_controller('orders', 'in') %>" id="collapseComponents">
+                  <li class="<%= is_active_action('orders_list') %>">
+                      <%= link_to "Order List", orders_list_orders_path %>
+                  </li>
+                  <li class="<%= is_active_action('shopify_order_lists') %>">
+                      <%= link_to "Shopify Order List", shopify_order_lists_orders_path %>
+                  </li>
+                  <li class="<%= is_active_action('check_product_availability') %>">
+                      <%= link_to "Check Product Availability", check_product_availability_orders_path %>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="<%= is_active_controller('vendors') %>">
+                <a class="nav-link" href="/vendors/vendor_list">
+                    <i class="fa fa-fw fa-venus-mars"></i>
+                    <span class="nav-link-text">Vendors</span>
+                </a>
+            </li>
+
+            <li class="<%= is_active_controller('bills') %>">
+                <a class="nav-link" href="/bills/bills_list">
+                    <i class="fa fa-fw fa-money"></i>
+                    <span class="nav-link-text">POs/Bills</span>
+                </a>
+            </li>
+
+            <li class="<%= is_active_controller('products') %>">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-product-hunt"></i>
+                    <span class="nav-link-text">Products</span>
+                </a>
+                <ul class="sidenav-second-level collapse <%= is_active_controller('products', 'in') %>" id="collapseComponents2">
+                  <li class="<%= is_active_action('products_list') %>">
+                      <%= link_to "Product List", products_list_products_path %>
+                  </li>
+                  <li class="<%= is_active_action('shopify_product_lists') %>">
+                      <%= link_to "Shopify Product List", shopify_product_lists_products_path %>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="<%= is_active_controller('receivings') %>">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-check"></i>
+                    <span class="nav-link-text">Receiving</span>
+                </a>
+                <ul class="sidenav-second-level collapse <%= is_active_controller('receivings', 'in') %>" id="collapseComponents1">
+                    <li class="<%= is_active_action('product_received') %>">
+                        <%= link_to "Received Product", product_received_receivings_path %>
+                    </li>
+                    <li class="<%= is_active_action('receiving_list') %>">
+                        <%= link_to "Receiving List", receiving_list_receivings_path %>
+                    </li>
+                    <!-- <li class="<%#= is_active_action('recent_inventory_list') %>">
+                        <%#= link_to "Recent Inventory Details", recent_inventory_list_receivings_path %>
+                    </li>
+                    <li class="<%#= is_active_action('pos_bills_list') %>">
+                        <%#= link_to "Pos Bills List", pos_bills_list_receivings_path %>
+                    </li> -->
+                </ul>
+            </li>
+
+         <!--    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="/homes/reports">
+                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                    <span class="nav-link-text">Reports</span>
+                </a>
+            </li> -->
+            <li class="<%= is_active_controller('companies') %> nav-item">
+                <a class="nav-link" href="/companies/company_list">
+                    <i class="fa fa-fw fa-info-circle">                 
+                  </i>
+                    <span class="nav-link-text">Preferences</span>
+                </a>
+            </li>
+            <li class="<%= is_active_controller('users') %>">
+                <a class="nav-link" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-users">                 
+                  </i>
+                    <span class="nav-link-text">Users</span>
+                </a>
+                <ul class="sidenav-second-level collapse <%= is_active_controller('users', 'in') %>" id="collapseComponents3">
+                    <li class="<%= is_active_action('user_list') %>">
+                        <%= link_to "User List", user_list_users_path %>
+                    </li>
+                    <li class="<%= is_active_action('user_preference') %>">
+                        <%= link_to "User preference", user_preference_users_path %>
+                    </li>
+
+                </ul>
+            </li>
+            <!-- <li class="<%#= is_active_controller('rental_settings') %>">
+                <a class="nav-link" href="/rental_settings/add_rental_settings">
+                    <i class="fa fa-fw fa-cogs"></i>
+                <span class="nav-link-text">Rental Setting</span>
+                </a>
+            </li> -->
+
+            <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span class="nav-link-text">Components</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="/homes/preferences">Navbar</a>
+                    </li>
+                    <li>
+                        <a href="cards.html">Cards</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Example Pages</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                    <li>
+                        <a href="login.html">Login Page</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Registration Page</a>
+                    </li>
+                    <li>
+                        <a href="forgot-password.html">Forgot Password Page</a>
+                    </li>
+                    <li>
+                        <a href="blank.html">Blank Page</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-sitemap"></i>
+                    <span class="nav-link-text">Menu Levels</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti" >
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-link"></i>
+                    <span class="nav-link-text">Link</span>
+                </a>
+            </li> -->
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto navbar-right">
+            <li class="nav-item dropdown hide">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-envelope"></i>
+                    <span class="d-lg-none">Messages
+              <span class="badge badge-pill badge-primary">12 New</span>
+                    </span>
+                    <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">New Messages:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>David Miller</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>Jane Smith</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>John Doe</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all messages</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown hide">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell"></i>
+                    <span class="d-lg-none">Alerts
+              <span class="badge badge-pill badge-warning">6 New</span>
+                    </span>
+                    <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">New Alerts:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all alerts</a>
+                </div>
+            </li>
+            <li class="nav-item hide">
+                <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <div class="input-group" style="margin-top:9px;">
+                        <input class="form-control" type="text" placeholder="Search for...">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+            <li class="nav-item" style="margin-left: 3em;">
+                <a class="nav-link">
+                    <i class="fa fa-envelope">&nbsp;</i>
+                    <%= current_user.user_info.try(:display_name) %>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "btn btn-primary") %>
+                    <!-- <a class="btn btn-primary" href="/users/sign_in">Logout</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#sidenavToggler").click(function(e) {
+    e.preventDefault();
+    $("body").toggleClass("sidenav-toggled");
+    $(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
+    $(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
+  });
+</script>
+<style type="text/css">
+  .fa-fw{
+      width: 2.285714em;
+  }
+  .sidenav-second-level li a {
+      padding: 7px 10px 7px 10px;
+      padding-left: 52px !important;
+      color: #a7b1c2;
+      font-weight: 600;
+  }
+  .sidenav-second-level > li.active > a {
+      color: #ffffff;
+  }
+  .navbar-nav > li > a {
+      /*color: #a7b1c2;*/
+      font-weight: 600;
+      padding: 14px 20px 14px 25px;
+  }
+
+</style>

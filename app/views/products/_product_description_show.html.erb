@@ -1,0 +1,19 @@
+<div class="row">
+    <% @general_product.product_descriptions.build if @general_product.product_descriptions.blank? %>
+    <div class="col-sm-12">
+        <%= t.nested_fields_for :product_descriptions do |ff|%>
+            <div class="form-group">
+                <%= ff.label :description%>
+                    <%= ff.text_area :description, :class=>"form-control edit-field", disabled: true%>
+            </div>
+        <%end%>
+    </div>
+</div>
+<div class="form-group">
+    <div class ="col-sm-12" style="top:5px;">
+        <div class="text-right">
+          <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+          <%=t.submit "Submit",:class=>"btn btn-info edit-btn", style:"margin-left:0px;"%>
+        </div>
+    </div>    
+</div>

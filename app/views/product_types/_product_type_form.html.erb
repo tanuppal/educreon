@@ -1,0 +1,22 @@
+<div class="modal fade" id="productType" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Product Type</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@product_type, remote: true) do |pt| %>
+        <div class="form-group">
+          <label>Name</label>
+          <%=pt.text_field :name,:class => "form-control product_type_name", :placeholder=>"Enter product Type Name"%>
+        </div>
+       <%= pt.submit "Save", :class=>"btn btn-primary "%>
+       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <% end %>
+      </div>
+      <div class="modal-footer text-center">
+      </div>
+    </div>
+  </div>
+</div>

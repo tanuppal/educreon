@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_method_type: one
+  phone: MyString
+  email: MyString
+  is_primary: false
+  people_contact: one
+
+two:
+  contact_method_type: two
+  phone: MyString
+  email: MyString
+  is_primary: false
+  people_contact: two

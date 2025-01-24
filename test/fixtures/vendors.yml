@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  url: MyString
+  vendor_type: one
+  vendor_term: one
+  vendor_status: one
+
+two:
+  name: MyString
+  url: MyString
+  vendor_type: two
+  vendor_term: two
+  vendor_status: two

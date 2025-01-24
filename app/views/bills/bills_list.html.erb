@@ -1,0 +1,101 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Bills List</li>
+<!--       <%#= link_to '/bills/new' do %>
+        <button class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="" data-target="">Add New Bill</button>
+      <%#end%> -->
+    </ol>
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-money">&nbsp;</i>Bills
+        <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+        <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <thead>
+              <tr class="info">
+                <th id="item-grid_c0">Sl.No.</th>
+                <th id="item-grid_c1">Bill.no</th>
+                <th id="item-grid_c2">Order ID</th>
+                <th id="item-grid_c3">Order Date</th>
+                <th id="item-grid_c4">Bill To</th>
+                <th id="item-grid_c5">Ship Date</th>
+                <th id="item-grid_c6">Invoice Date</th>
+                <th id="item-grid_c7">Status</th>
+                <th id="item-grid_c8">Total</th>
+                <!-- <th id="item-grid_c9">Action</th> -->
+                <th id="item-grid_c10">Bill PDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if @all_general_bills.present?%>
+                <% @all_general_bills.each_with_index do |x, index|%>
+                  <%
+                    if (index + 1) % 2 == 0
+                      class_name = "even"
+                    else
+                      class_name = "odd"
+                    end
+                  %>
+                  <tr class="<%= class_name%>">
+                    <td width="5%"><%=index+1%></td>
+                    <td width="5%"><%= x.number%></td>
+                    <td width="10%"><%= x.order.try(:number)%></td>
+                    <td width="10%"><%= x.order.try(:date).strftime("%d-%b-%Y") if x.order.present?%></td>
+                    <td width="20%">
+                      <strong>Name : <%= x.order.order_bill_to.customer_location.try(:name) if x.order.order_bill_to.present? if x.order.present?%></strong><br>
+                      <strong>Address : </strong><%= x.order.order_bill_to.customer_location.try(:address_line_1) if x.order.order_bill_to.present? if x.order.present?%><br>
+                      <strong> Phone : </strong><%= x.order.order_bill_to.customer_location.try(:phone) if x.order.order_bill_to.present? if x.order.present?%> 
+                    </td>
+                    <td width="10%"><%= x.order.order_schedulings.last.try(:rental_picup).try(:strftime, '%d-%b-%Y') if x.order.present?%></td>
+                    <td width="10%"><%= x.order.try(:date).try(:strftime, '%d-%b-%Y') if x.order.present?%></td>
+                    <td width="10%"><%= x.order.order_status.try(:status)%></td>
+                    <td width="10%" class="text-center">
+                      <%if x.order.order_schedulings.present? %>
+                        <%x.order.order_schedulings.each do |y|%>
+                          <%@subtotal = get_total_ammount(y)%>
+                        <%end%>
+                        <%shipping_charge = @company_last.company_default.shipping_charge%>
+                        <%tax_persion = @company_last.company_default.sales_tax_rate%>
+                        <% sales_tax = sales_tax_report(@subtotal,tax_persion)%>
+                        <%total_pay = @subtotal + shipping_charge + sales_tax%>
+                        <strong> <%= total_pay%> </strong>
+                      <%end%>
+                    </td>
+                    <td width="10%">
+                      <a class="btn btn-danger" target="_blank" href="<%=get_genarate_bill_bill_path(x,format: :pdf)%>">Print as PDF <i class="fa fa-print"></i></a>
+                    </td>
+                  </tr>
+                <%end%>  
+              <%end%>  
+            </tbody>
+          </table>
+          <%if @all_general_bills.count > 7%>
+            <%if @all_general_bills.present?%>
+              <div class="pager">      
+                <%= will_paginate @all_general_bills, renderer: BootstrapPagination::Rails %>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<style type="text/css">
+  td.odd {
+    background: #eee !important;
+  }
+  td.even {
+    background: #f9f9f9 !important;
+  }
+</style>

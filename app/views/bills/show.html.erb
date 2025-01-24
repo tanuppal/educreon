@@ -1,0 +1,112 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Dashboard</a>
+      </li>
+       <li class="breadcrumb-item">
+        <a href="/bills/bills_list">Bills</a>
+      </li>
+      <li class="breadcrumb-item active">Edit Page</li>
+    </ol>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#billsGeneral" data-toggle="tab">General</a></li>
+                    <li><a href="#billsVendor" data-toggle="tab">Current Vendor Info</a></li>
+                    <li><a href="#billNotes" data-toggle="tab">Notes</a></li>
+                    <li><a href="#billItems" data-toggle="tab">Items</a></li>
+                    <li><a href="#billShipments" data-toggle="tab">Shipments</a></li>
+                    <li><a href="#billPayments" data-toggle="tab">Payments</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+            <%= form_for @general_bill, html: {multipart: true} do |f| %>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="billsGeneral">
+                        <div class="col-sm-8">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">General</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'bills/bills_general_submit'%>
+                                </div>
+                            </div>
+                        </div>
+                        <%#= render  partial: 'bills/bills_general_new' %>
+                    </div>
+                    <div class="tab-pane fade" id="billsVendor">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Vendor Info</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_current_vendor_show' %>
+                                </div>
+                            </div>
+                        </div>
+                         <%#= render  partial: 'bills/bills_current_vendor_new' %>
+                    </div>
+                    <div class="tab-pane fade" id="billItems">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Location</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_items_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billShipments">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Shipments</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_shipments_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billPayments">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Payments</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_payments_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billNotes">
+                        <div class="col-sm-8">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Notes</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'bills/bill_notes_show_form',:locals=> {:f=> f}%>
+                                </div>
+                            </div>
+                        </div>
+                        <%#= render  partial: 'bills/bill_notes_new'%>
+                    </div>
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+
+
+
+
+
+
+

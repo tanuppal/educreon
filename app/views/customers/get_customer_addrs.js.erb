@@ -1,0 +1,7 @@
+<%if @customer.present?%>
+	$('#bill_customer').html("<%= escape_javascript render 'orders/customer_bill_address' %>");
+<%end%>
+$(".select").click(function() {
+	// alert("hello");
+  $(".chul").val($(this).val());
+});

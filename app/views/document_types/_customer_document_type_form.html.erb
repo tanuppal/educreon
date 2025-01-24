@@ -1,0 +1,23 @@
+<div class="modal fade" id="myModalDocumentType" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <%= form_for(@customer_document_type, remote: true) do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title center-block">Customer Document Type</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Customer Document Type</label>
+              <%=f.text_field :name,:class => "form-control term_content", :placeholder=>"Enter Document Type"%>
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+          <%= f.submit "Save", :class=>"btn btn-primary save-btn"%>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

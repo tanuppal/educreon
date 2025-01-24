@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <%= form_for @users, url: create_user_by_admin_users_path, html: {multipart: true} do |ff| %>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active"><a href="/users/user_list">Users List</a> 
+                </li>
+                <%= link_to '/users/new' do%>
+                    <button class="btn btn-primary btn-sm pull-right breadcrumb-button userEdit" data-toggle="modal" data-target=".vendor_form">Add New Users</button>
+                <%end%>
+            </ol>
+            <%= render :partial => "users/form_edit", locals: {ff:ff}%>
+        <%end%>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+</style>

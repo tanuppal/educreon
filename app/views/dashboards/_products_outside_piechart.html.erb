@@ -1,0 +1,21 @@
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Product Outside',<%=@outside_product%>],
+      ['Product Inside',<%=@inside_product%>],
+    ]);
+
+    var options = {
+      title: 'Total number of Products Inside and Outside'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('productOustsidepiechart'));
+
+    chart.draw(data, options);
+  }
+</script>

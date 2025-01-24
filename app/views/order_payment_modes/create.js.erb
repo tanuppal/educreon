@@ -1,0 +1,10 @@
+$("#myPaymentMode").modal('hide');
+$(".term_content").val('');
+var url = "<%=get_order_payment_mode_order_payment_modes_path%>";
+$.getJSON(url, function(data) {
+	$('#order_order_payment_attributes_payment_mode').html('<option>Select Payment Mode</option>');
+	$.each(data, function(index, status) {   
+	//alert(batch.name);
+	 $('#order_order_payment_attributes_payment_mode').append($('<option>', { value : status.id }).text(status.name)); 
+	});
+});

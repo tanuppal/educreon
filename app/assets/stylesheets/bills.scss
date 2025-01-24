@@ -1,0 +1,105 @@
+// Place all the styles related to the Bills controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.pager
+{
+	margin-top: -1px;
+	padding: 5px 0 0 0;
+	text-align: center;
+	height:55px;
+/*	color: #fff;*/
+	border:1px solid #979797;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+        background-color: #F2F2F2;
+}
+.pager ul{
+
+	padding-top:5px;
+}
+.pagination {
+	margin: 2px 0 !important;
+}
+
+.grid-view table{
+	margin-bottom: 0px !important;
+
+}
+
+
+
+
+/* GridView */
+
+
+
+.grid-view table.items
+{
+	border-collapse: collapse;
+	width: 100%;
+	border: 0 none !important;
+	cursor: pointer;
+
+}
+
+
+.grid-view table.items th, .grid-view table.items td
+{
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding: 0.7em;
+	padding-left: 1.2em;
+	padding-right: 0.2em;
+	color: #000;
+	text-align: left;
+	
+
+}
+.grid-view table.items th{
+
+	background:#E8E8E8;
+	color:#424242; 
+	/* font-size: 0.8em; */
+	border-bottom:1px solid #d3d3d3;
+}
+
+
+/*.grid-view table.items tr.even*/
+.grid-view table.items tr{
+	border:1px solid #d3d3d3;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+
+	-moz-user-select: none;
+    -webkit-user-select: none; 
+    onselectstart:return false;
+
+    cursor: pointer;
+}
+
+
+tr.even
+{
+	background: #f9f9f9;
+}
+
+/*.grid-view table.items tr.odd*/
+tr.odd
+{
+	background: #fff;
+}
+
+.grid-view table.items tr.selected
+{
+	background:#cfd8dc !important;
+	color: #fff!important;
+
+}
+
+.grid-view table.items tr:hover td
+{
+	background:#eceff1;
+	
+}

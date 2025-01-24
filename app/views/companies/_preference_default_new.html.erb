@@ -1,0 +1,53 @@
+<div class="row">
+    <!-- Order Tables -->
+    <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-users vendors-table-users-icon"></i> Defaults
+                <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+                <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="preferenceDefaultList" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="info">
+                                <th>Activity Type</th>
+                                <th>Sales Tax Rate</th>
+                                <th>Shipping Service</th>
+                                <th>Shipping Charge</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="info">
+                                 <th>Activity Type</th>
+                                <th>Sales Tax Rate</th>
+                                <th>Shipping Service</th>
+                                <th>Shipping Charge</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                             <%if @all_general_company.present? %>
+                            <tr>
+                                <td><%= @all_general_company.company_default.activity_type.try(:name)%></td>
+                                <td><%= @all_general_company.company_default.try(:sales_tax_rate)%></td>
+                                <td><%= @all_general_company.company_default.customer_shipping.try(:name)%></td>
+                                <td><%= @all_general_company.company_default.try(:shipping_charge)%></td>
+                            </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#preferenceDefaultList').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+    });
+</script>

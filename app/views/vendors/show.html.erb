@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active"><a href="/vendors/vendor_list">Vendors</a> 
+            </li>
+            <li class="breadcrumb-item vendorEdit active">
+                Show
+            </li>
+            <li class="breadcrumb-item vendorEdit1 hide active">
+            	Edit
+            </li>
+            <%= link_to '/vendors/new' do%>
+                <button class="btn btn-primary btn-sm pull-right breadcrumb-button vendorEdit " data-toggle="modal" data-target=".vendor_form">Add New Vendor</button>
+             <%end%>
+        </ol>
+        <%= render :partial => "vendors/form_show"%>
+    </div>
+</div>
+<br>
+<br>
+<br>
+ <%= render partial: 'vendor_statuses/vendor_status_form' %> 
+ <%= render partial: 'vendor_terms/vendor_term_form' %> 
+<%= render partial: 'vendor_types/vendor_type_form' %>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+				min-height: 497px;
+				max-height: 497px;
+}
+.products-barcodes{
+				min-height: 300px;
+				max-height: 300px;
+}
+.product-pricing{
+				min-height: 229px;
+				max-height: 229px;
+}
+.product-rental-cost{
+				max-height: 199px;
+				min-height: 199px;
+}*/
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+ $(".edit_button").click(function(){
+   $(".vendorEdit").addClass("hide");
+   $(".vendorEdit1").removeClass("hide");
+ });
+});
+</script>

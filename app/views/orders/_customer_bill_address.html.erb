@@ -1,0 +1,46 @@
+<%@customer.customer_locations.each_with_index do |x, index|%>
+	<div class="col-sm-9 col-xs-9" style="margin-top: 10px;">
+		<div class="address-row white-row selected">
+		  <div class="name">
+		    <span class="cust-name"><%= x.name%></span>
+		    <span class="lbl-default-address"> (Default)</span>
+		    <span class="address-type"><%= x.attn%></span>
+		  </div>
+		  <div class="address">
+		    <span class="baddress">Address&nbsp;:</span>
+		      <span class="address-field lbl">
+		        <%= x.address_line_1%>,
+		        <%= x.address_line_2%>
+		      </span>
+		  </div>
+		  <div class="landmark">
+		      <span class="break">Landmark&nbsp;:</span>
+		      <span class="locality lbl"><%= x.landmark%></span>
+		      <span class="ellipsis">...</span>
+		  </div>
+      <div class="city-pincode">
+      	<span class="b">City&nbsp;:</span>
+        <span class="city lbl"><%= x.city.try(:name)%></span>
+        <span>-</span>
+        <span class="pincode lbl"></span>
+      </div>
+      <div class="state">
+      	<span class="break">state&nbsp;:</span>
+				<span class="state lbl"><%= x.state.try(:name)%></span>
+		  </div>
+		  <div class="zipcode	">
+      	<span class="break">Zipcode&nbsp;:</span>
+				<span class="state lbl"><%= x.zipcode%></span>
+		  </div>
+      <div class="mob">
+        <span class="mobile-label">Mobile: </span>
+        <span class="mobile lbl"><%= x.phone%></span>
+      </div>
+		  <%= radio_button_tag :bill_to_id, x.id, x.is_primary == true ? true : false, :class=>"select", :style=>"font-size: 20px; margin-left: -4px;" %>
+		  <div class="side-menu hide">
+		    <button class="tappable delete">Remove<span class="icon"></span></button>
+		    <button class="tappable edit">Edit<span class="icon"></span></button>
+		  </div>
+		</div>
+	</div>
+<%end%>

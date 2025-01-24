@@ -1,0 +1,278 @@
+<div class="col-sm-12">
+  <div class="form-group col-sm-4">
+    <label for="inputManufacturer">Manufacturer</label>
+    <%=t.text_field :manufacturer, :class => "form-control edit-field", :placeholder=>"Name", disabled: true%>
+  </div>
+  <div class="form-group col-sm-4">
+    <label for="inputName">Name</label><span class="required_field">*</span>
+    <%=t.text_field :name, :class => "form-control product-name edit-field",:id=> "select-name", :placeholder=>"Name",:required=>true, disabled: true%>
+  </div>
+  <div class="form-group col-sm-4">
+    <label for="inputType">Rental/Sale Type</label>
+    <span class="required_field">*</span>
+    <%=t.select :product_type_id, options_for_select(@all_product_type.collect{ |u| [u.name, u.id]},@general_product.product_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control select-type edit-field ",:required=>true, disabled: "disabled"}%>
+   <%#= t.select :rental_sale, options_for_select([["Rental","Rental"],["Sale","Sale"]],@general_product.rental_sale),{:prompt=>"--Please Select--"}, {:class=>"form-control edit-field select-type",:required=>true, disabled: true} %>
+    <%#= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#productType"%>
+  </div>
+  <div class="form-group col-sm-4">
+    <label for="inputbarcode">Barcode</label>
+    <span class="required_field">*</span>
+    <%=t.text_field :barcode, :class => "form-control edit-field", :placeholder=>"Name",:required=>true,disabled: true%>
+  </div>
+  <div class="form-group col-sm-4">
+    <label for="inputCategory">Category</label>
+    <span class="required_field">*</span>
+    <%=t.select :product_category_id, options_for_select(@all_product_category.collect{ |u| [u.category, u.id]},@general_product.product_category_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field" ,:required=>true, disabled: "disabled"}%>
+    <%= link_to "Add Category", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#productCategory"%>
+  </div>
+  <div class="form-group col-sm-4">
+    <label for="inputName">Product Kind Category</label>
+    <span class="required_field">*</span>
+    <%=t.select :product_kind_category_id, options_for_select(@all_product_kind_category.collect{ |u| [u.name, u.id]},@general_product.product_kind_category_id),{:prompt=>"--Please Select--"}, {:class => "form-control product-kind-category edit-field", :id=> "select_product_kind",:required=>true, disabled: "disabled"}%>
+    <%#= link_to "Add product", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#productKindCategory"%>
+  </div>
+  <div class="col-md-12 col-xs-12">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="inputStatus">Status</label>
+          <span class="required_field">*</span>
+          <%=t.select :product_status_id, options_for_select(@all_product_status.collect{ |u| [u.status, u.id]},@general_product.product_status_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:required=>true, disabled: "disabled"}%>
+          <%#= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#productStatus"%>
+        </div>    
+        <div class="col-md-8"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-xs-12">  
+    <div class="form-group col-sm-6">
+      <label >Kit Type</label>
+      <%= t.check_box :is_kit, :class=>"student_kit_check edit-field adding_disabled" %>
+    </div>
+<!--     <div class="form-group col-sm-6 hide">
+      <%#= t.label :track_barcode, "TrackBarcode", :value => "false" %>
+      <%#= t.check_box :track_barcode, :class=>"student_track_barcode_radio edit-field", disabled: true %>
+    </div> -->
+  </div>
+  <div class="col-md-12">  
+    <%if Product.last.is_kit == false
+        add_style = "none"
+      else
+        add_style = ""
+      end    
+    %>
+    <!-- </div> -->
+    <% @general_product.product_kit_items.build unless @general_product.product_kit_items%>
+    <div class="form-group kit-type-group col-sm-6 " style="display:<%=add_style%>">
+      <%= t.nested_fields_for :product_kit_items do |ff|%>
+        <br>
+        <label for="reg_input_name">
+        Kit Item</label>
+        <%=ff.remove_nested_fields_link '', class: 'btn btn-danger  remove_subject edit-field pull-right hide', role: 'button' do %>
+        <i class="fa fa-trash"></i>
+        <%end%>
+        <br><br>
+        <%=ff.select :kit_item_id, options_for_select(@all_kit_item.collect{ |u| [u.name, u.id]},ff.object.kit_item_id),{:prompt=>"--Please Select--"}, {:class => "form-control select-kit-item edit-field product_kit_item_id", disabled: "disabled"}%>
+        <%= link_to "Add Item", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide product_kit_item", :"data-toggle"=>"modal", :"data-target"=>"#KitItem"%>
+        <div class="school_val_error" id="Course_attendancetype_em_" style="display:none"></div>
+        <%end%>
+        <br>
+        <%=t.add_nested_fields_link :product_kit_items,  class: 'btn btn-info edit-field pull-left hide', role: 'button', style: "margin-left: 0px;" do%>
+        <i class="fa fa-plus-square"></i>
+      <%end%>
+      <div class="form-group test-quantity">
+        <label>&nbsp;</label>
+        <br>
+        <span class="span-quantity"></span>
+      </div>
+    </div>
+<!-- 
+    <% #@general_product.product_track_codes.build if @general_product.product_track_codes.blank?%>
+    <div class="form-group track-barcode-group col-sm-6 pull-right" style="display: none;">
+      <%#= t.nested_fields_for :product_track_codes do |ff|%>
+      <label for=" reg_input_barcode ">
+      TrackBarcode</label>
+      <%#=#ff.select :track_barcode_id, options_for_select(@all_track_barcode.collect{ |u| [u.barcode, u.id]}),{:prompt=>"--Please Select-- "}, {:class => "form-control select-track-barcode edit-field", disabled: "disabled"}%>
+      <%#= link_to "Add barcode", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#TrackBarcode"%>
+      <div class="school_val_error " id="Course_attendancetype_em_ " style="display:none "></div>
+      <div class="form-group test-quantity ">
+        <label>&nbsp;</label><br>
+        <span class="span-quantity "></span>
+      </div>
+    </div>
+    <%#end%> -->
+  </div>
+  <!-- </div> -->
+  <div class="form-group">
+    <div class ="col-sm-12">
+      <div class="text-right">
+        <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+        <%=t.submit "Submit",:class=>"btn btn-info submit_button", style:"margin-left:0px;"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .btn-info {
+  color: #ffffff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  margin-left: 145px;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+      $(".edit-field").removeClass("hide");
+    });
+  });
+</script>
+<script type="text/javascript">
+  $( document ).on('turbolinks:load', function(){
+    $('.btnk-save').click(function(){
+      var url = '/products/get_product_kind_categories'
+      $.ajax({
+        type: "get",
+        url: url,
+        data: {
+          "name" : $(".product-kind-category_name").val()
+        }
+      })
+      document.location.reload();
+    });
+  });
+</script>
+<script>
+  $( document ).ready(function(){
+   $(".product-name").blur(function(){
+    //alert("hello");
+  var url = '/products/get_product_kind?product_id=' + $(this).val()
+  $.ajax({
+    type : "get",
+    url : url ,
+    data : {
+      "value" : $(this).val()
+    },
+    success: function(data) {
+      $('#select_product_kind').html('<option>Select product kind category</option>');
+      $.each(data.all_current_kind_cats, function(index, product) {   
+      //alert(batch.name);
+       $('#select_product_kind').append($('<option>', { value : product.id }).text(product.name)); 
+       $('#select_product_kind').val(data.current_kind_cat.id);
+      });
+    },
+    error: function(data) {
+              successmessage = 'Error';
+              $("label#successmessage").text(successmessage);
+    }
+  })
+  });
+  });
+</script>
+
+<!-- <script type="text/javascript">
+  $(".select-type").change(function(){
+       var clone_f = "";
+        if($(".select-type option:selected").text() == "Rental")
+        {
+         clone_f = $("#barcode").clone();
+         // $("#barcode").remove();
+         // $("#append_to_bank").html(clone_f);
+         $("#barcode").css("display","block");
+         $("#pricingRental").css("display","block");
+         // $(".ledger_type").val("to_ledger");
+          $('#productSale').remove();
+        }
+        else if($(".select-type option:selected").text() == "Sale")
+         {
+             clone_f = $("#productSale").clone();
+  
+            $('#barcode').hide("slow");
+            $('#pricingRental').remove();
+            $('#productSale').hide("slow");
+         }
+     });
+</script> -->
+<script type="text/javascript">
+$(".select-type").change(function(){
+  if($(".select-type option:selected").text() == "Rental")
+  {
+   $("#barcode").show("slow");
+   $("#pricingRentalHide").show("slow");
+   $('#productSaleHide').hide();
+  }
+  if($(".select-type option:selected").text() == "Sale")
+  {
+   $("#barcode").hide("slow");
+   $("#pricingRentalHide").hide("slow");
+   $('#productSaleHide').show("slow");
+  }
+});
+</script>
+<script>
+  $(document).on('turbolinks:load',function() { 
+    // alert("rahul");
+    // $(".percentage-radio-button").click(function(){
+    //   $(".amount-lavel").text("Percentage");
+    // });
+    // $(".amount-radio-button").click(function(){
+    //   $(".amount-lavel").text("Amount");
+    //   alert("hello");
+    // });
+    $(".student_kit_check").click(function(){
+      if($(this).prop("checked") == true)
+      {
+      $(".kit-type-group").show("slow");
+      }
+      else if($(this).prop("checked") == false)
+      {
+        $(".kit-type-group").hide("slow");
+      }
+    });
+    // $(".all_kit_type").click(function(){
+    //   $(".kit-type-group").slideUp();
+    // });
+  // $(".student_track_barcode_radio").click(function(){
+  //   if($(this).prop("checked") == true)
+  //   {
+  //   $(".track-barcode-group").show("slow");
+  //   }
+  //   else if($(this).prop("checked") == false)
+  //   {
+  //     $(".track-barcode-group").hide("slow");
+  //   }
+  // });
+});
+</script>
+<script type="text/javascript">
+  $(".select-type").change(function(){
+    if($(".select-type option:selected").text() == "Rental")
+    {
+     $("#barcode").show("slow");
+     $("#pricingRental").show("slow");
+     $('#productSale').hide();
+    }
+    if($(".select-type option:selected").text() == "Sale")
+    {
+     $("#barcode").hide("slow");
+     $("#pricingRental").hide("slow");
+     $('#productSale').show("slow");
+    }
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".adding_disabled").attr("disabled","disabled");
+    // alert("hello");
+  });
+</script>
+<script type="text/javascript">
+  $(document).on("click",".product_kit_item",function(){
+    $(".product_kit_item_id").removeClass("current_product");
+    $(this).parent().find(".product_kit_item_id").addClass("current_product");
+  });
+</script>

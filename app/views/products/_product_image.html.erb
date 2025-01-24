@@ -1,0 +1,18 @@
+<% @general_product.product_images.build if @general_product.product_images.blank?%>
+<div class="col-sm-12">
+    <%= t.nested_fields_for :product_images do |ff|%>
+    <div class="col-sm-12">
+      <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+        <i class="fa fa-trash"></i>
+      <%end%>
+    </div>
+        <div class="form-group">
+            <label for="inputCost">Image</label>
+            <%=ff.file_field :image %>
+        </div>
+    <%end%>
+    <%=t.add_nested_fields_link :product_images,  class: 'btn btn-info pull-right', role: 'button' do%>
+        <i class="fa fa-plus-square"></i>
+    <%end%>
+</div>
+

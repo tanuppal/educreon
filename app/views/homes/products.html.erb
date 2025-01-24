@@ -1,0 +1,367 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Products</li>
+            <!--  <button class="btn btn-primary btn-sm pull-right breadcrumb-button">Add New Product</button> -->
+        </ol>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel with-nav-tabs panel-info">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#productGeneral" data-toggle="tab">General</a></li>
+                            <li><a href="#productPricing" data-toggle="tab">Pricing</a></li>
+                            <li><a href="#productImage" data-toggle="tab">Image</a></li>
+                            <li><a href="#productDescription" data-toggle="tab">Description</a></li>
+                            <li><a href="#productAvailability" data-toggle="tab">Availability</a></li>
+                            <li><a href="#productBarcode" data-toggle="tab">Barcode</a></li>
+                            <li><a href="#productOrders" data-toggle="tab">Orders</a></li>
+                             <li><a href="#productBills" data-toggle="tab">Bills</a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="productGeneral">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">General</div>
+                                        <div class="panel-body products-general-info">
+                                            <%= render  partial: 'products/product_general' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productPricing">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Prcings</div>
+                                        <div class="panel-body product-pricing">
+                                            <%= render  partial: 'products/product_pricing' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productImage">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Image</div>
+                                        <div class="panel-body product-pricing">
+                                            <%= render  partial: 'products/product_image' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productDescription">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Description</div>
+                                        <div class="panel-body product-pricing">
+                                            <%= render  partial: 'products/product_description' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productAvailability">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Availability</div>
+                                        <div class="panel-body product-pricing">
+                                            <%= render  partial: 'products/product_availability' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productBarcode">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Barcode</div>
+                                        <div class="panel-body products-general-info">
+                                            <%= render  partial: 'products/product_barcode'%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="productOrders">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Orders</div>
+                                        <div class="panel-body products-general-info">
+                                            <%= render  partial: 'products/product_orders' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="tab-pane fade" id="productBills">
+                                <div class="col-sm-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center">Bills</div>
+                                        <div class="panel-body products-general-info">
+                                            <%= render  partial: 'products/product_bills' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+                min-height: 497px;
+                max-height: 497px;
+}
+.products-barcodes{
+                min-height: 300px;
+                max-height: 300px;
+}
+.product-pricing{
+                min-height: 229px;
+                max-height: 229px;
+}
+.product-rental-cost{
+                max-height: 199px;
+                min-height: 199px;
+}*/
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+<!-- <div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Products</li>
+            <button class="btn btn-primary btn-sm pull-right breadcrumb-button">Add New Product</button>
+        </ol>
+        <div class="row">
+            <div class="col-sm-5">
+                 <div class="panel panel-info">
+                    <div class="panel-heading text-center">General Info</div>
+                    <div class="panel-body products-general-info">
+                        <p><b>ManuFacturer</b><span style="padding-left: 40px;">RED<hr></span></p>
+                        <p><b>Name</b><span style="padding-left: 40px;">SCALERT-W K5<hr></span></p>
+                        <p><b>SKU/Barcode</b><span style="padding-left: 40px;">S-W-K5<hr></span></p>
+                        <p><b>Type</b><span style="padding-left: 40px;">Rental<hr></span></p>
+                        <p><b>Category</b><span style="padding-left: 40px;">Camera<hr></span></p>
+                        <p><b>Status</b><span style="padding-left: 40px;">Active<hr></span></p>
+                        <p><b>Kit</b><span style="padding-left: 40px;"> <input type="checkbox" name="vehicle" value="Car"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading text-center">Pricing</div>
+                            <div class="panel-body product-pricing">
+                              <p><b>Cost | Price</b><span style="padding-left: 40px;">$5000<hr></span></p> 
+                        <p><b>Taxable</b><span style="padding-left: 40px;"> <input type="checkbox" name="vehicle" value="Car"><hr></span></p> 
+                        <p><b><a href="">Prefferd Vendor</a></b><span style="padding-left: 40px;">Red.com<hr></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                         <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading text-center">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1info" data-toggle="tab">Rental Rates</a></li>
+                            <li><a href="#tab2info" data-toggle="tab">Rental Cost</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body product-rental-cost">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1info">
+                            <p><b>Day</b><span style="padding-left: 40px;">$5000<hr></span></p>
+                        <p><b>2 Day</b><span style="padding-left: 40px;">$6000<hr></span></p>
+                        <p><b>Week</b><span style="padding-left: 40px;">$7000<hr></span></p>
+                        </div>
+                        <div class="tab-pane fade" id="tab2info">Info 2</div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+               <div class="panel panel-info">
+                    <div class="panel-heading text-center">Image</div>
+                    <div class="panel-body">
+                        <img src="https://www.rentaltracker.com/img/equipment/barcodescanners/mc3190-z/motorola-mc3190z-rtpro.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                 <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1info" data-toggle="tab">Description</a></li>
+                            <li><a href="#tab2info" data-toggle="tab">Availability</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1info">Info 1</div>
+                        <div class="tab-pane fade" id="tab2info">Info 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-3">
+                  <div class="panel panel-info products-barcodes">
+                    <div class="panel-heading text-center">Barcodes</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th><a href=""><span class="fa fa-plus"></a></th>
+                                        <th>Serial</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>22/05/2018</td>
+                                        <td><a href="#">1100475845</a></td>
+                                        <td>In</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22/05/2018</td>
+                                        <td><a href="#">1100475845</a></td>
+                                        <td>In</td>
+                                    </tr>
+                                    <tr>
+                                       <td>22/05/2018</td>
+                                        <td><a href="#">1100475845</a></td>
+                                        <td>In</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>  
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-3">
+                 <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#order" data-toggle="tab">Orders(7)</a></li>
+                            <li><a href="#bill" data-toggle="tab">Pos/Bills</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="order">
+                            <div class="table-responsive">
+                            <table class="table table-bordered ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th><a href=""><span class="fa fa-plus"></a></th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#">1100</a></td>
+                                        <td>22/05/2018</td>
+                                        <td>Returned</td>
+                                        <td>$5500</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">1100</a></td>
+                                        <td>22/05/2018</td>
+                                        <td>Returned</td>
+                                        <td>$5500</td>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="#">1100</a></td>
+                                        <td>22/05/2018</td>
+                                        <td>Returned</td>
+                                        <td>$5500</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">1100</a></td>
+                                        <td>22/05/2018</td>
+                                        <td>Returned</td>
+                                        <td>$5500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>  
+                        </div>
+                        <div class="tab-pane fade" id="bill">Bills</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div><br><br><br>
+
+
+<style type="text/css">
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
+.products-general-info{
+    min-height: 497px;
+    max-height: 497px;
+}
+.products-barcodes{
+    min-height: 300px;
+    max-height: 300px;
+}
+.product-pricing{
+    min-height: 229px;
+    max-height: 229px;
+}
+.product-rental-cost{
+    max-height: 199px;
+    min-height: 199px;
+}
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+$(document).ready(function() {
+  $('#dataTable').DataTable();
+});
+
+</script> -->

@@ -1,0 +1,10 @@
+$("#orderSalesperson").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_sales_person_sales_people_path%>";
+$.getJSON(url, function(data) {
+	$('#order_sales_person_id').html('<option>Select Sales People</option>');
+	$.each(data, function(index, person) {   
+	//alert(batch.name);
+	 $('#order_sales_person_id').append($('<option>', { value : person.id }).text(person.name)); 
+	});
+});

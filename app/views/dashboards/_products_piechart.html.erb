@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Product Enable',<%=@enable%>],
+      ['Product Disable',<%=@disable%>]
+
+    ]);
+
+    var options = {
+      title: 'Total number of Products'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('productpiechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+

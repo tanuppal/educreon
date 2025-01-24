@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  label: MyString
+  day: MyString
+  factor: MyString
+  company: one
+
+two:
+  label: MyString
+  day: MyString
+  factor: MyString
+  company: two

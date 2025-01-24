@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InventoryTracker</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'template-js/sb-admin-datatables.min.js', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render :partial => 'layouts/flash_messages'%>
+    <%= render :partial => 'layouts/toaster_flash_messages'%>
+    <%= render :partial => 'homes/navigation'%>
+      <%= yield %>
+    <%= render :partial => 'homes/footer'%>   
+
+  </body>
+</html>

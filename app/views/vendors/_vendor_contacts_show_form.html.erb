@@ -1,0 +1,58 @@
+<div class="row">
+	<% @general_vendor.vendor_contact_methods.build if @general_vendor.vendor_contact_methods.blank?%>
+	<div class="col-sm-12">
+		<%= f.nested_fields_for :vendor_contact_methods do |ff|%>
+			<div class="form-group pull-right">
+		        <%=ff.remove_nested_fields_link '', class: 'btn btn-danger edit-field hide', role: 'button' do%>
+		        <i class="fa fa-minus-square"></i>
+		        <%end%>
+         	</div>
+			<div class="form-group">
+				<%= ff.label :type%>
+				<%= ff.select :contact_method_type, options_for_select([["Work","work"],["Home","home"], ["Fax" , "fax"], ["Mobile", "mobile" ], ["Pager", "pager"],["Direct", "direct"], ["Main", "main"], ["Sales", "sales"], ["Help","help"]], ff.object.contact_method_type),{:prompt=>"--Please Select--"}, {:class=>"form-control edit-field",:disabled=>"disabled"} %>
+			</div>
+			<div class="form-group">
+				<%= ff.label :phone%>
+				<span class="required_field">*</span>
+				<%= ff.telephone_field :phone, :class=>"form-control edit-field", :placeholder=>"Enter Your Phone Number", :readonly => true,:required=>true%>
+			</div>
+			<div class="form-group">
+				<%= ff.label :email%>
+				<span class="required_field">*</span>
+				<%= ff.email_field :email, :class=>"form-control edit-field", :placeholder=>"Enter Your Email ID", :readonly => true,:required=>true%>
+			</div>
+			<div class="form-group">
+				<%= ff.label :Default%>
+				<%= ff.check_box :is_primary, :class=>"edit-field radio_option_for_vendor_contact_method ", disabled: true%>
+			</div>
+			<br><br>
+		<%end%>
+	</div>
+</div>
+<div class="row">
+  	<div class="col-sm-12">
+      	<div class="text-right">
+           	<%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+        	<%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+    	</div>
+	</div>
+</div>
+<%=f.add_nested_fields_link :vendor_contact_methods,  class: 'btn btn-info edit-field hide', role: 'button' do%>
+     <i class="fa fa-plus-square"></i>
+<%end%>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".edit_button").click(function() {
+        //alert("hello");
+        $(".edit-field").prop("readonly", false);
+        $(".edit-field").prop("disabled", false);
+        $(".edit-field").removeClass("hide");
+    });
+});
+</script>
+<script type="text/javascript">
+$(document).on("click", ".radio_option_for_vendor_contact_method", function(){
+	$(".radio_option_for_vendor_contact_method").prop("checked",false);
+	$(this).prop("checked",true);
+});
+</script>

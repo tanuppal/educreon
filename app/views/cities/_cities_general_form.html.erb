@@ -1,0 +1,25 @@
+<div class="modal fade" id="myCustomerLocationCity" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <%= form_for(@city, remote: true) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title center-block">City </h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label>Add City</label>
+                <%=f.text_field :name,:class => "form-control city_content", :placeholder=>"Enter New city", required: true%>
+                <%=f.hidden_field :state_id, class: "form-control city_content state_id" %>
+              </div>
+          </div>
+          <div class="modal-footer text-center">
+               <%= f.submit "Save", :class=>"btn btn-primary save-btnn"%>
+               <%=hidden_field_tag :request_form,"",class: "request_form"%>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+

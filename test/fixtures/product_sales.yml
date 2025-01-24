@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  quantity_in_stock: 1.5
+  reorder_when_at_or_below: 2018-06-12
+  reorder_qty: 1.5
+
+two:
+  product: two
+  quantity_in_stock: 1.5
+  reorder_when_at_or_below: 2018-06-12
+  reorder_qty: 1.5

@@ -1,0 +1,57 @@
+<div class="row">
+    <!-- Order Tables -->
+    <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-users vendors-table-users-icon"></i> Document
+                <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+                <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="vendorDocumentList" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="info">
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Document</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="info">
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Document</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <%if @all_general_vendor.present?%>
+                                <%@all_general_vendor.vendor_documents.each do |x|%>
+                                    <tr>
+                                        <td><%=x.try(:title)%></td>
+                                        <td><%=x.document_type.try(:name)%></td>
+                                        <%doc_name = x.document_file.to_s.split(".")%>
+                                        <td>
+                                          <%if x.document_file.present?%>
+                                            <a href="<%=x.document_file.url%>" download><%= doc_name[0]%></a>
+                                          <%end%>
+                                        </td>
+                                    </tr>
+                                <%end%>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#vendorDocumentList').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+    });
+</script>

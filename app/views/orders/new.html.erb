@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+         <%= form_for @general_order, html: {multipart: true} do |t| %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+            	<a href="/orders/orders_list">Orders</a>
+            </li>
+            <li class="breadcrumb-item">New</li>
+            <button type="submit" class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="modal" data-target=".vendor_form">save</button>
+        </ol>
+        <%= render :partial => "orders/form_new", locals: {t:t}%>
+        <%end%>
+    </div>
+    
+</div>
+
+ <%=render "order_types/form"%>
+ <%=render "sales_people/form"%>
+ <%=render "payment_terms/form"%>
+ <%=render "order_statuses/form"%>
+ <%=render "order_payment_modes/order_payment_form"%>
+<br>
+<br>
+<br>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+				min-height: 497px;
+				max-height: 497px;
+}
+.products-barcodes{
+				min-height: 300px;
+				max-height: 300px;
+}
+.product-pricing{
+				min-height: 229px;
+				max-height: 229px;
+}
+.product-rental-cost{
+				max-height: 199px;
+				min-height: 199px;
+}*/
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>

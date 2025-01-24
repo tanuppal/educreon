@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  date: 2018-06-12
+  eta: 2018-06-12
+  vendor: one
+  bill_status: one
+
+two:
+  number: 1
+  date: 2018-06-12
+  eta: 2018-06-12
+  vendor: two
+  bill_status: two

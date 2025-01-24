@@ -1,0 +1,10 @@
+$("#myModalShipping").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_shipping_customer_shippings_path%>";
+$.getJSON(url, function(data) {
+	// $('#customer_customer_shipping_id').html('<option>Select Customer shipping</option>');
+	$.each(data, function(index, shipping) {   
+	//alert(batch.name);
+	 $('#customer_customer_shipping_id').append($('<option>', { value : shipping.id }).text(shipping.name)); 
+	});
+});

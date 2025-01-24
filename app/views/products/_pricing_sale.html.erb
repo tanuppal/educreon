@@ -1,0 +1,23 @@
+<div class="content">
+<% @general_product.product_sales.build if @general_product.product_sales.blank?%>
+  <div class="col-sm-12">
+  <%= t.nested_fields_for :product_sales do |ff|%>
+      <!-- <div class="form-group">
+          <label for="qty">Quantity in Stock</label>
+          <span class="required_field">*</span>
+          <%#=ff.number_field :quantity_in_stock, :class => "form-control", :placeholder=>"qty",:required=>true %>
+        </div> -->
+        <div class="form-group">
+          <label for="reorder">Reorder when at or below</label>
+         <%=ff.date_field :reorder_when_at_or_below, :class => "form-control", :placeholder=>"date"%>
+        </div>
+        <div class="form-group">
+          <label for="reqty">Reorder Quantity</label>
+         <%=ff.number_field :reorder_qty, :class => "form-control", :placeholder=>"enter Quantity" %>
+        </div>
+       
+        <!-- <button class="btn btn-info">Submit</button> -->
+  <%end%>
+    </div>
+    <%#= t.submit "Submit", :class=>"btn btn-primary"%>
+</div>

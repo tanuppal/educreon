@@ -1,0 +1,10 @@
+$("#myModalStatus").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_status_customer_statuses_path%>";
+$.getJSON(url, function(data) {
+	// $('#customer_customer_status_id').html('<option>Select Customer status</option>');
+	$.each(data, function(index, status) {   
+	//alert(batch.name);
+	 $('#customer_customer_status_id').append($('<option>', { value : status.id }).text(status.status)); 
+	});
+});

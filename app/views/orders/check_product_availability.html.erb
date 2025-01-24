@@ -1,0 +1,145 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Check Product Availability</li>
+    </ol>
+    <div class="content">
+	    <div class="col-sm-12">
+	    	<div class="panel with-nav-tabs panel-info">
+  	      <div class="panel-body">
+						<div class="col-sm-12">
+							<div class="panel panel-info">
+								<div class="panel-heading text-center">Check Product Availability</div>
+								<div class="panel-body products-general-info">
+						    	<div class="col-sm-6">
+						    		<div class="form-group">
+											<label>Product Kind Category</label>
+											<%=form_for :check_product_availability,:url => {:controller => "orders", :action => "check_product_availability"},:html=>{:method => 'GET',:id=>"select_check_product"} do |f|%>
+											 <%=f.select "product_kind_category_id" , options_for_select(@all_product_kind_category.collect{|x| [x.name,x.id]}, params[:check_product_availability].present? ? params[:check_product_availability][:product_kind_category_id] : ""),{:prompt=>"--Please Select--"},:class=>"form-control product-category",onchange: "$('#select_check_product').submit();"%>
+											<%end%>
+						    		</div>
+						    	</div>
+						    	<div class="card mb-3">
+						    	  <div class="row" style="padding: 14px; margin-top: -14px; margin-bottom: -14px;">
+						    	    <div class="col-row-12">
+						    	      <div id="calendar"></div> 
+						    	    </div>
+						    	  </div>
+						    	</div> 
+								</div>
+							</div>
+						</div>
+					</div>
+	    	</div>
+	    </div>
+    </div>
+	</div>
+</div>
+
+
+<style type="text/css">
+.all_li {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+  .text_name:hover {
+    color: #fff !important;
+    background-color: #9575cd !important;
+  }
+  .fc-basic-view {
+  background-color: #fff;
+}
+/*.fc-day-grid-container{
+    height: 252px !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+  }*/
+.fc-view-container{
+    margin-top: -14px !important;
+  }
+.fc-header-toolbar{
+    background-color: #3BA4F1;
+    color: #fff;
+    height: 45px;
+    text-align: center;
+  }
+.fc-unthemed td.fc-today {
+    background-color: #8299E2 !important;
+    border-color: #8299E2 !important;
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    /*padding: 10px;*/
+  }
+.fc-sun { 
+  color:red;
+  font-weight: 600;
+  }
+/*.fc-widget-header {
+    margin-top: 5px;
+    height: 20px !important;
+  }*/
+/*.fc-week {
+      min-height: 3em !important;
+    height: 30px !important;
+}*/
+.fc-event-container{
+  text-align: center !important;
+  text-transform: capitalize;
+}
+.fc-event {
+  color: #fff !important;
+  font-weight: 600;
+  line-height: 2.5 !important;
+  font-size: 18px !important;
+}
+.fc-left{
+  margin-top: 8px;
+  margin-left: 10px;
+}
+.fc-center {
+  margin-top: 8px;
+}
+.fc-right {
+  margin-top: 8px;
+  margin-right: 10px;
+}
+.fc-content {
+      margin-top: 16px;
+}
+/*.fc-event:hover {
+  background-color: #38EE3D !important;
+  border-color: #38EE3D !important;
+  color: #fff !important;
+}*/
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#calendar").fullCalendar({
+      editable: true,
+      forceEventDuration: true,
+      eventLimit: true,
+      header: {
+        left: "prev,next today",
+        center: "title",
+        right: "month,agendaWeek,agendaDay",
+        defaultView: "month",
+        height: 500,
+        dragOpacity: "0.5"
+      },
+      events: {
+        url: "/orders/item_calenders?category_id="+$(".product-category").val(),
+        color: '',   // an option!
+        textColor: 'black',
+        'text-align': 'center'
+      }
+    });
+  // alert("Hello");
+    
+});
+</script>

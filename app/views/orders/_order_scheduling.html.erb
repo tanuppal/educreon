@@ -1,0 +1,166 @@
+<div class="content ">
+   <% @general_order.order_schedulings.build if @general_order.order_schedulings.blank?%>
+    <div class="col-sm-12" id="order-schedul" >
+      <%= t.nested_fields_for :order_schedulings do |ff|%>
+        <div class="col-sm-12 test-test">
+          <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+            <i class="fa fa-trash"></i>
+          <%end%>
+        </div>
+        <div style="border: 1px solid #00bfff; padding: 15px; margin-bottom: 10px;">
+          <div class="form-group">
+            <label for="rental">Barcode Search</label>
+            <%=ff.text_field :barcode, :class => "form-control barcode-search", :placeholder=>"Barcode", autofocus: :true %>
+            <%=ff.hidden_field :product_id, :class => "form-control product_id"%>
+          </div>
+          <div class="row product_detials" style="display: none;">
+            <div class="col-sm-12 text-center">
+              <div class="col-sm-6">
+                <h2 class="product_name"></h2>
+              </div>
+              <div class="col-sm-6">
+                <%= image_tag "", :class=>"product_img", :style=>"width: 100px;height: 100px;"%>
+              </div>
+              <div class="col-sm-12">
+                <h4 class="product_mess" style="font-size: 20px;"></h4>
+              </div>
+            </div>
+          </div>
+          <div class="form-group rental_prep_new">
+            <label for="rental">Rental prep</label>
+            <span class="required_field">*</span>
+            <%=ff.date_field :rental_prep, :class => "form-control rental_prep_new1 new_rental_prep", :placeholder=>"cost",:required=>true %>
+          </div>
+          <div class="form-group rental_picup_new">
+              <label for="rental">Rental Pickup</label>
+              <span class="required_field">*</span>
+               <%=ff.date_field :rental_picup, :class => "form-control rental_picup rental_picup_new1 new_rental_picup", :placeholder=>"cost",:required=>true %>
+          </div>
+          <div class="form-group rental_return_new">
+              <label for="rental">Rental Return</label>
+              <span class="required_field">*</span>
+              <%=ff.date_field :rental_return, :class => "form-control rental_return_new1 new_rental_return", :placeholder=>"cost",:required=>true %>
+          </div>
+
+        </div>
+      <%end%>
+      <%=t.add_nested_fields_link :order_schedulings,  class: 'btn btn-info pull-right', :id=>"add_field", role: 'button' do%>
+        <i class="fa fa-plus-square"></i>
+      <%end%>
+    </div>
+</div>
+
+<script>
+  $( document ).on("blur", ".barcode-search", function(){
+     // $(".barcode-search").blur(function(){
+      var object = $(this);
+      //alert("hello");
+    var url = '/orders/barcode_search'
+    $.ajax({
+      type : "get",
+      url : url ,
+      data : {
+        "barcode" : $(this).val()
+      },
+      success: function(data) {
+        object.parent().find('.product_id').val(data.product.id);
+        // alert(data.product_type_name);
+        if (data.product_type_name == "Rental") {
+          object.parent().next().children().children().find('.product_name').text(data.product.name);
+          object.parent().next().children().children().next().find('.product_img').attr("src",data.product_image_url);
+          object.parent().next().show("slow");
+          object.parent().parent().find('.rental_prep_new').show("slow");
+          object.parent().parent().find('.rental_prep_new1').attr('required', 'required');
+
+          object.parent().parent().find('.rental_picup_new').show("slow");
+          object.parent().parent().find('.rental_picup_new1').attr('required', 'required');
+
+          object.parent().parent().find('.rental_return_new').show("slow");
+          object.parent().parent().find('.rental_return_new1').attr('required', 'required');
+        }
+        if (data.product_type_name == "Sale")
+        {
+          if (data.sale_status == true) {
+            object.parent().next().children().children().find('.product_name').text(data.product.name);
+            object.parent().next().children().children().next().find('.product_img').attr("src",data.product_image_url);
+            object.parent().next().show("slow");
+            object.parent().parent().find('.rental_prep_new').hide("slow");
+            object.parent().parent().find('.rental_prep_new1').removeAttr('required');
+
+            object.parent().parent().find('.rental_picup_new').hide("slow");
+            object.parent().parent().find('.rental_picup_new1').removeAttr('required');
+
+            object.parent().parent().find('.rental_return_new').hide("slow");
+            object.parent().parent().find('.rental_return_new1').removeAttr('required');
+          }
+          if (data.sale_status == false) {
+            object.parent().find('.product_id').val("");
+            object.parent().next().children().children().find('.product_name').text(data.product.name);
+            object.parent().next().children().children().next().find('.product_img').attr("src",data.product_image_url);
+            object.parent().next().show("slow");
+            object.parent().parent().find('.rental_prep_new').hide("slow");
+            object.parent().parent().find('.rental_prep_new1').removeAttr('required');
+
+            object.parent().parent().find('.rental_picup_new').hide("slow");
+            object.parent().parent().find('.rental_picup_new1').removeAttr('required');
+
+            object.parent().parent().find('.rental_return_new').hide("slow");
+            object.parent().parent().find('.rental_return_new1').removeAttr('required');
+
+            object.parent().parent().find('.product_mess').text("This Product is not Available");
+            object.parent().parent().find('.product_mess').css("color","red");
+          }
+        }
+      },
+      error: function(data) {
+        successmessage = 'Error';
+        $("label#successmessage").text(successmessage);
+      }
+    })
+});
+
+  $(document).on('turbolinks:load',function() {    
+    $('body').on('DOMNodeInserted', '#order-schedul', function(e) {
+      var first_data = $(this).find(".new_rental_prep").first().val();
+      $(document).find(".new_rental_prep").last().val(first_data);
+
+      var second_data = $(this).find(".new_rental_picup").first().val();
+      $(document).find(".new_rental_picup").last().val(second_data);
+
+      var third_data = $(this).find(".new_rental_return").first().val();
+      $(document).find(".new_rental_return").last().val(third_data);
+      
+    });
+  });
+
+  $( document ).on("blur", ".rental_picup", function(){
+    var object = $(this);
+     var url = '/orders/rental_picup_date'
+    $.ajax({
+      type : "get",
+      url : url ,
+      data : {
+        "product_id" : $(this).parent().parent().find('.product_id').val(),
+        "picup_date" : $(this).val()
+      },
+      success: function(data) {
+         if (data.status == true)
+        {
+          object.parent().parent().find('.product_mess').text(data.message);
+          object.parent().parent().find('.product_mess').css("color","green");
+          // object.parent().parent().find('.product_id').val(data.product_id);
+        }
+        else
+        {
+          object.parent().parent().find('.product_mess').text(data.message);
+          object.parent().parent().find('.product_mess').css("color","red");
+          // object.parent().parent().find('.product_id').val("");
+        }
+      },
+      error: function(data) {
+        successmessage = 'Error';
+        $("label#successmessage").text(successmessage);
+      }
+    })
+  });
+</script>

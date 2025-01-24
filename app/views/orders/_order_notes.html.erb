@@ -1,0 +1,16 @@
+ <div class="row">
+      <% @general_order.order_notes.build if @general_order.order_notes.blank?%>
+      <div class="col-sm-12">
+          <%= t.nested_fields_for :order_notes do |ff|%>
+              <div class="form-group">
+                <label for="notes">Notes</label>
+                <%= ff.text_area :note, :class=>"form-control"%>
+              </div>
+              <div class="row">
+        			<div class="col-sm-12 text-center">
+        				<%#= ff.submit "Save Notes", :class=>"btn btn-primary"%>
+        			</div>
+      		</div>
+          <%end%>
+      </div>
+  </div>

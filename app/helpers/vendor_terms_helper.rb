@@ -1,0 +1,2 @@
+module VendorTermsHelper
+end

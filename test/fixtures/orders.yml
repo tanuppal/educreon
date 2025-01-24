@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_type: one
+  sales_person: one
+  date: 2018-06-07
+  cust_po: MyString
+  payment_term: one
+  order_status: one
+  number: 1
+  customer: one
+
+two:
+  order_type: two
+  sales_person: two
+  date: 2018-06-07
+  cust_po: MyString
+  payment_term: two
+  order_status: two
+  number: 1
+  customer: two

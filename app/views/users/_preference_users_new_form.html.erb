@@ -1,0 +1,21 @@
+<div class="form-group">
+	<label>Email Id</label>
+	<%=ff.email_field :email, validate: true, autofocus: true, autocomplete: "email",:class => "form-control" %>
+</div>
+<div class="form-group">	
+	<label>Password</label>
+    <%= ff.password_field :password, autocomplete: "off",:class => "form-control" %>
+   	<em>6 characters minimum required</em>
+</div>	
+<div class="form-group">
+	<label>Confirm Password</label>
+	<%= ff.password_field :password_confirmation, autocomplete: "off",:class => "form-control" %>
+   	<em>6 characters minimum required</em>
+</div>
+<div class="form-group">
+	<%= ff.submit "Submit", :class=>"btn btn-info"%>
+</div>
+	
+    
+    	
+

@@ -1,0 +1,59 @@
+<div class="row">
+    <!-- Order Tables -->
+    <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-users customers-table-users-icon"> Document</i> 
+                <!-- <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+                <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button> -->
+            </div>
+            <%@general_customer.customer_documents.each_with_index do |x, index|%>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="customerDocumentList" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="info">
+                                    <th>Sl.no.</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Document</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr class="info">
+                                    <th>Sl.no.</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Document</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                    <tr>
+                                        <td><%=index+1%></td>
+                                        <td><%=x.try(:title)%></td>
+                                        <td><%=x.document_type.try(:name)%></td>
+                                        <%doc_name = x.document_file_name.to_s.split(".")%>
+                                        <td>
+                                          <%if x.document_file_name.present?%>
+                                            <a href="<%=x.document.url%>" download><%= doc_name[0]%></a>
+                                          <%end%>
+                                        </td>
+                                    </tr>
+                                <%#end%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted"><%= time_ago_in_words(x.created_at)%></div>
+            <%end%>    
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#customerDocumentList').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+    });
+</script>

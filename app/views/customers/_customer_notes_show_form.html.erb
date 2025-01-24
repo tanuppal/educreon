@@ -1,0 +1,26 @@
+<% @general_customer.customer_related_notes.build if @general_customer.customer_related_notes.blank?%>
+<%= f.nested_fields_for :customer_related_notes do |ff|%>
+    <div class="col-md-12" style="top:5px;">
+      <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right edit-field hide', role: 'button' do%>
+        <i class="fa fa-minus-square"></i>
+      <%end%><br>
+    </div>
+    <div class="form-group">
+      <%= ff.label :notes%>
+      <%= ff.text_area :note, :class=>"form-control edit-field", readonly: true%>
+    </div>
+<%end%>
+<%=f.add_nested_fields_link :customer_related_notes,  class: 'btn btn-info edit-field hide', role: 'button' do%>
+  <i class="fa fa-plus-square"></i>
+<%end%>
+<div class="form-group">
+    <div class ="col-md-12">
+      <div class="text-right">
+        <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+        <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+      </div>
+    </div>
+</div>
+
+
+

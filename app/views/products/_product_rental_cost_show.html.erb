@@ -1,0 +1,28 @@
+<div class="content">
+ <% @general_product.build_product_rental.build unless @general_product.product_rental %>
+  <div class="col-sm-12">
+    <%= t.fields_for :product_rental do |ff|%>
+    <div class="form-group">
+      <label for="Dep">Depreciation Years</label>
+      <!-- <input type="string" class="form-control" id="Dep"> -->
+      <%=ff.number_field :depreciation_year, :class => "form-control edit-field", :placeholder=>"year", disabled: true %>
+    </div>
+    <div class="form-group">
+      <label for="est">Estimated Rental Days Per Year</label>
+      <%=ff.number_field :estimated_rental_days_per_year, :class => "form-control edit-field", :placeholder=>"year", disabled:true %>
+    </div>
+    <div class="form-group">
+      <label for="esti">Estimated daily Cost</label>
+      <%=ff.number_field :estimated_daily_cost, :class => "form-control edit-field", :placeholder=>"cost", disabled: true %>
+    </div>
+   <%end%>
+  </div>
+  <div class="form-group">
+    <div class ="col-sm-12" style="top:5px;">
+      <div class="text-right">
+        <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+        <%=t.submit "Submit",:class=>"btn btn-info edit-btn", style:"margin-left:0px;"%>
+      </div>
+    </div>
+  </div>
+</div>

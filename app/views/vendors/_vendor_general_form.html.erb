@@ -1,0 +1,42 @@
+<div class="content">
+        <div class="col-sm-12">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                <label for="inputName">Name</label>
+                <span class="required_field">*</span>
+               <%=f.text_field :name, :class => "form-control", :placeholder=>"Name",:required=>true%>
+            </div>
+            <div class="col-md-4">
+                <label for="inputType">Type</label>
+                <span class="required_field">*</span>
+                <%=f.select :vendor_type_id, options_for_select(@all_vendor_type.collect{ |u| [u.name, u.id]},f.object.vendor_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+                 <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#vendorType"%>
+            </div>
+            <div class="col-md-4">
+                <label for="inputTerms">Terms</label>
+                <span class="required_field">*</span>
+              <%=f.select :vendor_term_id, options_for_select(@all_vendor_term.collect{ |u| [u.term, u.id]},f.object.vendor_term_id),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+              <%= link_to "Add Term", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#vendorTerm"%>
+            </div>
+          </div>
+        </div>
+          
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                <label for="inputUrl">URL</label>
+                <%=f.text_field :url, :class => "form-control", :placeholder=>"URL"%>
+            </div>
+            <div class="col-md-4">
+                <label for="inputStatus">Status</label>
+                <span class="required_field">*</span>
+               <%=f.select :vendor_status_id, options_for_select(@all_vendor_status.collect{ |u| [u.status, u.id]},f.object.vendor_status_id), {:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+                <%= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#vendorStatus"%>
+            </div>
+          </div>
+        </div>
+        </div>
+         <%#= f.submit "Submit", :class=>"btn btn-primary"%>
+</div>
+

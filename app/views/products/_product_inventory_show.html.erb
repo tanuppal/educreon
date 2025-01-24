@@ -1,0 +1,49 @@
+<div class="content">
+<%@general_product.inventory.build if @general_product.inventory.blank?%>  
+  <div class="col-sm-12">
+    <%=t.fields_for :inventory do |ff|%>
+      <div class="form-group col-sm-4">
+        <label class="control-label" for="orderfilter">Date of Purchase</label>
+        <div class="controls">
+          <%=ff.date_field :date, :class => "form-control edit-field", :placeholder=>"",:disabled=>"disabled" %>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label class="control-label" for="orderfilter">Purchase cost</label>
+        <div class="controls">
+          <%=ff.number_field :purchase_cost, :class => "form-control edit-field", :placeholder=>"cost",:disabled=>"disabled"%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label class="control-label" for="orderfilter">Year placed in Svc</label>
+        <span class="required_field">*</span>
+        <div class="controls">
+          <%=ff.text_field :year_placed_in_svc, :class => "form-control edit-field", :placeholder=>"years" ,:disabled=>"disabled"%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label class="control-label" for="orderfilter">Depreciation years</label>
+        <span class="required_field">*</span>
+        <div class="controls">
+          <%=ff.text_field :depreciation_year, :class => "form-control edit-field", :placeholder=>"years",:required=>true ,:disabled=>"disabled"%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label class="control-label" for="orderfilter">Replacement Cost</label>
+        <div class="controls">
+          <%=ff.number_field :approx_value, :class => "form-control edit-field", :placeholder=>"value",:disabled=>"disabled"%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4 text-center" style="margin-top: 25px;">
+        <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+        <%=t.submit "Submit",:class=>"btn btn-info edit-btn", style:"margin-left:0px;"%>
+      </div>
+    
+    <%end%>
+  </div>
+</div>

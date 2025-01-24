@@ -1,0 +1,10 @@
+$("#productType").modal('hide');
+ // $("#term_content").val('');
+var url = "<%=all_product_type_product_types_path%>";
+$.getJSON(url, function(data) {
+	$('#product_product_type_id').html('<option>Select product type</option>');
+	$.each(data, function(index, type) {   
+	//alert(batch.name);
+	 $('#product_product_type_id').append($('<option>', { value : type.id }).text(type.name)); 
+	});
+});

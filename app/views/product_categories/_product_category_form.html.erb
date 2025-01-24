@@ -1,0 +1,25 @@
+<div class="col-md-12 col-xs-12">
+  <div class="modal fade" id="productCategory" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Product Category</h4>
+        </div>
+        <div class="modal-body">
+        <%= form_for(@product_category, remote: true) do |t| %>
+          <div class="form-group">
+            <label>Name</label>
+            <%=t.text_field :category,:class => "form-control", :placeholder=>"Enter product Category Name"%>
+          </div>
+          <%= t.submit "Save", :class=>"btn btn-primary "%>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <% end %>
+        </div>
+        <div class="modal-footer text-center">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

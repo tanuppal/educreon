@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#vendorGeneral" data-toggle="tab">General</a></li>
+                    <li><a href="#vendorContacts" data-toggle="tab">Contact Methods</a></li>
+                    <li><a href="#vendorLocation" data-toggle="tab">Address</a></li>
+                    <li><a href="#vendorPeople" data-toggle="tab">People</a></li>
+                    <li><a href="#vendorNotes" data-toggle="tab">Notes</a></li>
+                    <li><a href="#vendorDocuments" data-toggle="tab">Documents</a></li>
+                  <!--   <li><a href="#vendorProducts" data-toggle="tab">Products</a></li>
+                    <li><a href="#vendorOrders" data-toggle="tab">Orders</a></li> -->
+                </ul>
+            </div>
+            <div class="panel-body">
+                <%= form_for @general_vendor, html: {multipart: true} do |f| %>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="vendorGeneral">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">General</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'vendors/vendor_general_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorContacts">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Contact</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'vendors/vendor_contacts_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorLocation">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Address</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'vendors/vendor_location_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorNotes">
+                        <div class="col-sm-8">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Notes</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'vendors/vendor_notes_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorDocuments">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Documents</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'vendors/vendor_documents_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorPeople">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">People</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'vendors/vendor_people_form', :locals=> {:f=> f} %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorProducts">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Products</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'vendors/vendor_products' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="vendorOrders">
+                        <div class="col-sm-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Orders</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'vendors/vendor_orders' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>

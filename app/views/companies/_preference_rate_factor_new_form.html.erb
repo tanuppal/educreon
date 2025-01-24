@@ -1,0 +1,36 @@
+<% @preference_company.company_rate_factors.build if @preference_company.company_rate_factors.blank?%>
+<%= f.nested_fields_for :company_rate_factors do |ff|%>
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%=ff.remove_nested_fields_link :company_rate_factors,  class: 'btn btn-danger pull-right', role: 'button' do%>
+           <i class="fa fa-minus-square"></i>
+      <%end%>
+    </div>
+  </div>  
+  <div class="col-sm-4">
+    <div class="form-group">
+        <label for="inputName">Label</label>
+       <%= ff.text_field :label, :class=>"form-control", :placeholder=>"enter label"%>
+    </div>
+  </div>
+  <div class="col-sm-4">  
+    <div class="form-group">
+        <label for="inputType">Day</label>
+       <%= ff.text_field :day, :class=>"form-control", :placeholder=>"enter day"%>
+    </div>
+  </div>
+  <div class="col-sm-4">  
+    <div class="form-group">
+        <label for="inputTerms">factor</label>
+          <%= ff.text_field :factor, :class=>"form-control", :placeholder=>"enter factor"%>
+    </div>
+  </div>  
+<%end%>
+<div class="col-sm-12">
+  <div class="form-group">
+    <%=f.add_nested_fields_link :company_rate_factors,  class: 'btn btn-info', role: 'button' do%>
+         <i class="fa fa-plus-square"></i>
+    <%end%>
+  </div>
+</div>
+

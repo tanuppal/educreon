@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  name: MyString
+  barcode: MyString
+  product_type: one
+  product_category: one
+  product_status: one
+  is_kit: false
+  trackbarcode: false
+
+two:
+  manufacturer: MyString
+  name: MyString
+  barcode: MyString
+  product_type: two
+  product_category: two
+  product_status: two
+  is_kit: false
+  trackbarcode: false

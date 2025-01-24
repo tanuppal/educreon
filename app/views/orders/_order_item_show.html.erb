@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="col-sm-12">
+        <% @general_order.order_items.build if @general_order.order_items.blank?%>
+        <%= t.nested_fields_for :order_items do |ff|%>
+        <div class="form-group">
+            <label for="ordercategory">Category</label>
+          <%=ff.select :product_category_id, options_for_select(@all_product_category.collect{ |u| [u.category, u.id]}),{:prompt=>"--Please Select--"}, :class => "form-control product-category", :id=> "select_product"%>
+        </div>
+        <div class="form-group">
+           <label for="orderfilter">Filter</label>
+            <%=ff.text_field :filter, :class => "form-control", :placeholder=>"filter"%>
+        </div>
+         <div class="form-group">
+         <label for="ordercategory">Product Name</label>
+           <%= select_tag :product_id, options_for_select([["",""]]), {:prompt => "--select product--",:class =>"select_combobox form-control product-details",:multiple => true, :size =>10} %>
+        </div>
+        <%= ff.submit "Submit", :class=>"btn btn-primary"%>
+        <%end%>
+    </div>
+</div>
+
+<script>
+    $( document ).on('turbolinks:load', function() {
+     $(".product-category").change(function(){
+    var url = '/orders/get_product_list?product_category_id=' + $(this).val()
+    //$(".city_drop_down").removeOption(/./);
+    // $.get(url, function(data) {
+    //    $('.city_drop_down').addOption(data, false);
+    //  });
+    $.getJSON(url, function(data) {
+      $('.product-details').html('<option>Select Product Name</option>');
+      $.each(data, function(index, product) {   
+        //alert(batch.name);
+         $('.product-details').append($('<option>', { value : product.id }).text(product.name)); 
+       });
+     });
+   });
+});
+</script>
+
+<script type="text/javascript">
+ $(document).on('turbolinks:load', function(){
+  $(".product-details").change(function(){
+    var url = '/orders/get_description_image?product_id=' + $(this).val();
+    $.getJSON(url, function(data) {
+      alert(data.description.description);   
+      $('#inputDescription').val(data.description.description);
+      $('#inputImage').val(data.image.image)
+      });
+  });
+});
+</script>
+
+<script type="text/javascript">
+ $(document).on('turbolinks:load', function(){
+  $(".product-details").change(function(){
+    var url = '/orders/get_description_image?product_id=' + $(this).val();
+    $.getJSON(url, function(data) {
+      alert(data.description.description);   
+      $('#inputDescription').val(data.description.description);
+      $('#inputImage').val(data.image.image)
+      });
+  });
+});
+</script>

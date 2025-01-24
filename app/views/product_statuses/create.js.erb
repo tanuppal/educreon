@@ -1,0 +1,10 @@
+$("#productStatus").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_product_status_product_statuses_path%>";
+$.getJSON(url, function(data) {
+	$('#product_product_status_id').html('<option>Select product status</option>');
+	$.each(data, function(index, status) {   
+	//alert(batch.name);
+	 $('#product_product_status_id').append($('<option>', { value : status.id }).text(status.status)); 
+	});
+});

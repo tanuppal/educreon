@@ -1,0 +1,140 @@
+<% @general_customer.customer_locations.build if @general_customer.customer_contact_methods.blank?%>
+<%= f.nested_fields_for :customer_locations do |ff|%>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-12">
+			  <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right edit-field hide', role: 'button' do%>
+			    <i class="fa fa-minus-square"></i>
+			  <%end%><br>
+			</div>
+		</div>
+	</div>	
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-4">
+				<%= ff.label :name%>
+					<span class="required_field">*</span>
+				<%= ff.text_field :name, :class=>"form-control edit-field", :placeholder=>"Enter Your name", disabled: true,:required=>true%>
+			</div>
+			<div class="col-sm-4">	
+				<%= ff.label :attn%>
+				<%= ff.text_field :attn, :class=>"form-control edit-field", :placeholder=>"Enter Your attn", disabled: true%>
+			</div>
+			<div class="col-sm-4">	
+				<%= ff.label :phone%>
+				<span class="required_field">*</span>
+				<%= ff.telephone_field :phone, :class=>"form-control edit-field", :placeholder=>"Enter Your Phone", disabled: true,:required=>true%>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-4">	
+				<%= ff.label :Country%>
+				<span class="required_field">*</span>
+				<%= ff.select :country_id, options_for_select(@country.collect{
+				|u| [u.name, u.id]},ff.object.country_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-address-country edit-field", disabled: "disabled",:required=>true}%>
+			</div>
+			<div class="col-sm-4">	
+				<%= ff.label :State%>
+				<span class="required_field">*</span>
+				<%= ff.select :state_id, options_for_select(@all_customer_state.collect{
+				|u| [u.name, u.id]},ff.object.state_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-State1 edit-field", disabled: "disabled",:required=>true}%>
+			</div>
+			<div class="col-sm-4">	
+				<%@all_customer_city = ff.object.state.present? ? ff.object.state.cities : City.last(2)%>
+				<%= ff.label :City%>
+				<span class="required_field">*</span>
+				<%= ff.select :city_id, options_for_select(@all_customer_city.collect{
+				|u| [u.name, u.id]},ff.object.city_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-city1 edit-field", disabled: "disabled",:required=>true} %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-4">	
+				<%= ff.label :address_line_1%>
+				<span class="required_field">*</span>
+				<%= ff.text_area :address_line_1, :class=>"form-control edit-field", :placeholder=>"Enter Your Address", disabled: true,:required=>true%>
+			</div>
+			<div class="col-sm-4">	
+				<%= ff.label :address_line_2%>
+				<%= ff.text_area :address_line_2, :class=>"form-control edit-field", :placeholder=>"Enter Your Address", disabled: true%>
+			</div>
+			<div class="col-sm-4">
+				<%= ff.label :Landmark%>
+				<!-- <span class="required_field">*</span> -->
+				<%= ff.text_field :landmark, :class=>"form-control edit-field", :placeholder=>"Enter Your Landmark", disabled: true%>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-4">	
+				<%= ff.label :Zipcode%>
+				<span class="required_field">*</span>
+				<%= ff.text_field :zipcode, :class=>"form-control edit-field", :placeholder=>"Enter Your Landmark", disabled: true, required:true%>
+			</div>	
+			<div class="col-sm-4">	
+				<%= ff.label :Default%>
+				<%= ff.check_box :is_primary,class: "edit-field radio_option_for_customer_Location", disabled: "true"%>
+		  	</div>
+		</div>
+	</div>
+<%end%>
+<div class="form-group">
+	<div class="row">
+		<div class="col-sm-12">
+			<%=f.add_nested_fields_link :customer_locations,  class: 'btn btn-info edit-field hide', role: 'button' do%>
+			    <i class="fa fa-plus-square"></i>
+			<%end%>
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<div class="row">
+	  <div class ="col-sm-12">
+	    <div class="text-right">
+	      <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+	      <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+	    </div>
+	  </div>    
+	</div>
+</div>
+
+
+  <script type="text/javascript">
+  	//here we are getting state wise country
+  	$(document).on("change",".select-address-country",function(){
+  		var url = '/customers/get_state?country_id=' + $(this).val()
+  		var object = $(this);
+  		$.getJSON(url, function(data) {
+  		  object.parent().parent().find('.select-State1').html('<option>--Select State--</option>');
+  		  $.each(data, function(index, state) {   
+  		    //alert(caste.name);
+  		    // object.parent().parent().find('.select-State1').hide("slow");
+  		     object.parent().parent().find('.select-State1').append($('<option>', { value : state.id }).text(state.name)); 
+  		  });
+  		});
+  	});
+
+  	//here we are getting cities wise state
+  	$(document).on("change",".select-State1",function(){
+  		var url = '/customers/get_city?state_id=' + $(this).val()
+  		var object = $(this);
+  		$.getJSON(url, function(data) {
+  		  object.parent().parent().find('.select-city1').html('<option>--Select City--</option>');
+  		  $.each(data, function(index, city) {   
+  		    //alert(caste.name);
+  		     object.parent().parent().find('.select-city1').append($('<option>', { value : city.id }).text(city.name)); 
+  		  });
+  		});
+  	});
+
+  </script>
+<script type="text/javascript">
+	$(document).on("click", ".radio_option_for_customer_Location", function(){
+		$(".radio_option_for_customer_Location").prop("checked",false);
+		$(this).prop("checked",true);
+	});
+</script>

@@ -1,0 +1,124 @@
+<div class="panel">
+    <div class="panel-body">
+        <div class="content">
+            <div class="col-sm-12">
+                <div class="form-group">
+                     <div class="row">
+                <div class="col-md-4">
+                    <label for="inputName">Name</label>
+                    <span class="required_field">*</span>
+                    <%=f.text_field :name, :class => "form-control", :placeholder=>"Name", required: true%>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputType">Address</label>
+                    <span class="required_field">*</span>
+                    <%=f.text_field :address, :class => "form-control", :placeholder=>"enter address", required: true%>
+                </div>
+                <div class="col-md-4">
+                    <%= f.label :Country%>
+                        <%= f.select :country_id, options_for_select(@all_preference_country.collect{
+                |u| [u.name, u.id]},f.object.country_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-address-country" }%>
+                </div>
+            </div>
+        </div>
+                <div class="form-group">
+                    <div class="row">
+                    <div class="col-md-4">
+                    <%= f.label :State%>
+                        <%= f.select :state_id, options_for_select(@all_preference_state.collect{
+                |u| [u.name, u.id]}, f.object.state_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-State"}%>
+                </div>
+                <div class="col-md-4">
+                    <%= f.label :City%>
+                        <%= f.select :city_id, options_for_select(@all_preference_city.collect{
+                |u| [u.name, u.id]}, f.object.city_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-city"} %>
+                        <%= link_to "Add City", "#", :class=>"btn btn-primary btn-xs pull-right add_city hide", :"data-toggle"=>"modal", :"data-target"=>"#myCustomerLocationCity"%>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputUrl">Zip code</label>
+                    <span class="required_field">*</span>
+                    <%=f.text_field :pin_code, :class => "form-control", :placeholder=>"enter pin code", required:true%>
+                </div>
+            </div>
+        </div>
+                <div class="form-group">
+                    <div class="row">
+                    <div class="col-md-4">
+                    <label for="inputStatus">Phone</label>
+                    <span class="required_field">*</span>
+                    <%= f.telephone_field :phone, :class=>"form-control", :placeholder=>"Enter Your Phone Number",required: true%>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputStatus">Fax</label>
+                    <%=f.text_field :fax, :class => "form-control", :placeholder=>"enter fax"%>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputStatus">Email</label>
+                    <span class="required_field">*</span>
+                    <%= f.email_field :email, :class=>"form-control", :placeholder=>"Enter Your Email ID", required: true%>
+                </div>
+            </div>
+        </div>
+                <div class="form-group">
+                     <div class="row">
+                    <div class="col-md-4">
+                    <label for="inputUrl">Url</label>
+                    <%=f.url_field :url, :class => "form-control", :placeholder=>"Enter url"%>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputLogo">Logo</label>
+                    <%= f.file_field :logo%>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <script type="text/javascript">
+   //here we are getting state wise country
+   // $(document).on('turbolinks:load', function(){
+   $(document).on("change",".select-address-country",function(){
+      var url = '/companies/get_state?country_id=' + $(this).val()
+      //$(".city_drop_down").removeOption(/./);
+      // $.get(url, function(data) {
+      //    $('.city_drop_down').addOption(data, false);
+      //  });
+      //alert("hello");
+      $.getJSON(url, function(data) {
+        // $('.select-State').html('<option>--Select State--</option>');
+        $.each(data, function(index, state) {   
+          //alert(caste.name);
+           $('.select-State').append($('<option>', { value : state.id }).text(state.name)); 
+        });
+      });
+   });
+   //here we are getting cities wise state
+   $(".select-State").change(function(){
+      var url = '/companies/get_city?state_id=' + $(this).val()
+      //$(".city_drop_down").removeOption(/./);
+      // $.get(url, function(data) {
+      //    $('.city_drop_down').addOption(data, false);
+      //  });
+      //alert("hello");
+      $.getJSON(url, function(data) {
+        // $('.select-city').html('<option>--Select City--</option>');
+        $.each(data, function(index, city) {   
+          //alert(caste.name);
+           $('.select-city').append($('<option>', { value : city.id }).text(city.name)); 
+        });
+      });
+   });
+</script>
+<!-- for adding single city -->
+<script type="text/javascript">
+ $(document).on("change",".select-State",function(){
+   $(".add_city").removeClass("hide");
+   $(".request_form").val("address");
+   $(".add_city").click(function(){
+     $(".state_id").val($(this).parent().parent().find(".select-State").val());  
+     $(".select-State").removeClass("current_state");
+     $(this).parent().parent().find(".select-State").addClass("current_state");
+   });
+ }); 
+</script> 

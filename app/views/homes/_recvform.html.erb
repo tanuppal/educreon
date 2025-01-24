@@ -1,0 +1,192 @@
+<!-- Modal -->
+<div class="modal fade recv" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="margin-top: 100px;">
+        <div class="modal-content recv-modal">
+            <br>
+            <div class="modal-header modal-header-info">
+                <h2>Receiving Form</h2>
+            </div>
+            <div class="bs-example bs-example-tabs">
+                <ul id="myTab" class="nav nav-tabs" style="font-size: 25px;">
+                    <li class="active"><a href="#signin" data-toggle="tab">Receiving details</a></li>
+                    <li class=""><a href="#signup" data-toggle="tab">Recent inventory details</a></li>
+                    <li class=""><a href="#why" data-toggle="tab">POs bill details</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in" id="why">
+                        <div class="tab-pane fade active in" id="posdetails">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="posid">Name:</label>
+                                        <div class="controls">
+                                            <input required="" id="name" name="name" type="text" class="form-control" placeholder="Name" class="input-medium" required="">
+                                        </div>
+                                    </div>
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderdate">Order Date:</label>
+                                        <div class="controls">
+                                            <input required="" id="orderdate" name="date" class="form-control" type="date" placeholder="Order Date" class="input-medium">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="vendor">Vendor:</label>
+                                        <div class="controls">
+                                            <input required="" id="vendor" name="vendor" class="form-control" type="text" placeholder="Vendor" class="input-medium">
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="quantity">Quantity Ordered:</label>
+                                        <div class="controls">
+                                            <input required="" id="quantity" name="quantity" class="form-control" type="text" placeholder="ex:2" class="input-medium">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="quantity">Quantity pending:</label>
+                                        <div class="controls">
+                                            <input required="" id="quantity" name="quantity" class="form-control" type="text" placeholder="ex:2" class="input-medium">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="quantity">Quantity Recevied today:</label>
+                                        <div class="controls">
+                                            <input required="" id="quantity" name="quantity" class="form-control" type="text" placeholder="ex:2" class="input-medium">
+                                        </div>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="billGeneral"></label>
+                                        <div class="controls">
+                                            <button id="billGeneral" name="billGeneral" class="btn btn-info col-xs-2">Save</button>
+                                        </div>
+                                        <center>
+                                            <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                        </center>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade active in" id="receiving details">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <!-- Sign In Form -->
+                                <!-- Text input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="productid">Product No:</label>
+                                    <div class="controls">
+                                        <input required="" id="productid" name="productid" type="text" class="form-control" placeholder="ex:2WA234" class="input-medium" required="">
+                                    </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="barcode">Barcode:</label>
+                                    <div class="controls">
+                                        <input required="" id="barcode" name="barcode" class="form-control" type="text" placeholder="product barcode" class="input-medium">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="quality received">Quality Received:</label>
+                                    <div class="controls">
+                                        <input required="" id="qualityreceived" name="qualityreceived" class="form-control" type="text" placeholder="Quality Received" class="input-medium">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="date received">Date Received:</label>
+                                    <div class="controls">
+                                        <input required="" id="datereceived" name="datereceived" class="form-control" type="date" placeholder="Date Received" class="input-medium">
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="billGeneral"></label>
+                                    <div class="controls">
+                                        <button id="billGeneral" name="billGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="signup">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <!-- Sign Up Form -->
+                                <!-- Text input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="date">Date:</label>
+                                    <div class="controls">
+                                        <input id="date" name="date" class="form-control" type="date" placeholder="date" class="input-large" required="">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="description">Description:</label>
+                                    <div class="controls">
+                                        <input id="description" name="description" class="form-control" type="text" placeholder="description" class="input-large" required="">
+                                    </div>
+                                </div>
+
+                                <!-- Password input-->
+                                <div class="control-group">
+                                    <label class="control-label" for="quantity">Quantity:</label>
+                                    <div class="controls">
+                                        <input id="quantity" name="quantity" class="form-control" type="text" placeholder="ex:2" class="input-large" required="">
+
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="confirmsignup"></label>
+                                    <div class="controls">
+                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Enter</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .recv-modal {
+        width: 60em;
+        top: 2em;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 1px;
+        left: -5em;
+        zoom: 85%;
+    }
+    
+    .control-label {
+        font-size: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .recv-modal {
+            width: 26em;
+            top: 9.3em;
+            margin-left: 73px;
+            left: -4em;
+        }
+    }
+</style>

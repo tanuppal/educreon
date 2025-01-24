@@ -1,0 +1,10 @@
+$("#productCategory").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_product_category_product_categories_path%>";
+$.getJSON(url, function(data) {
+	$('#product_product_category_id').html('<option>Select product category</option>');
+	$.each(data, function(index, category) {   
+	//alert(batch.name);
+	 $('#product_product_category_id').append($('<option>', { value : category.id }).text(category.category)); 
+	});
+});

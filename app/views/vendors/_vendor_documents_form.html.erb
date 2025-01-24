@@ -1,0 +1,53 @@
+<div class="row">
+    <% @general_vendor.vendor_documents.build if @general_vendor.vendor_documents.blank?%>
+    <div class="col-sm-12">
+        <%= f.nested_fields_for :vendor_documents do |ff|%>
+            <div class="form-group ">
+              <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right', role: 'button' do%>
+                <i class="fa fa-minus-square"></i>
+              <%end%>
+            </div>
+            <div class="form-group">
+              <%= ff.label :title%>
+              <%= ff.text_field :title, :class=>"form-control", :placeholder=> "enter title"%>
+            </div>
+            <div class="form-group">
+                <%= ff.label :type%>
+                <%= ff.select :document_type_id, options_for_select(@all_vendor_document_type.collect{
+                    |u| [u.name, u.id]}, ff.object.document_type_id), {:prompt=>"--Please Select--"}, {:class=>"form-control"} %>
+                <%#= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#vendorDocumentType"%>
+            </div>
+            <div class="form-group">
+              <%= ff.label :document%>
+              <%= ff.file_field :document_file%>
+            </div>
+           <div class="row">
+                <div class="col-sm-12 text-center">
+                    <%#= ff.submit "Save Document", :class=>"btn btn-primary"%>
+                </div>
+            </div>
+        <%end%>
+        <%=f.add_nested_fields_link :vendor_documents,  class: 'btn btn-info', role: 'button' do%>
+            <i class="fa fa-plus-square"></i>
+        <%end%>
+    </div>
+</div>
+           <%#= render partial: 'vendors/vendor_document' %>
+
+<!-- 
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('.btn1-save').click(function(){
+    confirm("are u sure?")
+    var url = '/vendors/get_vendor_document_types'
+    $.ajax({
+      type: "get",
+      url: url,
+      data: {
+        "name" : $(".vendor_document_type_name").val()
+      }
+    })
+    document.location.reload();
+  });
+});
+</script> -->

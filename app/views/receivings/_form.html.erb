@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for @receiving, html: { multipart: true } do  |f| %>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="form-group col-sm-6">
+            <label for="reg_input_name" class="req">Received Date</label>
+            <span class="required_field">*</span>
+            <%=f.date_field :received_date,as: :date , value: Date.today, :class=>"form-control" , :required=>true%>
+          </div>
+          <div class="col-sm-3"></div>      
+        </div>
+
+        <% @receiving.receiving_products.build if @receiving.receiving_products.blank?%>
+          <div class="col-sm-12" >
+            <%= f.nested_fields_for :receiving_products do |ff|%>
+            <div class="col-sm-12">
+              <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+                <i class="fa fa-trash"></i>
+              <%end%>
+            </div>
+            <div style="border: 1px solid #00bfff; padding: 15px; margin-bottom: 10px;">
+              <div class="form-group">
+                <label for="reg_input_name" class="req">Barcode</label>
+                <%=text_field_tag :barcode, "", :class=>"form-control barcode-search", autofocus: :true %>
+                <%=ff.hidden_field :product_id, :class => "form-control product_id" %>
+                <%=ff.hidden_field :order_id, :class => "form-control order_id" %>
+              </div>
+            <div class="product_detials" style="display: none;">
+              <div class="col-sm-12 text-center">
+                <div class="col-sm-6">
+                  <h2 class="product_name" style="color: blue;"></h2>
+                </div>
+                <div class="col-sm-6">
+                  <%= image_tag "", :class=>"product_img", :style=>"width: 100px;height: 100px;"%>
+                </div>
+                <div class="col-sm-6">
+                  <span class="customer_name" style="font-size: 20px;"></span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="order_date" style="font-size: 20px;"></span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="start_date" style="font-size: 20px;"></span>
+                </div>
+                <div class="col-sm-6">
+                  <span class="end_date" style="font-size: 20px;"></span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="product_detials1" style="display: none;">
+              <div class="col-sm-12 text-center">
+                <div class="col-sm-12">
+                  <h2 class="product_message" style="color: red;"></h2>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="reg_input_name" class="req">Fine</label>
+              <%=ff.text_field :fine, :class=>"form-control" %>
+            </div>
+          </div>
+          <%end%>
+            <%=f.add_nested_fields_link :receiving_products,  class: 'btn btn-info pull-right', role: 'button', :id=>"add_button" do%>
+              <i class="fa fa-plus-square"></i>
+            <%end%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center" style="margin-bottom: 10px;">
+          <%= f.submit "Submit", :class=>"btn btn-info"%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+<script>
+  $( document ).on("blur", ".barcode-search", function(){
+     // $(".barcode-search").blur(function(){
+      var object = $(this);
+      //alert("hello");
+    var url = '/receivings/barcode_search_receiving'
+    $.ajax({
+      type : "get",
+      url : url ,
+      data : {
+        "barcode" : $(this).val()
+      },
+      success: function(data) {
+        if (data.status == true )
+        {
+          object.parent().find('.product_id').val(data.product.id);
+          object.parent().find('.order_id').val(data.order.id);
+          object.parent().next().children().children().find('.product_name').text(data.product.name);
+          object.parent().next().children().children().next().find('.product_img').attr("src",data.product_image_url);
+          object.parent().next().children().children().next().find('.start_date').text("Start Date : " + data.order_scheduling.rental_picup);
+          object.parent().next().children().children().next().find('.end_date').text("End Date : " + data.order_scheduling.rental_return);
+          object.parent().next().children().children().next().find('.customer_name').text("Customer Name : " + data.customer_name);
+          console.log(data.order);
+          object.parent().next().children().children().next().find('.order_date').text("Order Date : " + data.order.date);
+
+          object.parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().next().find('#received_status').append("<i class='fa fa-check'></i>");
+
+          object.parent().next().show("slow");
+          object.parent().parent().find('.product_detials1').hide("slow");
+          // $('#add_button').click();
+        }
+        else
+        {
+          object.parent().parent().find('.product_message').text(data.message);
+          object.parent().parent().find('.product_detials1').show("slow");
+          object.parent().next().hide("slow");
+        }
+
+         // $('.product_img').val(data.product_image.image.url);
+      },
+      error: function(data) {
+        successmessage = 'Error';
+        $("label#successmessage").text(successmessage);
+      }
+    })
+});
+</script>

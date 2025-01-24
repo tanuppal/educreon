@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+    <%= form_for @general_product, html: {multipart: true} do |t| %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+              <a href="/products/products_list">products</a>
+            </li>
+            <li class="breadcrumb-item active">
+                show
+            </li>
+            <!-- <button class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="modal" data-target="">save</button> -->
+        </ol>
+        <%= render :partial => "products/form_show", locals: {t:t}%>
+    </div>
+    <%end%>
+</div>
+<%= render "product_types/product_type_form"%>
+<%= render "product_categories/product_category_form"%>
+<%= render "product_statuses/product_status_form"%>
+<%= render "kit_items/form"%>
+<br>
+<br>
+<br>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+</style>
+

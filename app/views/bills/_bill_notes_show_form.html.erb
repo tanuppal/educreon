@@ -1,0 +1,27 @@
+  <div class="row">
+       <% @general_bill.bill_notes.build if @general_bill.bill_notes.blank?%>
+      <div class="col-sm-12">
+          <%= f.nested_fields_for :bill_notes do |ff|%>
+              <div class="form-group">
+                <%= ff.text_area :note, :class=>"form-control edit-field", :readonly => true%>
+              </div>
+              <div class="row">
+        		 <div class="col-sm-12">
+            <div class="text-right">
+            <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+                <%=ff.submit "Submit",:class=>"btn btn-info edit-btn"%>
+            </div>
+        </div>
+      		</div>
+          <%end%>
+      </div>
+  </div>
+  <script type="text/javascript">
+  $(document).on("turbolinks:load",function(){
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+    });
+  });
+</script>

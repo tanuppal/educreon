@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: MyString
+  coverage: 1.5
+  expired_by: 2018-05-28
+  customer: one
+
+two:
+  provider: MyString
+  coverage: 1.5
+  expired_by: 2018-05-28
+  customer: two

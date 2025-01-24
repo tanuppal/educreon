@@ -1,0 +1,102 @@
+<% @general_customer.people_contacts.build if @general_customer.people_contacts.blank?%>
+<%= f.nested_fields_for :people_contacts do |ff|%>
+	<div class="col-sm-12">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4">
+					<%= ff.label :first_name%>
+					<!-- <span class="required_field">*</span> -->
+					<%= ff.text_field :first_name, :class=>"form-control", :placeholder=>"Enter First Name"%>
+				</div>
+				<div class="col-sm-4">
+					<%= ff.label :last_name%>
+					
+					<%= ff.text_field :last_name, :class=>"form-control", :placeholder=>"Enter Last Name"%>
+				</div>
+				<div class="col-sm-4">
+					<%= ff.label :salutation%>
+					<!-- <span class="required_field">*</span> -->
+					<%= ff.select :salutation, options_for_select([["Mr.","mr."],["Mrs.","mrs."]],ff.object.salutation),{:prompt=>"--Please Select--"},{:class=>"form-control"} %>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4">
+					<%= ff.label :title%>
+					
+					<%= ff.text_field :title, :class=>"form-control", :placeholder=>"Enter Title"%>
+				</div>
+				<div class="col-sm-4">
+					<%= ff.label :status%>
+					<!-- <span class="required_field">*</span> -->
+					<%= ff.select :status, options_for_select([["Active","Active"],["Inactive","Inactive"]],ff.object.status),{:prompt=>"--Please Select--"}, {:class=>"form-control"} %>
+				</div>
+				<div class="col-sm-4">
+					<%= ff.label :department%>
+					<%= ff.text_field :department, :class=>"form-control", :placeholder=>"Enter Document"%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">		
+		<!-- Contact Methods -->
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h4 class="panel-title text-center">Contact Methods</h4>
+			</div>
+		</div>
+		<% ff.object.people_contact_methods.build if ff.object.people_contact_methods.blank?%>
+		<div class="panel-body">
+			<%= ff.nested_fields_for :people_contact_methods do |fff|%>
+				<div class="form-group pull-right">
+					<div class="row">
+						<div class="col-md-12">
+							<%=fff.remove_nested_fields_link '', class: 'btn btn-danger', role: 'button' do%>
+								<i class="fa fa-minus-square"></i>
+							<%end%>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-4">
+				    		<%= fff.label :Contact_Type%>
+				    		<!-- <span class="required_field">*</span> -->
+				    		<%= fff.select :contact_method_type_id, options_for_select(@all_customer_method_type.collect{ |u| [u.name, u.id]},fff.object.contact_method_type_id), {prompt: "--Please Select--"}, {:class=>"form-control customerContactMethodType"}%>
+						</div>
+				    	<div class="col-sm-4">
+							<%= fff.label :phone%>
+							<!-- <span class="required_field">*</span> -->
+							<%= fff.telephone_field :phone, :class=>"form-control", :placeholder=>"Enter Phone"%>
+						</div>
+						<div class="col-sm-4">
+							<%= fff.label :email%>
+							<!-- <span class="required_field">*</span> -->
+							<%= fff.email_field :email, :class=>"form-control", :placeholder=>"Enter Email"%>
+						</div>
+						<div class="col-sm-4">	
+							<%= fff.label :Default%>
+							<%= fff.check_box :is_primary, class: "radio_option_for_people_contact_method"%>
+						</div>
+					</div>
+		    	</div>
+			<%end%>				
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-12">
+					<%=ff.add_nested_fields_link :people_contact_methods,  class: 'btn btn-info', role: 'button' do%>
+			    		<i class="fa fa-plus-square"></i>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+<%end%>
+<script type="text/javascript">
+	$(document).on("click", ".radio_option_for_people_contact_method", function(){
+		$(".radio_option_for_people_contact_method").prop("checked",false);
+		$(this).prop("checked",true);
+	});
+</script>

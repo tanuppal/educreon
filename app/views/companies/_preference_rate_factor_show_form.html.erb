@@ -1,0 +1,51 @@
+<% @preference_company.company_rate_factors.build if @preference_company.company_rate_factors.blank?%>
+<%= f.nested_fields_for :company_rate_factors do |ff|%>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%=ff.remove_nested_fields_link :company_rate_factors,  class: 'btn btn-danger pull-right edit-field hide', role: 'button' do%>
+             <i class="fa fa-minus-square"></i>
+        <%end%>
+      </div>
+    </div>  
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="inputName">Label</label>
+           <%= ff.text_field :label, :class=>"form-control edit-field", :placeholder=>"enter label", :readonly=> true%>
+        </div>
+    </div>
+    <div class="col-sm-4">    
+        <div class="form-group">
+            <label for="inputType">Day</label>
+           <%= ff.text_field :day, :class=>"form-control edit-field", :placeholder=>"enter day", :readonly=> true%>
+        </div>
+    </div>
+    <div class="col-sm-4">    
+        <div class="form-group">
+            <label for="inputTerms">factor</label>
+              <%= ff.text_field :factor, :class=>"form-control edit-field", :placeholder=>"enter factor", :readonly=> true%>
+        </div>
+    </div>    
+<%end%>
+<div class="col-sm-12">
+    <div class="form-group">
+        <%=f.add_nested_fields_link :company_rate_factors,  class: 'btn btn-info edit-field hide', role: 'button' do%>
+             <i class="fa fa-plus-square"></i>
+        <%end%>
+    </div>
+</div>   
+<div class="col-sm-12">
+    <div class="text-right">
+        <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+            <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".edit_button").click(function() {
+        //alert("hello");
+        $(".edit-field").prop("readonly", false);
+        $(".edit-field").prop("disabled", false);
+        $(".edit-field").removeClass("hide");
+    });
+});
+</script>

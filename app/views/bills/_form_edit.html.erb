@@ -1,0 +1,124 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#billsGeneral" data-toggle="tab">General</a></li>
+                    <li><a href="#billsVendor" data-toggle="tab">Current Vendor Info</a></li>
+                    <li><a href="#billNotes" data-toggle="tab">Notes</a></li>
+                    <li><a href="#billItems" data-toggle="tab">Items</a></li>
+                    <li><a href="#billShipments" data-toggle="tab">Shipments</a></li>
+                    <li><a href="#billPayments" data-toggle="tab">Payments</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+            <%= form_for @general_bill, html: {multipart: true} do |t| %>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="billsGeneral">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">General</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'bills/bills_general_submit', :locals=> {:t=> t}  %>
+                                </div>
+                            </div>
+                        </div>
+                        <%#= render  partial: 'bills/bills_general_edit' %>
+                    </div>
+                    <div class="tab-pane fade" id="billsVendor">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Vendor Info</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bills_current_vendor_form' %>
+                                </div>
+                            </div>
+                        </div>
+                         <%#= render  partial: 'bills/bills_current_vendor_new' %>
+                    </div>
+                    <div class="tab-pane fade" id="billItems">
+                        <div class="col-sm-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Location</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_items_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billShipments">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Shipments</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_shipments_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billPayments">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Payments</div>
+                                <div class="panel-body product-pricing">
+                                    <%= render  partial: 'bills/bill_payments_form' %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="billNotes">
+                        <div class="col-sm-5">
+                            <div class="panel panel-info">
+                                <div class="panel-heading text-center">Notes</div>
+                                <div class="panel-body products-general-info">
+                                    <%= render  partial: 'bills/bill_notes_form'%>
+                                </div>
+                            </div>
+                        </div>
+                        <%= render  partial: 'bills/bill_notes_new'%>
+                    </div>
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+                min-height: 497px;
+                max-height: 497px;
+}
+.products-barcodes{
+                min-height: 300px;
+                max-height: 300px;
+}
+.product-pricing{
+                min-height: 229px;
+                max-height: 229px;
+}
+.product-rental-cost{
+                max-height: 199px;
+                min-height: 199px;
+}*/
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>

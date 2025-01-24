@@ -1,0 +1,77 @@
+<div class="content">
+  <div class="col-sm-12">
+       <%= form_for @general_bill, html: {multipart: true} do |f| %>
+      <div class="form-group">
+          <% if @last_bill_number.present? %>
+            <% number = @last_bill_number.number + 1%>
+            <strong><span>Number:<%= :number %></span></strong>
+          <%else%>
+             <span>Number:</span>
+          <%end%>
+          <%if @all_general_vendor.present?%>
+      <strong>
+        <span>Bill Number:&nbsp;&nbsp;<%=@all_general_bills.try(:number)%></span>
+      </strong>
+      <%end%>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="inputType">Vendor</label>
+        <%=f.select :vendor_id, options_for_select(@all_general_vendor.collect{ |u| [u.name, u.id]},@general_bill.vendor_id),{:prompt=>"--Please Select--"},{ :class => "form-control edit-field", :id=> "select_vendor",:disabled=>"disabled"}%>
+      </div>
+      <div class="form-group col-sm-6">
+          <label for="inputDate">Date</label>
+          <%=f.date_field :date, :class => "form-control edit-field", :placeholder=>"", :id=>"bill_date",:disabled=>"disabled"%>
+      </div>
+       <div class="form-group col-sm-6">
+          <label for="inputDate">Eta</label>
+          <%=f.date_field :eta, :class => "form-control edit-field", :placeholder=>"",:disabled=>"disabled" %>
+      </div>
+      <div class="form-group col-sm-6">
+          <label for="inputPayment Terms">Payment Terms</label>
+            <%=f.select :vendor_term_id, options_for_select(@all_vendor_term.collect{ |u| [u.term, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+          
+      </div>
+      <div class="form-group col-sm-6">
+          <label for="inputStatus">Status</label>
+           <%=f.select :bill_status_id, options_for_select(@all_general_bill_status.collect{ |u| [u.name, u.id]},@general_bill.bill_status_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled"}%>
+           <%= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide" , :"data-toggle"=>"modal", :"data-target"=>"#billStatus" %>
+
+      </div><br>
+      <%#= render partial: 'bills/bill_status' %>
+        <div class="col-sm-12">
+        <div class="text-right">
+          <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+          <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+        </div>
+      </div>
+      <%end%>
+  </div>        
+</div>
+
+<script type="text/javascript">
+  $(document).on("turbolinks:load",function(){
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+      $(".edit-field").removeClass("hide");
+    });
+  });
+</script>
+
+<script type="text/javascript">
+ $(document).on('turbolinks:load', function(){
+  $("#select_vendor").change(function(){
+    var url = '/bills/get_vendors?vendor_id=' + $(this).val();
+    $.getJSON(url, function(data) {
+      $('#inputAddress1').val(data.address.address_1);
+      $('#inputAddress2').val(data.address.address_2);
+      $('#inputCountry').val(data.country_name.name);
+      $('#inputState').val(data.state_name.name);
+      $('#inputCity').val(data.city_name.name);
+      $('#inputPhone').val(data.vendor.phone);
+      $('#inputemail').val(data.vendor.email);
+      });
+  });
+});
+</script>

@@ -1,0 +1,141 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Blank Page</li>
+    </ol>
+    <div class="row">
+      <div class="col-12">
+
+ <div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                   <li class="active"><a href="#orderGeneral" data-toggle="tab">General</a></li>
+                   <li><a href="#orderScheduling" data-toggle="tab">Scheduling</a></li>
+                   <li><a href="#orderBillTo" data-toggle="tab">Bill To</a></li>
+                   <li><a href="#orderBillShipto" data-toggle="tab">Ship To</a></li>
+                   <li><a href="#orderItems" data-toggle="tab">Items</a></li>
+                   <li><a href="#productBarcode" data-toggle="tab">Deliveries</a></li>
+                   <li><a href="#productOrders" data-toggle="tab">Payments</a></li>
+                   <li><a href="#orderNotes" data-toggle="tab">Notes</a></li>
+                   <li><a href="#productOrders" data-toggle="tab">Invoices</a></li>
+                    <li><a href="#productBills" data-toggle="tab">Profit</a></li>
+                </ul>
+            </div>
+        <div class="content">
+          <div class="row">
+              <%= form_for @general_order, html: {multipart: true} do |t| %>
+            <div class="col-lg-9">
+              <div class="tabbable">
+                <div class="tab-content">
+                   <div class="tab-pane fade in active" id="orderGeneral">
+                    <div class="panel panel-flat">
+                      <div class="panel-heading">
+                        <h6 class="panel-title">Order Information</h6>
+                        <div class="heading-elements">
+                          <ul class="icons-list">
+                       <!--      <li><a data-action="collapse"></a></li>
+                            <li><a data-action="reload"></a></li> -->
+                          </ul>
+                        </div>
+                        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+                      </div>
+                      <div class="panel-body">
+                        <form enctype="multipart/form-data" id="employeedetails-form" action="/index.php/core/employeedetails/update/id/72" method="post">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label for="reg_input_name" class="req">Order No</label>
+                                  <%=text_field_tag :name, "",:class => "form-control order_type_name", :placeholder=>"Enter order Type Name"%>
+                                <div class="school_val_error" id="Employeemaster_employee_code_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="reg_input_name" class="req">Type</label>
+                                <div data-date-format="dd-mm-yyyy" class="input-group date">
+                                  <%=t.select :order_type_id, options_for_select(@all_order_type.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"}%>
+                                  <div class="school_val_error" id="Employeemaster_employee_joiningdate_em_" style="display:none"></div>
+                                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label for="reg_input" class="req">Customer</label>
+                                  <%=t.select :customer_id, options_for_select(@all_general_customer.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, :class => "form-control" ,:id=> "select_customer"%> 
+                                <div class="school_val_error" id="Employeemaster_departmentid_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="reg_input_name" class="req">Number</label>
+                                <div id="batch_div">
+                                  <%=t.date_field :date, :class => "form-control", :placeholder=>"Number"%>
+                                  <div class="school_val_error" id="Employeemaster_designationid_em_" style="display:none"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="reg_input_name" class="req">Salesperson</label>
+                                <%=text_field_tag :name, "",:class => "form-control order_type_name", :placeholder=>"Enter order Type Name"%>
+                                <div class="school_val_error" id="Employeedetails_employeedetails_qualification_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="reg_input_name" class="req">Order Date</label>
+                                <input class="form-control" name="Employeedetails[employeedetails_experience]" id="Employeedetails_employeedetails_experience" type="text" maxlength="3" value="5" />
+                                <div class="school_val_error" id="Employeedetails_employeedetails_experience_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="usertype" class="req">Customer PO#</label>
+                                <%=t.text_field :cust_po, :class => "form-control", :placeholder=>"Number"%>
+                                <div class="school_val_error" id="Employeemaster_usertype_em_" style="display:none"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="reg_input_name" class="req">Pmt Term</label>
+                                <%=t.select :payment_term_id, options_for_select(@all_payment_term.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"}%>
+                                <div class="school_val_error" id="Employeemaster_employee_firstname_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="reg_input_name" >Status </label>
+                                <input size="84" maxlength="45" class="form-control" name="Employeemaster[employee_middlename]" id="Employeemaster_employee_middlename" type="text" value="" />
+                                <div class="school_val_error" id="Employeemaster_employee_middlename_em_" style="display:none"></div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="reg_input_name">Last Name</label>
+                                <input size="84" maxlength="45" class="form-control" name="Employeemaster[employee_lastname]" id="Employeemaster_employee_lastname" type="text" value="Laurie" />
+                                <div class="school_val_error" id="Employeemaster_employee_lastname_em_" style="display:none"></div>
+                              </div>
+                            </div>
+                          </div>
+               
+                          <div class="text-right">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+     </br>

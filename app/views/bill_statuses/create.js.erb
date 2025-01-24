@@ -1,0 +1,10 @@
+$("#billStatus").modal('hide');
+ $(".status_content").val('');
+var url = "<%=all_bill_status_bill_statuses_path%>";
+$.getJSON(url, function(data) {
+	$('#bill_bill_status_id').html('<option>Select bill status </option>');
+	$.each(data, function(index, status) {   
+	//alert(batch.name);
+	 $('#bill_bill_status_id').append($('<option>', { value : status.id }).text(status.name)); 
+	});
+});

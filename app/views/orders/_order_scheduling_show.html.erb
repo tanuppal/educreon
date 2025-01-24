@@ -1,0 +1,27 @@
+<div class="content">
+   <% @general_order.order_schedulings.build if @general_order.order_schedulings.blank?%>
+    <div class="col-sm-12">
+      <%= t.nested_fields_for :order_schedulings do |ff|%>
+        <div class="form-group">
+            <label for="rental">Rental prep</label>
+            <%=ff.date_field :rental_prep, :class => "form-control", :placeholder=>"cost" %>
+        </div>
+        <div class="form-group">
+            <label for="rental">Rental Pickup</label>
+            <span class="required_field">*</span>
+             <%=ff.date_field :rental_picup, :class => "form-control", :placeholder=>"cost" %>
+        </div>
+        <div class="form-group">
+            <label for="rental">Rental Return</label>
+            <span class="required_field">*</span>
+            <%=ff.date_field :rental_return, :class => "form-control", :placeholder=>"cost" %>
+        </div>
+        
+        <div class="text-right">
+          <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+          <%=t.submit "Submit",:class=>"btn btn-info edit-btn"%>
+        </div>
+     
+        <%end%>
+    </div>
+</div>

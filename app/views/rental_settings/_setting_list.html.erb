@@ -1,0 +1,32 @@
+<%@all_rental_setting.each_with_index do |x,index|%>
+  <%
+    if (index + 1) % 2 == 0
+      class_name = "even"
+    else
+      class_name = "odd"
+    end
+  %>
+  <tr class="<%=class_name%>">
+    <td width="7%"><%=index+1%></td>
+    <td width="13%"><%=x.name%></td>
+    <td width="50%"><%=x.address%></td>
+    <td width="20%"><%= image_tag x.logo.url(:mediumb), :class=>"img_logo"%></td>
+    <td width="10%">
+      <%=link_to edit_rental_setting_path(x),:title=>"edit" do%>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <%end%>
+      <%=link_to rental_setting_path(x),:method => :delete, :class => "delete", :confirm => "Are you sure ?" do%>
+        <span class="glyphicon glyphicon-remove"></span>
+      <%end%>
+    </td>
+  </tr> 
+<%end%>
+
+
+<style type="text/css">
+  .img_logo {
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+  }
+</style>

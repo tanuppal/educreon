@@ -1,0 +1,11 @@
+$("#KitItem").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_kit_item_kit_items_path%>";
+$.getJSON(url, function(data) {
+	$('.current_product').html('<option>Select Kit Item</option>');
+	$.each(data, function(index, item) {   
+	//alert(batch.name);
+	 $('.current_product').append($('<option>', { value : item.id }).text(item.name)); 
+	});
+	$('.current_product').parent().find(".product_kit_item_id").val("<%=@kit_item.id%>")
+});

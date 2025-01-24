@@ -1,0 +1,23 @@
+$("#myCustomerLocationCity").modal('hide');
+ $(".city_content").val('');
+var url = "<%=get_all_city_by_state_city_path(@city.state_id)%>";
+if ("<%=@request_form%>" == "insurance"){
+	$.getJSON(url, function(data) {
+		$(".current_state1").parent().parent().parent().parent().find('.select-city1').html('<option>Select City </option>');
+		$.each(data, function(index, status) {   
+		//alert(batch.name);
+		$(".current_state1").parent().parent().parent().parent().find('.select-city1').append($('<option>', { value : status.id }).text(status.name)); 
+		});
+		$(".current_state1").parent().parent().parent().parent().find('.select-city1').val("<%=@city.id%>");
+	});
+}
+else {
+	$.getJSON(url, function(data) {
+		$(".current_state").parent().parent().find('.select-city').html('<option>Select City </option>');
+		$.each(data, function(index, status) {   
+		//alert(batch.name);
+		$(".current_state").parent().parent().find('.select-city').append($('<option>', { value : status.id }).text(status.name)); 
+		});
+		$(".current_state").parent().parent().find('.select-city').val("<%=@city.id%>");
+	});
+}

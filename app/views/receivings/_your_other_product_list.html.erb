@@ -1,0 +1,97 @@
+<%= form_for :your_product_list,:url => {:controller => "receivings", :action => "product_received"},:html=>{:method => 'GET'} do |f|%>
+	<div class="panel-body">
+	  <div class="row" style="margin-bottom: 30px;">
+	  	<div class="col-sm-8">
+	  		<label>Enter Order ID</label>
+	  		<%= f.text_field :order_id, :value=>params[:your_product_list].present? ? params[:your_product_list][:order_id] : "", :class=>"form-control" %>
+	  	</div>
+	  	<div class="col-sm-4 text-center">
+	  		<%= f.submit "Submit", :class=>"btn btn-info", :style=>"margin-top : 20px;"%>
+	  	</div>
+	  </div>
+	</div>
+<%end%>
+
+<%if @order.present?%>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="customer-name text-center">
+				<h3>Customer Name : <%= @order.customer.try(:name)%></h3>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<%@order.order_schedulings.each do |x|%>
+				<% if x.product.product_type.name == "Rental"%>
+					<div class="col-sm-12 all-product">
+						<div class="row">						
+							<div class="col-sm-4">
+								<div class="product-img">
+									<% product_img = x.product.product_images.last %>
+									<%= image_tag(product_img.image.url(:medium), :class=>"pro-img")%>
+								</div>
+							</div>
+							<div class="col-sm-8">
+								<div class="row">
+									<div class="col-sm-6"  style="padding: 10px;">
+										<label>Product Name : </label><br>
+										<span class="pro-font"><%= x.product.try(:name)%></span>
+									</div>
+									<div class="col-sm-6" style="padding: 10px;">
+										<label>Product Barcode : </label><br>
+										<span class="pro-font"><%= x.product.try(:barcode)%></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6" style="padding: 10px;">
+										<label>Rental Picup : </label><br>
+										<span class="pro-font"><%= x.rental_picup.strftime("%d-%b-%Y") if x.rental_picup.present? %></span>
+									</div>
+									<div class="col-sm-6" style="padding: 10px;">
+										<label>Rental Return : </label><br>
+										<span class="pro-font"><%= x.rental_return.strftime("%d-%b-%Y") if x.rental_return.present? %></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12 text-center" style="padding: 10px;">
+										<label>Received Status : </label>
+										<span class="pro-font" id="received_status">  </span>
+									</div>
+								</div>
+							</div>						
+						</div>
+					</div>
+				<%end%>
+			<%end%>
+		</div>
+	</div>
+<%end%>
+
+<style type="text/css">
+	.customer-name {
+		/*padding: 20px;*/
+		border: 1px solid;
+		background-color: #3498DB;
+		color: #fff;
+	}
+	.product-img {
+		border-right: 1px solid #48C9B0;
+		padding: 10px;
+	}
+	.pro-img {
+		width: 200px;
+		height: 150px;
+	}
+	.all-product {
+		padding: 10px; 
+		border: 1px solid #48C9B0; 
+		margin-top: 10px;
+	}
+	.pro-font {
+		font-size: 15px;
+		font-weight: 600;
+		border: 1px solid #48C9B0;
+		padding: 5px;
+		background-color: #48C9B0;
+		color: #fff;
+	}
+</style>

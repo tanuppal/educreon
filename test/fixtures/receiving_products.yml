@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  receiving: one
+  fine: 1.5
+
+two:
+  product: two
+  receiving: two
+  fine: 1.5

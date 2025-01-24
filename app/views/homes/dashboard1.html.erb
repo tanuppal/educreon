@@ -1,0 +1,754 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>
+        <!-- Icon Cards-->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-comments"></i>
+                        </div>
+                        <div class="mr-5">26 New Customers!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Total Customers</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">11 New Vendors!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Total Vendors</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-shopping-cart"></i>
+                        </div>
+                        <div class="mr-5">123 New Orders!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Total Orders</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-support"></i>
+                        </div>
+                        <div class="mr-5">13 New products!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Total Products</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-body homes-panel-body">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLdP2O_c_jc5v6VsJHWeNijYgS9U24l1WPurXXFvRbuqO9Et8-" class="img-responsive img-thumbnail">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="panel with-nav-tabs panel-info">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs" style="font-size: 18px;">
+                            <li class="active"><a href="#item" data-toggle="tab">Check in</a></li>
+                            <li><a href="#shipment" data-toggle="tab">Check out</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="item">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <form class="form-inline well clearfix">
+                                            <div class="form-group homes-range">
+                                                <label for="homesFilterDateRange" class="control-label col-md-1">Order No:</label>
+                                                <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                                <label for="homesFilterStartDate" class="control-label col-md-1 "> Bar code:</label>
+                                                <!-- Start Date: -->
+                                                <input type="code" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+
+                                                <div class="col-12">
+                                                    <button class="btn btn-sm btn-info homesFilterButton" style="margin-left: 20px;">Submit</button>
+                                                    <i class="fa fa-print"><b>Print</b></i>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>SKU</th>
+                                                            <th>Items</th>
+                                                            <th>Qty</th>
+                                                            <th>Checked In</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car">
+                                                                <br>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="shipment">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <form class="form-inline well clearfix">
+                                            <div class="form-group homes-range">
+                                                <label for="homesFilterDateRange" class="control-label col-md-1">Order No:</label>
+                                                <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                                <label for="homesFilterStartDate" class="control-label col-md-1 "> Bar code:</label>
+                                                <!-- Start Date: -->
+                                                <input type="code" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+
+                                                <div class="col-12">
+                                                    <button class="btn btn-sm btn-info homesFilterButton" style="margin-left: 20px;">Submit</button>
+                                                    <i class="fa fa-print"><b>Print</b></i>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>SKU</th>
+                                                            <th>Items</th>
+                                                            <th>Qty</th>
+                                                            <th>return cond.</th>
+                                                            <th>Checked Out</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car">
+                                                                <br>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tape</td>
+                                                            <td>Gaffer Tape Black</td>
+                                                            <td>2</td>
+                                                            <td>2</td>
+
+                                                            <td>
+                                                                <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Area Chart Example-->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-area-chart"></i>Orders</div>
+                <div class="card-body">
+                    <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                </div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Example Bar Chart Card-->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-bar-chart"></i>Products Sales per Month</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-8 my-auto">
+                                    <canvas id="myBarChart" width="100" height="70"></canvas>
+                                </div>
+                                <div class="col-sm-4 text-center my-auto">
+                                    <div class="h4 mb-0 text-primary">$34,693</div>
+                                    <div class="small text-muted">YTD Revenue</div>
+                                    <hr>
+                                    <div class="h4 mb-0 text-warning">$18,474</div>
+                                    <div class="small text-muted">YTD Expenses</div>
+                                    <hr>
+                                    <div class="h4 mb-0 text-success">$16,219</div>
+                                    <div class="small text-muted">YTD Margin</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Example Pie Chart Card-->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-pie-chart"></i> Sales Chart</div>
+                        <div class="card-body">
+                            <canvas id="myPieChart" width="100%" height="100"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Area Chart Example-->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-area-chart"></i>Customers</div>
+                        <div class="card-body">
+                            <canvas id="myCustomers" width="100%" height="60"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Area Chart Example-->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-area-chart"></i>Vendors</div>
+                        <div class="card-body">
+                            <canvas id="myVendors" width="100%" height="60"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example DataTables Card-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel with-nav-tabs panel-info">
+                            <div class="panel-heading">
+                                <h4>Orders</h4>
+                            </div>
+                            <div class="panel-body">
+                                <h4 class="text">Filter List by:</h4>
+                                <form class="form-inline well clearfix">
+                                    <div class="form-group homes-range">
+                                        <label for="homesFilterDateRange" class="control-label col-md-1"> Date Range:</label>
+                                        <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                        <label for="homesFilterStartDate" class="control-label col-md-1 "> Start Date:</label>
+                                        <!-- Start Date: -->
+                                        <input type="date" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+
+                                        <label for="homesFilterEndDate" class="control-label col-md-1"> End Date:</label>
+                                        <!-- End Date: -->
+                                        <input type="date" name="edate" class="form-control col-md-2" id="homesFilterEndDate">
+                                        <label for="homesFilterStatus" class="control-label col-md-1"> Status:</label>
+                                        <!-- Status: -->
+                                        <input type="text" name="status" class="form-control col-md-2" id="homesFilterStatus">
+                                        <div class="col-12">
+                                            <button class="btn btn-sm btn-info pull-right homesFilterButton">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="item">
+                                        <div class="card mb-3">
+                                            <div class="card-header">
+                                                <i class="fa fa-database">&nbsp;</i>List</div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th>Codes</th>
+                                                                <th>Items</th>
+                                                                <th>Qty</th>
+                                                                <th>Cost</th>
+                                                                <th>Discount</th>
+                                                                <th>Extra Cost</th>
+                                                                <th>Tax</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Tape</td>
+                                                                <td>Gaffer Tape Black</td>
+                                                                <td>2</td>
+                                                                <td>$5000</td>
+                                                                <td></td>
+                                                                <td>$6000</td>
+                                                                <td>
+                                                                    <input type="checkbox" name="vehicle" value="Car">
+                                                                    <br>
+                                                                </td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tape</td>
+                                                                <td>Gaffer Tape Black</td>
+                                                                <td>2</td>
+                                                                <td>$5000</td>
+                                                                <td></td>
+                                                                <td>$6000</td>
+                                                                <td>
+                                                                    <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tape</td>
+                                                                <td>Gaffer Tape Black</td>
+                                                                <td>2</td>
+                                                                <td>$5000</td>
+                                                                <td></td>
+                                                                <td>$6000</td>
+                                                                <td>
+                                                                    <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tape</td>
+                                                                <td>Gaffer Tape Black</td>
+                                                                <td>2</td>
+                                                                <td>$5000</td>
+                                                                <td></td>
+                                                                <td>$6000</td>
+                                                                <td>
+                                                                    <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tape</td>
+                                                                <td>Gaffer Tape Black</td>
+                                                                <td>2</td>
+                                                                <td>$5000</td>
+                                                                <td></td>
+                                                                <td>$6000</td>
+                                                                <td>
+                                                                    <input type="checkbox" name="vehicle" value="Car" checked>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="shipment">Info 2</div>
+                                    <div class="tab-pane fade" id="payment">Info 2</div>
+                                    <div class="tab-pane fade" id="note">Info 2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <!-- Scroll to Top Button-->
+    </div>
+</div>
+    <br>
+    <br>
+    <br>
+
+<script type="text/javascript">
+  var ctx = document.getElementById("myAreaChart");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    datasets: [{
+      label: "Sessions",
+      lineTension: 0.3,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 20,
+      pointBorderWidth: 2,
+      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 40000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+// -- Bar Chart Example
+var ctx = document.getElementById("myBarChart");
+var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [{
+      label: "Revenue",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: [4215, 5312, 6251, 7841, 9821, 14984],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 15000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+// -- Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Blue", "Red", "Yellow", "Green"],
+    datasets: [{
+      data: [12.21, 15.58, 11.25, 8.32],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+    }],
+  },
+});
+// customers
+var ctx = document.getElementById("myCustomers");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    datasets: [{
+      label: "Sessions",
+      lineTension: 0.3,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 20,
+      pointBorderWidth: 2,
+      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 40000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+// vendors
+// customers
+var ctx = document.getElementById("myVendors");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    datasets: [{
+      label: "Sessions",
+      lineTension: 0.3,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 20,
+      pointBorderWidth: 2,
+      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 40000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
+</script>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    .homes-panel-body{
+        padding-top: 0px;
+    }
+    #homesFilterDateRange{
+        width: 125px;
+    }
+    #homesFilterStartDate{
+        width: 148px;
+    }
+    #homesFilterEndDate{
+        width: 148px;
+    }
+    #homesFilterStatus{
+        width: 109px;
+    }
+    
+@media screen and (max-width: 700px) {
+.homes-range{
+    margin-bottom: -8px;
+    margin-left:3em;
+}
+input{
+  margin-bottom: 20px;
+}  
+  
+}
+
+@media (max-width: 768px) {
+    #homesFilterDateRange{
+        width: 148px;
+    }
+    #homesFilterStartDate{
+        width: 148px;
+    }
+    #homesFilterEndDate{
+        width: 148px;
+    }
+    #homesFilterStatus{
+        width: 148px;
+    }  
+    .homesFilterButton{
+        margin-right: 2em;
+    }
+}
+    
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+

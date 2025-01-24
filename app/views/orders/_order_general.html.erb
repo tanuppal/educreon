@@ -1,0 +1,98 @@
+<div class="content">
+    <div class="col-sm-12">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+            <label for="type">Type</label>
+             <%=t.select :order_type_id, options_for_select(@all_order_type.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"}%>
+             <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#orderType"%>
+        </div>
+        <div class="col-md-4">
+            <label for="customer">Customer</label>
+            <span class="required_field">*</span>
+            <%=t.select :customer_id, options_for_select(@all_general_customer.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, :class => "select_combobox form-control" ,:id=> "select_customer",:required=>true%> 
+        </div>
+<!--         <div class="col-md-4">
+            <label for="number"> Order Number</label>
+            <span class="required_field">*</span>
+           <%#=t.text_field :number, :class => "form-control", :placeholder=>"Number",:required=>true%>
+        </div> -->
+            <div class="col-md-4">
+            <label for="salesperson">Salesperson</label>
+             <%=t.select :sales_person_id, options_for_select(@all_sales_person.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"}%>
+             <%= link_to "Add Salesperson", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#orderSalesperson"%>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="col-sm-12">
+        <div class="form-group">
+             <div class="row">
+            
+        <div class="col-md-4">
+            <label for="date">Date</label>
+            <span class="required_field">*</span>
+             <%=t.date_field :date, :class => "form-control", :placeholder=>"Number",:required=>true%>
+        </div>
+        <div class="col-md-4">
+            <label for="customerpo#">Customer PO#</label>
+             <%=t.text_field :cust_po, :class => "form-control", :placeholder=>"Number"%>
+        </div>
+            <div class="col-md-4">
+            <label for="printterms">Payment Terms</label>
+            <span class="required_field">*</span>
+            <%=t.select :payment_term_id, options_for_select(@all_payment_term.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+            <%= link_to "Add Terms", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#orderPayment"%>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="col-sm-12">
+        <div class="form-group">
+            <div class="row">            
+        <div class="col-md-4">
+            <label for="status">Status</label>
+            <span class="required_field">*</span>
+           <%=t.select :order_status_id, options_for_select(@all_order_status.collect{ |u| [u.status, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+           <%= link_to "Add status", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#orderStatus"%>
+        </div>
+      </div>
+    </div>
+  </div>
+       <%#= t.submit "Submit", :class=>"btn btn-primary"%>
+    </div>
+<script type="text/javascript">
+ $(document).on('turbolinks:load',function() {
+   $('#select_customer').change(function(){
+     var url = '/customers/get_customer_addrs';
+     $.ajax({
+         type: "get",
+         url: url,
+         data: {
+             "customer_id" : $(this).val()
+         }
+     })
+   });
+
+   $('#select_customer').change(function(){
+     var url = '/customers/get_customer_ships';
+     $.ajax({
+         type: "get",
+         url: url,
+         data: {
+             "customer_id" : $(this).val()
+         }
+     })
+   });
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+    });
+  // $('select.select_combobox').select2({
+  //   placeholder: "Choose a option",
+  //   allowClear: true
+  // });
+});
+</script>
+

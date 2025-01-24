@@ -1,0 +1,108 @@
+<div class="row">
+    <!-- customer Tables -->
+    <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-users customers-table-users-icon"></i> Contact Details
+                <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+                <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="customerPeopleList" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="info">
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Salutation</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="info">
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Salutation</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Department</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <%@general_customer.people_contacts.each do |x|%>
+                                <tr>
+                                    <td><%=x.try(:first_name)%></td>
+                                    <td><%=x.try(:last_name)%></td>
+                                    <td><%=x.try(:salutation)%></td>
+                                    <td><%=x.try(:title)%></td>
+                                    <td><%=x.try(:status)%></td>
+                                    <td><%=x.try(:department)%></td>
+                                </tr>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- customer Tables -->
+    <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-users customers-table-users-icon"></i> Contact Details
+                <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+                <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="customerPeopleList" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="info">
+                                <th>Sl.no</th>
+                                <th>Type</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="info">
+                                <th>Sl.no</th>
+                                <th>Type</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <%if @general_customer.present?%>
+                                <%@general_customer.people_contacts.each do |x|%>
+                                    <%x.people_contact_methods.each_with_index do |y, index|%>
+                                        <tr>
+                                            <td><%=index+1%></td>
+                                            <td><%=y.contact_method_type.try(:name)%></td>
+                                            <td><%=y.try(:phone)%></td>
+                                            <td><%=y.try(:email)%></td>
+                                        </tr>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#customerPeopleList').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+    });
+</script>

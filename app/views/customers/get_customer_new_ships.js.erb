@@ -1,0 +1,4 @@
+<%if @new_address_ship_customer.present?%>
+	$('#ship_new_customer').html("<%= j render 'orders/customer_ship_add_address' %>");
+	$('#ship_new_address').modal();
+<%end%>

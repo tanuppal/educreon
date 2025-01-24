@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Products List</li>
+    </ol>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="grid-view table-responsive" id="item-grid">
+          <table class="items">
+            <thead>
+              <tr>
+                <th id="item-grid_c0">id</th>
+                <th id="item-grid_c1">Title</th>
+                <th id="item-grid_c2">Image</th>
+                <th id="item-grid_c3">Variants 1</th>
+                <th id="item-grid_c4">Variants 2</th>
+                <th id="item-grid_c5">Variants 3</th>
+                <th id="item-grid_c6">Manage</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%@shopify_all_products.each_with_index do |x,index|%>
+              <tr class="odd">
+                <td width="2%"><%=index+1%></td>
+                <td width="8%"><%=x.title%></td>
+                <td width="15%"><%= image_tag x.images.first.try(:src).present? ? x.images.first.try(:src) : "", :style=>"width : 150px; height : 100px;"%></td>
+                <%x.variants.each do |y|%>
+                  <td width="23%">
+                    <ul>
+                      <li style="margin-bottom: 5px;"><span style="font-weight: 600; font-size: 18px;"> <%= y.title%> </span></li>
+                      <li><strong>Availablity</strong> : <%= y.inventory_quantity > 0 ? "<span style='padding : 5px;color : #fff; border : 1px solid green; background-color : green'>True</span>".html_safe : "<span style='padding : 5px;color : #fff; border : 1px solid red; background-color : red'>False</span>".html_safe%></li>
+                      <li style="margin-top: 5px;"><strong>Price</strong> : <span style="font-size: 18px; font-weight: 600;">$<%= y.price%></span></li>
+                    </ul>
+                  </td>
+                <%end%>
+                <%if x.variants.count < 3%>
+                  <%(x.variants.count..2).each do |z|%>
+                    <td width="23%"></td>
+                  <%end%>
+                <%end%>
+                <td width="6%">
+                  <%=link_to "",:title=>"edit" do%>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  <%end%>
+                </td>
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+          <!-- 
+         <div class="pager">
+          <%#= will_paginate @shopify_all_products, renderer: BootstrapPagination::Rails %>
+         </div> --> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

@@ -1,0 +1,43 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active"><a href="/companies/company_list">Preferences</a> 
+            </li>
+            <li class="breadcrumb-item active">
+            	show
+            </li>
+            <%= link_to '/companies/new' do%>
+            <button class="btn btn-primary btn-sm pull-right breadcrumb-button companyEdit" data-toggle="modal" data-target=".vendor_form">Add New Company</button>
+            <%end%>
+        </ol>
+        <%= render :partial => "companies/form_show"%>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<%= render partial: 'activity_types/company_activity_type_form' %>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.edit_button').click(function(){
+         $('.companyEdit').addClass('hide');   
+        });
+    });
+</script>

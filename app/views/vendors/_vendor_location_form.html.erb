@@ -1,0 +1,131 @@
+<div class="row">
+    <% @general_vendor.vendor_locations.build if @general_vendor.vendor_locations.blank?%>
+        <div class="col-sm-12">
+            <%= f.nested_fields_for :vendor_locations do |ff|%>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= ff.label :name%>
+                            <span class="required_field">*</span>
+                                <%= ff.text_field :name, :class=>"form-control", :placeholder=>"Enter Your name",:required=>true%>
+                        </div>
+                        <!-- <div class="col-md-4">
+                            <%#= ff.label :attn%>
+                            <span class="required_field">*</span>
+                            <%#= ff.select :vendor_person_id, options_for_select(@all_vendor_person.collect{
+				|u| [u.first_name, u.id]}, ff.object.vendor_person_id), {:prompt=>"--Please Select--"}, {:class=>"form-control"}%>
+                        </div> -->
+                        <div class="col-md-4">
+                            <%= ff.label :address_line_1%>
+                            <span class="required_field">*</span>
+                                <%= ff.text_field :address_1, :class=>"form-control", :placeholder=>"Enter Your Address",:required=>true%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :address_line_2%>
+                                <%= ff.text_field :address_2, :class=>"form-control", :placeholder=>"Enter Your Address"%>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= ff.label :Country%>
+                            <span class="required_field">*</span>
+                                <%= ff.select :country_id, options_for_select(@all_vendor_country.collect{
+				|u| [u.name, u.id]}, ff.object.country_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-address-country",:required=>true}%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :State%>
+                            <span class="required_field">*</span>
+                                <%= ff.select :state_id, options_for_select(@all_vendor_state.collect{
+				|u| [u.name, u.id]}, ff.object.state_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-State",:required=>true}%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :City%>
+                            <span class="required_field">*</span>
+                                <%= ff.select :city_id, options_for_select(@all_vendor_city.collect{
+        |u| [u.name, u.id]}, ff.object.city_id), {:prompt=>"--Please Select--"}, {:class=>"form-control select-city",:required=>true} %>
+                                <%= link_to "Add City", "#", :class=>"btn btn-primary btn-xs pull-right add_city hide", :"data-toggle"=>"modal", :"data-target"=>"#myCustomerLocationCity"%>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= ff.label :zipcode%>
+                            <span class="required_field">*</span>
+                                <%= ff.number_field :zipcode, :class=>"form-control", :placeholder=>"Enter Your zipcode",:required=>true%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :phone%>
+                            <span class="required_field">*</span>
+                                <%= ff.telephone_field :phone, :class=>"form-control", :placeholder=>"Enter Your Phone",:required=>true%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= ff.label :Default%>
+                                <%= ff.check_box :is_primary, :class=>"radio_option_for_vendor_location"%>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <%#= ff.submit "Location Save", :class=>"btn btn-primary"%>
+                    </div>
+                </div>
+                <%end%>
+        </div>
+</div>
+<script type="text/javascript">
+$(document).on("click", ".radio_option_for_vendor_location", function(){
+$(".radio_option_for_vendor_location").prop("checked",false);
+$(this).prop("checked",true);
+});
+</script>
+  <script type="text/javascript">
+   //here we are getting state wise country
+   $(document).on('turbolinks:load', function(){
+   $(".select-address-country").change(function(){
+      var url = '/vendors/get_state?country_id=' + $(this).val()
+      //$(".city_drop_down").removeOption(/./);
+      // $.get(url, function(data) {
+      //    $('.city_drop_down').addOption(data, false);
+      //  });
+      //alert("hello");
+      $.getJSON(url, function(data) {
+        // $('.select-State').html('<option>--Select State--</option>');
+        $.each(data, function(index, state) {   
+          //alert(caste.name);
+           $('.select-State').append($('<option>', { value : state.id }).text(state.name)); 
+        });
+      });
+   });
+   //here we are getting cities wise state
+   $(".select-State").change(function(){
+      var url = '/vendors/get_city?state_id=' + $(this).val()
+      //$(".city_drop_down").removeOption(/./);
+      // $.get(url, function(data) {
+      //    $('.city_drop_down').addOption(data, false);
+      //  });
+      //alert("hello");
+      $.getJSON(url, function(data) {
+        // $('.select-city').html('<option>--Select City--</option>');
+        $.each(data, function(index, city) {   
+          //alert(caste.name);
+           $('.select-city').append($('<option>', { value : city.id }).text(city.name)); 
+        });
+      });
+   });
+});
+</script>
+<!-- for adding single city -->
+<script type="text/javascript">
+ $(document).on("change",".select-State",function(){
+   $(".add_city").removeClass("hide");
+   $(".request_form").val("address");
+   $(".add_city").click(function(){
+     $(".state_id").val($(this).parent().parent().find(".select-State").val());  
+     $(".select-State").removeClass("current_state");
+     $(this).parent().parent().find(".select-State").addClass("current_state");
+   });
+ }); 
+</script> 

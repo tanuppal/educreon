@@ -1,0 +1,10 @@
+$("#activityType").modal('hide');
+ $(".type_content").val('');
+var url = "<%=all_activity_type_activity_types_path%>";
+$.getJSON(url, function(data) {
+	$('#company_company_default_attributes_activity_type_id').html('<option>Select Activity type </option>');
+	$.each(data, function(index, type) {   
+	//alert(batch.name);
+	 $('#company_company_default_attributes_activity_type_id').append($('<option>', { value : type.id }).text(type.name)); 
+	});
+});

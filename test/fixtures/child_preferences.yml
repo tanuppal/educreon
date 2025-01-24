@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_preference_group: one
+  controller_name: MyString
+
+two:
+  user_preference_group: two
+  controller_name: MyString

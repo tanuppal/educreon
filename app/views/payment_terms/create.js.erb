@@ -1,0 +1,10 @@
+$("#orderPayment").modal('hide');
+// $(".term_content").val('');
+ var url = "<%=all_payment_term_payment_terms_path%>";
+ $.getJSON(url, function(data) {
+	$('#order_payment_term_id').html('<option>Select Payment Term</option>');
+	$.each(data, function(index, term) {   
+	//alert(batch.name);
+	 $('#order_payment_term_id').append($('<option>', { value : term.id }).text(term.name)); 
+	});
+});

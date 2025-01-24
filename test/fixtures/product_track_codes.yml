@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  track_barcode: one
+  product: one
+
+two:
+  track_barcode: two
+  product: two

@@ -1,0 +1,10 @@
+$("#myModalType").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_type_customer_types_path%>";
+$.getJSON(url, function(data) {
+	// $('#customer_customer_type_id').html('<option>Select Customer Type</option>');
+	$.each(data, function(index, type) {   
+	//alert(batch.name);
+	 $('#customer_customer_type_id').append($('<option>', { value : type.id }).text(type.name)); 
+	});
+});

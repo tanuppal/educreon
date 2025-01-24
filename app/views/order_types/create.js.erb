@@ -1,0 +1,10 @@
+$("#orderType").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_order_type_order_types_path%>";
+$.getJSON(url, function(data) {
+	$('#order_order_type_id').html('<option>Select Order Type</option>');
+	$.each(data, function(index, type) {   
+	//alert(batch.name);
+	 $('#order_order_type_id').append($('<option>', { value : type.id }).text(type.name)); 
+	});
+});

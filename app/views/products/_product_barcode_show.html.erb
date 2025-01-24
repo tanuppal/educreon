@@ -1,0 +1,110 @@
+<div class="row">
+<div>
+ <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=".bar">Add Inventory</button>
+</div>
+
+<div class="modal fade bar" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" style="margin-top: 100px;">
+        <div class="modal-content item-modal " id="barcode">
+            <br>
+            <div class="modal-header modal-header-info" >
+                <h2>Inventory</h2>
+            </div>
+            <div class="bs-example bs-example-tabs">
+               <!--  <ul id="myTab" class="nav nav-tabs" style="font-size: 25px;"> -->
+                    
+                  <!--  <li class=""><a href="#bar" data-toggle="tab">Add</a> </li> -->
+
+                <!--  </ul>  -->
+            </div>
+            <div class="modal-body" >
+            
+                <div id="myTabContent" class="tab-content">
+               <%@general_product.build.inventory unless @general_product.inventory %>
+                   <!--  <div class="tab-pane fade in" id="bar"> -->
+                   <%=t.fields_for :inventory do |ff|%>
+                        <div class="tab-pane fade active in" id="bar" > 
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                   
+                                    <div class="control-group">
+                                        <label class="control-label" for="ordercategory">Barcode</label>
+                                        <div class="controls">
+                                            <%=ff.text_field :barcode, :class => "form-control edit-field", :placeholder=>"code",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Serial No</label>
+                                        <div class="controls">
+                                            <%=ff.text_field :serial_no, :class => "form-control edit-field", :placeholder=>"number",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Date Required</label>
+                                        <div class="controls">
+                                           <%=ff.date_field :date, :class => "form-control edit-field", :placeholder=>"",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Purchase cost</label>
+                                        <div class="controls">
+                                            <%=ff.number_field :purchase_cost, :class => "form-control edit-field", :placeholder=>"cost",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Year placed in Svc</label>
+                                        <div class="controls">
+                                            <%=ff.text_field :year_placed_in_svc, :class => "form-control edit-field", :placeholder=>"years" ,:disabled=>"disabled"%>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Depreciation years</label>
+                                        <div class="controls">
+                                           <%=ff.text_field :depreciation_year, :class => "form-control edit-field", :placeholder=>"years",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="orderfilter">Approx Value</label>
+                                        <div class="controls">
+                                           <%=ff.number_field :approx_value, :class => "form-control edit-field", :placeholder=>"value",:disabled=>"disabled" %>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            
+                                             <%= ff.submit "Cancel", :class=>"btn btn-danger"%>
+                                             <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+                                             <%= ff.submit "Submit", :class=>"btn btn-info"%>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                    </div>
+
+                                  
+                            </fieldset>
+                        </form>
+                    </div>
+                    
+                </div>
+                <%end%>
+            <!-- </div> -->
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+    });
+  });
+</script>

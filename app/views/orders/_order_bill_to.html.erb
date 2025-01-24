@@ -1,0 +1,49 @@
+<!-- <div class="content">
+ <% @general_order.order_bill_to.build if @general_order.order_ship_to.blank?%>
+    <div class="col-sm-12">
+      <%= t.nested_fields_for :order_bill_to do |ff|%>
+        <div class="form-group">
+            <label for="location">location</label>
+            <%=ff.select :customer_location_id, options_for_select(@all_customer_location.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control" }  %>
+        </div>
+        <div class="form-group">
+            <label for="attn">Attn</label>
+             <%=ff.select :customer_location_id, options_for_select(@all_customer_location.collect{ |u| [u.attn, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+             <%=ff.select :customer_location_id, options_for_select(@all_customer_location.collect{ |u| [u.name, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+            <label for="add">Address 1</label>
+            <%=ff.select :customer_location_id, options_for_select(@all_customer_location.collect{ |u| [u.address_line_1, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+            <label for="add">Address 2</label>
+             <%=ff.select :customer_location_id, options_for_select(@all_customer_location.collect{ |u| [u.address_line_2, u.id]}),{:prompt=>"--Please Select--"}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+            <label for="city">City/St/Zip</label>
+            <%= ff.select :city_id, options_for_select(@city.collect{
+                |u| [u.name, u.id]}), {:prompt=>"--Please Select--"}, {:class=>"form-control"}%>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <%= ff.select :country_id, options_for_select(@country.collect{
+                |u| [u.name, u.id]}), {:prompt=>"--Please Select--"}, {:class=>"form-control"}%>
+        </div>
+        <div class="form-group">
+            <label for="phemail">Phone</label>
+           <%= ff.select :customer_location_id, options_for_select(@all_customer_location.collect{
+                |u| [u.phone, u.id]}), {:prompt=>"--Please Select--"}, {:class=>"form-control"}%>
+        </div>
+
+           <div class="row">
+              <%= ff.submit "Submit", :class=>"btn btn-primary"%>
+            </div>
+    <%end%>
+    </div>
+</div>
+
+
+ -->

@@ -1,0 +1,10 @@
+$("#myModalSource").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_source_customer_sources_path%>";
+$.getJSON(url, function(data) {
+	// $('#customer_customer_source_id').html('<option>Select Customer Source</option>');
+	$.each(data, function(index, source) {   
+	//alert(batch.name);
+	 $('#customer_customer_source_id').append($('<option>', { value : source.id }).text(source.name)); 
+	});
+});

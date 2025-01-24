@@ -1,0 +1,92 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+          <a href="/">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a href="/receivings/receiving_list">Receiving List</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a href="/receivings/product_received">Product Received</a>
+      </li>
+    </ol>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+          <div class="panel-heading">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#productGeneral" data-toggle="tab">Product Received</a></li>
+            </ul>
+          </div>
+          <div class="panel-body">
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="productGeneral">
+                <div class="col-sm-6">
+                  <div class="panel panel-info">
+                    <div class="panel-heading text-center">Product Received</div>
+                    <div class="panel-body products-general-info">
+                      <%= render  partial: 'receivings/form' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="panel panel-info">
+                    <div class="panel-heading text-center">Your Product List</div>
+                    <div class="panel-body products-general-info">
+                      <%= render  partial: 'receivings/your_other_product_list' %>
+                    </div>
+                  </div>
+<!--                   <div class="grid-view table-responsive" id="item-grid">
+                    <table class="items">
+                      <thead>
+                        <tr>
+                          <th id="item-grid_c0">SL. NO</th>
+                          <th id="item-grid_c1">Order Number</th>
+                          <th id="item-grid_c2">Product Name</th>
+                          <th id="item-grid_c3">Received Date</th>
+                          <th id="item-grid_c4">Manage</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <%#@all_receiving.each_with_index do |x,index|%>
+                        <tr class="odd">
+                          <td width="6%"><%#=index+1%></td>
+                          <td width="28%">
+                            <%#x.receiving_products.each_with_index do |y, index|%>
+                              <%#= index+1%>&nbsp;.&nbsp;&nbsp;<%#= y.order.try(:number) if y.order.present?%><br>
+                            <%#end%>
+                            </td>
+                          <td width="28%">
+                            <%#x.receiving_products.each_with_index do |a, index|%>
+                              <%#=index + 1%>&nbsp;.&nbsp;&nbsp;<%#= a.product.try(:name) if a.product.present?%><br>
+                            <%#end%>
+                            </td>
+                          <td width="28%"><%#=x.try(:received_date).strftime("%d-%b-%Y") if x.received_date.present?%></td>
+                          <td width="10%">
+                          <%#=link_to edit_receiving_path(x),:title=>"edit" do%>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                          <%#end%>
+                            <%#=link_to receiving_path(x), :method => :delete, :class => "delete", :confirm => "Are you sure ?" do%>
+                              <span class="glyphicon glyphicon-remove"></span>
+                            <%#end%>
+                           </td>
+                        </tr>
+                        <%#end%>
+                      </tbody>
+                    </table>
+                    <%#if @all_receiving.count > 10%>
+                      <div class="pager">
+                        <%#= will_paginate @all_receiving, renderer: BootstrapPagination::Rails %>
+                      </div>
+                    <%#end%> 
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

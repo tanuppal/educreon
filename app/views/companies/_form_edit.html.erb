@@ -1,0 +1,117 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#preferenceCompany" data-toggle="tab">Company Info</a></li>
+                    <li><a href="#preferenceDeafult" data-toggle="tab">Defaults</a></li>
+                    <li><a href="#preferenceRateFactor" data-toggle="tab">Rate Factors</a></li>
+                    <li><a href="#preferenceUser" data-toggle="tab">Users</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <%= form_for @preference_company, html: {multipart: true} do |f| %>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="preferenceCompany">
+                            <div class="col-sm-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Company Info</div>
+                                    <div class="panel-body products-Company Info-info">
+                                        <%= render  partial: 'companies/preference_company_form', locals: {f:f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-7">
+                                <%#= render  partial: 'companies/preference_company_edit' %>
+
+                            </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="preferenceDeafult">
+                            <div class="col-sm-8">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Defaults</div>
+                                    <div class="panel-body product-pricing">
+                                        <%= render  partial: 'companies/preference_default_form', locals: {f:f} %>
+                                    </div>
+                                </div>
+                            </div>
+                           <!--  <div class="col-sm-7">
+                                <%#= render  partial: 'companies/preference_default_edit' %>
+                            </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="preferenceRateFactor">
+                            <div class="col-sm-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Rate Factors</div>
+                                    <div class="panel-body product-pricing">
+                                        <%= render  partial: 'companies/preference_rate_factor_form', locals: {f:f} %>
+                                    </div>
+                                </div>
+                            </div>
+                           <!--  <div class="col-sm-7">
+                                <%#= render  partial: 'companies/preference_rate_factor_edit' %>
+                            </div> -->
+                        </div>
+                        <div class="tab-pane fade" id="preferenceUser">
+                          <div class="col-sm-5">
+                            <div class="panel panel-info">
+                              <div class="panel-heading text-center">
+                                <ul class="nav nav-tabs">
+                                  <li class="active"><a href="#preferenceUsersUser" data-toggle="tab">Users</a></li>
+                                  <li><a href="#preferenceUserInformation" data-toggle="tab">User Information</a></li>
+                                  <li>
+                                    <div class="dropdown">
+                                      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" style="margin-left: 5px;">
+                                          Privilege Set
+                                      </button>
+                                      <%if @all_general_company.present?%>
+                                        <ul class="dropdown-menu">
+                                          <li style="margin-left: 10px;"><%=@all_general_company.users.last.user_info.try(:privilege_set)%></li>
+                                        </ul>
+                                      <%end%>  
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="panel-body">
+                                <% @preference_company.users.build if @preference_company.users.blank?%>
+                                <%= f.nested_fields_for :users, validate: true do |ff| %>
+                                  <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="preferenceUsersUser">
+                                      <div class="col-sm-12">
+                                        <div class="panel panel-info">
+                                          <div class="panel-heading text-center">User</div>
+                                          <div class="panel-body">
+                                            <%= render  partial: 'companies/preference_users_form', locals: {ff:ff}%>
+                                          </div> 
+                                        </div>
+                                      </div>
+                                    </div>      
+                                    <% ff.object.build_user_info unless ff.object.user_info%>
+                                    <%= ff.fields_for :user_info do |fff| %>
+                                      <div class="tab-pane fade in" id="preferenceUserInformation">
+                                        <div class="col-sm-12">
+                                          <div class="panel panel-info">
+                                            <div class="panel-heading text-center">User Info</div>
+                                            <div class="panel-body">
+                                              <%= render  partial: 'companies/preference_users_userinfo_form', locals: {fff:fff} %>
+                                            </div>
+                                          </div>
+                                        </div>      
+                                      </div>
+                                    <%end%>
+                                  </div>    
+                                <%end%>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-7">
+                              <%= render  partial: 'companies/preference_users_edit' %>
+                          </div>
+                        </div>
+                    </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>

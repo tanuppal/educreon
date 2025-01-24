@@ -1,0 +1,47 @@
+<div class="content">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <span class="required_field">*</span>
+               <%=f.text_field :name, :class => "form-control edit-field", :placeholder=>"Name", :readonly => true,:required=>true%>
+            </div>
+            <div class="form-group">
+                <label for="inputType">Type</label>
+                <span class="required_field">*</span>
+                <%=f.select :vendor_type_id, options_for_select(@all_vendor_type.collect{ |u| [u.name, u.id]},f.object.vendor_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+                 <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#vendorType"%>
+            </div>
+            <div class="form-group">
+                <label for="inputTerms">Terms</label>
+                <span class="required_field">*</span>
+              <%=f.select :vendor_term_id, options_for_select(@all_vendor_term.collect{ |u| [u.term, u.id]},f.object.vendor_term_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+              <%= link_to "Add Term", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#vendorTerm"%>
+            </div>
+            <div class="form-group">
+                <label for="inputUrl">URL</label>
+                <%=f.text_field :url, :class => "form-control edit-field", :placeholder=>"URL", :readonly => true%>
+            </div>
+            <div class="form-group">
+                <label for="inputStatus">Status</label>
+                <span class="required_field">*</span>
+               <%=f.select :vendor_status_id, options_for_select(@all_vendor_status.collect{ |u| [u.status, u.id]},f.object.vendor_status_id), {:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+                <%= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#vendorStatus"%>
+            </div>
+        </div>
+        <div class="col-sm-12"><br>
+            <div class="text-right">
+            <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+                <%=f.submit "Submit",:class=>"btn btn-info edit-btn"%>
+            </div>
+        </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".edit_button").click(function() {
+        //alert("hello");
+        $(".edit-field").prop("readonly", false);
+        $(".edit-field").prop("disabled", false);
+        $(".edit-field").removeClass("hide");
+    });
+});
+</script>

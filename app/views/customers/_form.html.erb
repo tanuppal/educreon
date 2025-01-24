@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#customerGeneral" data-toggle="tab">General</a></li>
+                    <li><a href="#customerContactMethods" data-toggle="tab">Contact Methods</a></li>
+                    <li><a href="#customerLocations" data-toggle="tab">Locations</a></li>
+                    <li><a href="#customerPeoples" data-toggle="tab">People</a></li>
+                    <li><a href="#customerInsurance" data-toggle="tab">Insurance</a></li>
+                    <li><a href="#cusotmerNotes" data-toggle="tab">Notes</a></li>
+                    <li><a href="#customerDocuments" data-toggle="tab">Documents</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <%= form_for @general_customer, html: {multipart: true} do |f| %>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="customerGeneral">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">General</div>
+                                    <div class="panel-body products-general-info">
+                                        
+                                        <%= render  partial: 'customers/customer_general', :locals=> {:f=> f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_general_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="customerContactMethods">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Contact</div>
+                                    <div class="panel-body product-pricing">
+                                        <%= render  partial: 'customers/customer_contact', :locals=> {:f=> f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_contact_method_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="customerLocations">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Location</div>
+                                    <div class="panel-body product-pricing">
+                                        <%= render  partial: 'customers/customer_location', :locals=> {:f=> f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_locations_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="customerPeoples">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Contact Details</div>
+                                    <div class="panel-body products-general-info">
+                                     <%= render  partial: 'customers/customer_people', :locals=> {:f=> f}%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_people_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="customerInsurance">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Insurance</div>
+                                    <div class="panel-body products-general-info">
+                                      <%= render  partial: 'customers/customer_insurance', :locals=> {:f=> f}%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_insurance_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="cusotmerNotes">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Notes</div>
+                                    <div class="panel-body product-pricing">
+                                        <%= render  partial: 'customers/customer_notes', :locals=> {:f=> f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_notes_list' %>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="customerDocuments">
+                            <div class="col-sm-5">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">Documents</div>
+                                    <div class="panel-body products-general-info">
+                                        <%= render  partial: 'customers/customer_document', :locals=> {:f=> f} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <%= render  partial: 'customers/customer_document_list' %>
+                            </div>
+                        </div>
+                    </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>

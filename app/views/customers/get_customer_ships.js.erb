@@ -1,0 +1,7 @@
+<%if @ship_customer.present?%>
+	$('#ship_customer').html("<%= escape_javascript render 'orders/customer_ship_address' %>");
+<%end%>
+$(".ship-select").click(function() {
+	// alert("hello");
+  $(".chul1").val($(this).val());
+});

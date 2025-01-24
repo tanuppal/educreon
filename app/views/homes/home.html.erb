@@ -1,0 +1,411 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Home</li>
+           <!--  <button class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="modal" data-target=".bill">Add New Bill</button> -->
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-body homes-panel-body">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLdP2O_c_jc5v6VsJHWeNijYgS9U24l1WPurXXFvRbuqO9Et8-" class="img-responsive img-thumbnail">  
+                    </div>
+                </div>
+            </div>
+             <!-- <div class="container-fluid"> -->
+                
+            <div class="col-md-6 ">
+                <div class="panel with-nav-tabs panel-info">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs" style="font-size: 18px;">
+                            <li class="active"><a href="#item" data-toggle="tab">Check in</a></li>
+                            <li><a href="#shipment" data-toggle="tab">Check out</a></li>
+                            
+                        </ul>
+                    </div>
+                     <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="item"> <div class="card mb-3">
+                                    <div class="card-header">
+                                        <form class="form-inline well clearfix" >
+                            <div class="form-group homes-range">
+                                <label for="homesFilterDateRange" class="control-label col-md-1">Order No:</label>
+                                <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                <label for="homesFilterStartDate" class="control-label col-md-1 "> Bar code:</label>                                  
+                                <!-- Start Date: -->
+                                <input type="code" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+                                
+                               
+                                <div class="col-12">
+                                    <button class="btn btn-sm btn-info homesFilterButton" style="margin-left: 20px;">Submit</button>
+                                     <i class="fa fa-print"><b>Print</b></i>
+                                </div>    
+                            </div> 
+                        </form>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>SKU</th>
+                                                        <th>Items</th>
+                                                        <th>Qty</th>
+                                                        <th>Checked In</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car">
+                                                            <br>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                       
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        
+                                                       
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                       
+                                                        
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div></div>
+                            
+                            <div class="tab-pane fade" id="shipment"><div class="card mb-3">
+                                    <div class="card-header">
+                                        <form class="form-inline well clearfix" >
+                            <div class="form-group homes-range">
+                                <label for="homesFilterDateRange" class="control-label col-md-1">Order No:</label>
+                                <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                <label for="homesFilterStartDate" class="control-label col-md-1 "> Bar code:</label>                                  
+                                <!-- Start Date: -->
+                                <input type="code" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+                                
+                               
+                                <div class="col-12">
+                                    <button class="btn btn-sm btn-info homesFilterButton" style="margin-left: 20px;">Submit</button>
+                                    <i class="fa fa-print"><b>Print</b></i>
+                                </div>
+
+                            </div> 
+                        </form>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>SKU</th>
+                                                        <th>Items</th>
+                                                        <th>Qty</th>
+                                                        <th>return cond.</th>
+                                                        <th>Checked Out</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car">
+                                                            <br>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                       <td>2</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                       
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                       <td>2</td>
+                                                        
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel with-nav-tabs panel-info">
+                    <div class="panel-heading">
+                        <h4>Orders</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h4 class="text">Filter List by:</h4>
+                        <form class="form-inline well clearfix" >
+                            <div class="form-group homes-range">
+                                <label for="homesFilterDateRange" class="control-label col-md-1"> Date Range:</label>
+                                <input type="text" name="rdate" id="homesFilterDateRange" class="form-control col-md-2">
+                                <label for="homesFilterStartDate" class="control-label col-md-1 "> Start Date:</label>                                  
+                                <!-- Start Date: -->
+                                <input type="date" name="sdate" class="form-control col-md-2" id="homesFilterStartDate">
+                                
+                                <label for="homesFilterEndDate" class="control-label col-md-1"> End Date:</label>
+                                <!-- End Date: -->
+                                <input type="date" name="edate" class="form-control col-md-2" id="homesFilterEndDate">
+                                <label for="homesFilterStatus" class="control-label col-md-1"> Status:</label>
+                                <!-- Status: -->
+                                <input type="text" name="status" class="form-control col-md-2" id="homesFilterStatus">
+                                <div class="col-12">
+                                    <button class="btn btn-sm btn-info pull-right homesFilterButton">Submit</button>
+                                </div>    
+                            </div> 
+                        </form>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="item">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <i class="fa fa-database">&nbsp;</i>List</div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Codes</th>
+                                                        <th>Items</th>
+                                                        <th>Qty</th>
+                                                        <th>Cost</th>
+                                                        <th>Discount</th>
+                                                        <th>Extra Cost</th>
+                                                        <th>Tax</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                        <td>$6000</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car">
+                                                            <br>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                        <td>$6000</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                        <td>$6000</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                        <td>$6000</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tape</td>
+                                                        <td>Gaffer Tape Black</td>
+                                                        <td>2</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                        <td>$6000</td>
+                                                        <td>
+                                                            <input type="checkbox" name="vehicle" value="Car" checked>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="shipment">Info 2</div>
+                            <div class="tab-pane fade" id="payment">Info 2</div>
+                            <div class="tab-pane fade" id="note">Info 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    .homes-panel-body{
+        padding-top: 0px;
+    }
+    #homesFilterDateRange{
+        width: 125px;
+    }
+    #homesFilterStartDate{
+        width: 148px;
+    }
+    #homesFilterEndDate{
+        width: 148px;
+    }
+    #homesFilterStatus{
+        width: 109px;
+    }
+    
+@media screen and (max-width: 700px) {
+.homes-range{
+    margin-bottom: -8px;
+    margin-left:3em;
+}
+input{
+  margin-bottom: 20px;
+}  
+  
+}
+
+@media (max-width: 768px) {
+    #homesFilterDateRange{
+        width: 148px;
+    }
+    #homesFilterStartDate{
+        width: 148px;
+    }
+    #homesFilterEndDate{
+        width: 148px;
+    }
+    #homesFilterStatus{
+        width: 148px;
+    }  
+    .homesFilterButton{
+        margin-right: 2em;
+    }
+}
+    
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>

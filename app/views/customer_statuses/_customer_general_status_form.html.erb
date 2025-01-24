@@ -1,0 +1,23 @@
+<div class="modal fade" id="myModalStatus" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <%= form_for(@customer_status, remote: true) do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title center-block">Customer Status</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Customer Status</label>
+              <%=f.text_field :status,:class => "form-control term_content", :placeholder=>"Enter Customer Status"%>
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+          <%= f.submit "Save", :class=>"btn btn-primary save-btn"%>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

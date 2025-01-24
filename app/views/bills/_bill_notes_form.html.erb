@@ -1,0 +1,15 @@
+  <div class="row">
+       <% @general_bill.bill_notes.build if @general_bill.bill_notes.blank?%>
+      <div class="col-sm-12">
+          <%= f.nested_fields_for :bill_notes do |ff|%>
+              <div class="form-group">
+                <%= ff.text_area :note, :class=>"form-control"%>
+              </div>
+              <div class="row">
+        			<div class="col-sm-12 text-center">
+        				<%= ff.submit "Save All", :class=>"btn btn-primary"%>
+        			</div>
+      		</div>
+          <%end%>
+      </div>
+  </div>

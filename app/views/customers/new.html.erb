@@ -1,0 +1,76 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <%= form_for @general_customer, html: {multipart: true} do |f| %>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">
+          <a href="/customers/customers_list">Customer</a>  
+        </li>
+        <li class="breadcrumb-item active">New</li>
+        <button type="submit" class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="modal" data-target=".vendor_form">save</button>
+      </ol>
+      <div class="row">
+        <div class="col-12">
+          <%= render :partial => "customers/form_new", locals: {f:f}%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
+<div class="col-md-12 col-xs-12">
+    <%= render partial: "customer_types/customer_general_type_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+    <%= render partial: "customer_terms/customer_general_term_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_sources/customer_general_source_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_shippings/customer_general_shipping_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_statuses/customer_general_status_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "contact_method_types/customer_contact_method_type_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "document_types/customer_document_type_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "cities/cities_general_form"%>
+</div>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+    min-height: 497px;
+    max-height: 497px;
+}
+.products-barcodes{
+    min-height: 300px;
+    max-height: 300px;
+}
+.product-pricing{
+    min-height: 229px;
+    max-height: 229px;
+}
+.product-rental-cost{
+    max-height: 199px;
+    min-height: 199px;
+}*/
+</style>

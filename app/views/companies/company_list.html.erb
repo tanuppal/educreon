@@ -1,0 +1,109 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Company List</li>
+      <%= link_to "Add New Company", new_company_path, :class=>"btn btn-primary btn-xs pull-right"%>
+    </ol>
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-users customers-table-users-icon"></i> Company
+            <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+            <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr class="info">
+                    <th>Sl.No.</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Url</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%if @all_general_company.present?%>
+                    <%@all_general_company.each_with_index do |x,index|%>
+                      <%
+                        if (index + 1) % 2 == 0
+                          class_name = "even"
+                        else
+                          class_name = "odd"
+                        end
+                      %>
+                      <tr class="<%=class_name%>">
+                        <td width="5%"><%=index+1%></td>
+                        <td width="20%"><%=x.name%></td>
+                        <td width="20%"><%=x.address%></td>
+                        <td width="20%"><%=x.phone%></td>
+                        <td width="15%"><%=x.email%></td>
+                        <td width="15%"><%=x.url%></td>
+                        <td width="5%">
+                          <%= link_to company_path(x), :title=>"show" do%>
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                          <%end%>
+                          <%=link_to company_path(x), :method => :delete, :class => "delete", :confirm => "Are you sure ?" do%>
+                            <span class="glyphicon glyphicon-trash"></span>
+                          <%end%>
+                        </td>
+                      </tr>
+                    <%end%>
+                  <%end%>
+                </tbody>
+              </table>
+              <%if @all_general_company.count > 5%>
+                <%if @all_general_company.present?%>
+                  <div class="pager">      
+                    <%= will_paginate @all_general_company, renderer: BootstrapPagination::Rails %>
+                  </div>
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-10 col-xs-5">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-users companys-table-users-icon"></i>  Company Logo
+            <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+            <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+          </div>
+          <div class="card-body text-center">
+            <%if @all_general_company.present?%>
+              <%@all_general_company.each do |x|%>
+                <%=image_tag(x.logo.url(:mediumc))%>
+              <%end%>
+            <%end%>    
+          </div>
+          <%if @all_general_company.present?%>
+            <div class="card-footer small text-muted"><%= time_ago_in_words(Company.last.created_at)%></div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<style type="text/css">
+  td.odd {
+    background: #eee !important;
+  }
+  td.even {
+    background: #f9f9f9 !important;
+  }
+</style>

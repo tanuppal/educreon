@@ -1,0 +1,23 @@
+<div class="col-md-12 col-xs-12">
+  <div class="modal fade" id="orderType" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Order Type</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for(@order_type, remote: true) do  |ft| %>
+          <div class="form-group">
+            <label>Name</label>
+            <%=ft.text_field :name, :class=>"form-control",required: true%>
+          </div>
+          <%= ft.submit "Submit", :class=>"btn btn-info"%>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <%end%>
+        </div>
+        <div class="modal-footer text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

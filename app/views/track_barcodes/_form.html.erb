@@ -1,0 +1,61 @@
+  
+  <div class="col-md-12 col-xs-12 ">
+      <div class="modal fade" id="TrackBarcode" role="dialog">
+        <div class="modal-dialog ">
+          <!-- Modal content-->
+          <div class="modal-content ">
+            <div class="modal-header ">
+              <h4 class="modal-title ">Track Barcode</h4>
+            </div>
+           <%= form_for(@track_barcode, remote: true) do  |tb| %>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Barcode</label>
+                <%=tb.text_field :barcode, :class=>"form-control",required: true%>
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Serial No</label>
+                <%=tb.text_field :serial_no, :class=>"form-control",required: true%>
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Date Required</label>
+                 <%=tb.date_field :date, :class=>"form-control",required: true%>
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Purchase Cost</label>
+                   <%=tb.text_field :purchase_cost, :class=>"form-control",required: true%>
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Year placed in Svc</label>
+                 <%=tb.text_field :year_placed_in_svc, :class=>"form-control",required: true%> 
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Depreciation year</label>
+                 <%=tb.text_field :depreciation_year, :class=>"form-control",required: true%> 
+              </div>
+            </div>
+            <div class="modal-body ">
+              <div class="form-group ">
+                <label>Approx Value</label>
+                   <%=tb.text_field :approx_value, :class=>"form-control",required: true%> 
+              </div>
+            </div>
+            <div class="modal-footer text-center ">
+               <%=tb.submit "Submit", :class=>"btn btn-info"%>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> 
+            </div>
+          </div>
+        </div>
+       <%end%>
+      </div>
+    </div>

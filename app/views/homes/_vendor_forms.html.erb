@@ -1,0 +1,266 @@
+<div class="modal fade vendor_form" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content vendor-modal">
+            <br>
+            <div class="bs-example bs-example-tabs">
+                <div class="modal-header modal-header-info">
+                    <h2>Vendors Form</h2>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#vendorGeneral" data-toggle="tab">General</a></li>
+                    <li class=""><a href="#vendorDocuments" data-toggle="tab">Documents</a></li>
+                    <li class=""><a href="#vendorProducts" data-toggle="tab">Products</a></li>
+                    <li class=""><a href="#vendorOrders" data-toggle="tab">Orders</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="vendorGeneral">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- General -->
+                                <!-- vendor name-->
+                                <div class="control-group">
+                                   <label for="vendorName" class="control-label">Name</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Vendor Name" id="vendorName" name="vendorName">
+                                    </div>
+                                </div>
+
+                                <!-- vendor type-->
+                                 <div class="control-group">
+                                   <label for="vendorType" class="control-label">Type</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="vendor type" id="vendorType" name="vendortype">
+                                    </div>
+                                </div>
+
+                                <!-- Vendor terms -->
+                                <div class="control-group">
+                                    <label for="vendorTerm" class="control-label">Terms
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="term" id="vendorTerm" name="vendorTerm">
+                                    </div>
+                                </div>
+
+                                <!-- vendor url -->
+                                <div class="control-group">
+                                   <label for="vendorUrl" class="control-label">Url
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="vendor url" id="vendorUrl" name="vendorUrl">
+                                    </div>
+                                </div>
+
+                                   <!-- vendor phone -->
+                                <div class="control-group">
+                                   <label for="vendorPhone" class="control-label">Phone Number
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="number" id="vendorPhone" name="vendorPhone">
+                                    </div>
+                                </div>
+
+                                 <!-- Address-->
+                                <div class="control-group">
+                                    <label for="vendorAddress" class="control-label">Address 
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Address" id="vendorAddress" name="vendorAddress">
+                                    </div>
+                                </div>
+
+                                <!-- Vendor status -->
+                                <div class="control-group">
+                                   <label for="vendorStatus" class="control-label">Status
+                                 </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="Status" id="vendorStatus" name="vendorStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="vendorGeneral"></label>
+                                    <div class="controls">
+                                        <button id="vendorGeneral" name="vendorGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="vendorDocuments">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- scheduling -->
+                                <!-- Rental Prep-->
+                                <div class="control-group">
+                                     <label for="orderRentalPrep" class="control-label">Rental Prep
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalPrep" name="orderrentalprep">
+                                    </div>
+                                </div>
+
+                                <!-- Rental Pickup-->
+                                <div class="control-group">
+                                    <label for="orderRentalPickup" class="control-label">Rental Pickup
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalPickup" name="orderrentalpickup">
+                                    </div>
+                                </div>
+
+                                <!-- Rental Return-->
+                                <div class="control-group">
+                                    <label for="orderRentalReturn" class="control-label">
+                                            Rental Return
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalReturn" name="orderrentalreturn">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderscheduling"></label>
+                                    <div class="controls">
+                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="vendorProducts">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- products -->
+                                <!-- type-->
+                                <div class="control-group">
+                                    <label for="productType" class="control-label">#
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="#" id="productType" name="productType">
+                                    </div>
+                                </div>
+
+                                <!-- Activity-->
+                                <div class="control-group">
+                                    <label for="vendorActivity" class="control-label">Activity
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="product type" id="vendorActivity" name="vendorActivity">
+                                    </div>
+                                </div>
+
+                                <!-- status-->
+                                <div class="control-group">
+                                    <label for="vendorStatus" class="control-label">Status
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="vendorStatus" name="vendorStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="vendorProduct"></label>
+                                    <div class="controls">
+                                        <button id="vendorProduct" name="vendorProduct" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="vendorOrders">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- order -->
+                                <!-- bill number-->
+                                <div class="control-group">
+                                    <label for="vendorBill" class="control-label">Bill Number
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="number" id="vendorBill" name="vendorBill">
+                                    </div>
+                                </div>
+
+                                <!-- Date-->
+                                <div class="control-group">
+                                    <label for="orderDate" class="control-label">Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderDate" name="orderDate">
+                                    </div>
+                                </div>
+
+                                <!-- Status-->
+                                <div class="control-group">
+                                    <label for="orderStatus" class="control-label">Status
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderStatus" name="orderStatus">
+                                    </div>
+                                </div>
+
+                                <!-- Balance-->
+                                <div class="control-group">
+                                    <label for="orderBalance" class="control-label">Balance
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="balance" id="orderBalance" name="orderBalance">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="vendororder"></label>
+                                    <div class="controls">
+                                        <button id="vendororder" name="vendororder" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center> -->
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.vendor-modal{
+    width: 40em;
+    top: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1px;
+    left: -5em;
+    zoom:85%;
+}
+@media (max-width: 768px) {     
+    .vendor-modal {
+        width: 26em;
+        top: 9.3em;
+        margin-left: 73px;
+        left: -4em;
+    }
+}
+</style>

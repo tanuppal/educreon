@@ -1,0 +1,210 @@
+<div class="content">
+  <div class="row">
+    <div  id="ship_customer" style="padding: 10px;">
+    </div>
+
+   <!--  <div class="col-sm-3" style="padding: 21px 0 0px 30px;">
+    
+      <%#= link_to "Add new address", "#",:class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#add-new-address" do%>
+      <a class="list-add-address" id="add-ship" data-toggle="modal" data-target="#ship_new_address" href="#" data-remote="true">
+        <div class="row white-row add-new-address1"><i class="fa fa-plus-circle" style="font-size: 53px;margin-top: 10%;"></i><br>Add new address</div>
+      </a>
+
+      <%#end%>
+      
+    </div> -->
+  </div>
+</div>
+
+<% @general_order.build_order_ship_to  if @general_order.order_ship_to.blank? %>
+<%= t.fields_for :order_ship_to do |ff|%>
+  <%= ff.hidden_field :customer_location_id, :class=>"chul1" %>
+<%end%>
+
+<div id="ship_new_customer"></div>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load',function() {
+    $('#add-ship').click(function(){
+      var url = '/customers/get_customer_new_ships';
+      $.ajax({
+          type: "get",
+          url: url,
+          data: {
+              "customer_id" : $("#select_customer").val()
+          }
+      })
+    });
+  });
+</script>
+<style type="text/css">
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -20px !important;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.slider.list a.list-add-address {
+  display: inline;
+}
+a.list-add-address .white-row.add-new-address1 {
+    display: inline-block;
+    height: 215px;
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 17px;
+    vertical-align: top;
+    border: 1px dashed #ccd2d5;
+    border-radius: 4px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    padding-left: 0;
+    font-weight: 600;
+    background: #fff;
+}
+.white-row.add-new-address1 {
+    color: #535766;
+    font-size: 16px;
+    padding: 20px 0 20px 10px;
+}
+.address-row1 {
+    display: inline-block;
+    height: 230px;
+    width: 100%;
+    margin-right: 25px;
+    vertical-align: top;
+    position: relative;
+}
+  .selected {
+    background: #f4fdfb;
+    border: 1px solid #b9f0e5;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 4px;
+    padding-top: 25px;
+    padding-left: 45px;
+    box-shadow: 0 0 4px rgba(40,44,63,.08);
+  }
+  .address-row1 .name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #596062;
+    padding-left: 0;
+    white-space: nowrap;
+  }
+  .address-row1 .select {
+    width: 20px;
+    height: 20px;
+    background-position: -551px 0;
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 4250px 153px;
+    vertical-align: middle;
+    /*background-image: url("<%#=asset_path('click.jpg')%>");*/
+  }
+  .address-row1 .select {
+    left: 14px;
+    top: 23px;
+  }
+  .address-row1 .select {
+    position: absolute;
+    /*background: url("<%#=asset_path('click.jpg')%>") -576px 0/4250px 153px no-repeat;*/
+    border: none;
+  }
+  .address-row1 .selected .side-menu {
+    border-top: 1px solid #f5f5f6;
+    margin-top: 0;
+    height: 40px;
+    padding-top: 0;
+  }
+  .address-row1 .selected .side-menu {
+    visibility: visible;
+    text-align: center;
+    bottom: 0;
+  }
+  .address-row1 .side-menu {
+    position: absolute;
+    left: 20px;
+    right: 0;
+  }
+  .address-row1 .selected .side-menu button {
+    padding: 1px!important;
+    text-transform: none;
+    height: 33px;
+    text-align: left;
+  }
+  .address-row1 .side-menu button.delete {
+    border-right: none;
+    font-size: 14px;
+    width: 45%;
+  }
+  .address-row1 .selected .side-menu button {
+    font-weight: 600;
+  }
+  .address-row1 .side-menu button {
+    display: inline-block;
+    border: none;
+    background: 0 0;
+  }
+  .address-row1 .side-menu button.edit {
+    color: #526cd0;
+    font-size: 14px;
+    width: 32%;
+  }
+  .address-row1 .address {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .address-row1 .selected .address .address-content {
+    white-space: normal;
+  }
+  .address-row1 .address .address-content {
+    color: #535766;
+    line-height: 1.4;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .address-row1 .address .address-content .address-field {
+    max-height: 52px;
+    overflow: hidden;
+    display: block;
+  }
+  .address-row1 .address .address-content .address-field, .address-row1 .address .address-content .local {
+    white-space: nowrap;
+    min-width: 23em;
+    text-overflow: ellipsis;
+  }
+  .address-row1 .address .address-content .locality {
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    height: 17px;
+  }
+  .address-row1 .address .address-content .mob {
+    padding: 8px 0;
+  }
+  .address-row1 .address .address-content .mobile {
+    font-weight: 600;
+  }
+  .address-row1 .name .address-type {
+    float: right;
+    font-size: 10px;
+    padding: 2px 10px;
+    border: 1px solid #d5d6d9;
+    border-radius: 20px;
+    color: #94969f;
+    margin-right: 10px;
+  }
+</style>

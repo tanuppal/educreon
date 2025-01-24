@@ -1,0 +1,17 @@
+.content-wrapper
+	.container-fluid
+		.row
+			.col-md-6
+				.panel.panel-info
+					.panel-heading.text-center
+						User preference
+					.panel-body.orders-general-info
+						.content
+							=render "user_preference_groups/form"
+			.col-md-6
+				.panel.panel-info
+					.panel-heading.text-center
+						User preferences list
+					.panel-body.orders-general-info
+						.content
+							=render "user_preference_groups/user_preferences_list"

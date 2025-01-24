@@ -1,0 +1,349 @@
+<div class="modal fade order_form" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xs">
+        <div class="modal-content order-modal">
+            <br>
+            <div class="bs-example bs-example-tabs">
+                <div class="modal-header modal-header-info">
+                    <h2>Order Form</h2>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#ordersGeneral" data-toggle="tab">General</a></li>
+                    <li class=""><a href="#ordersScheduling" data-toggle="tab">Scheduling</a></li>
+                    <li class=""><a href="#ordersBillTO" data-toggle="tab">Bill To</a></li>
+                    <li class=""><a href="#ordersShipTo" data-toggle="tab">Ship To</a></li>
+                     <li class=""><a href="#ordersItems" data-toggle="tab">Items</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="orderGeneral">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- General -->
+                                <!-- Order Type-->
+                                <div class="control-group">
+                                   <label for="orderType" class="control-label">Type</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="order" id="orderType" name="ordertype">
+                                    </div>
+                                </div>
+
+                                <!-- Order Number-->
+                                <div class="control-group">
+                                     <label for="orderNumber" class="control-label">Number</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Number" id="orderNumber" name="ordertype">
+                                    </div>
+                                </div>
+
+                                <!-- Order Customer -->
+                                <div class="control-group">
+                                    <label for="orderCustomer" class="control-label">Customer
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="komodo Dragon" id="orderCustomer" name="ordercustomer">
+                                    </div>
+                                </div>
+
+                                <!-- Order Salesperson -->
+                                <div class="control-group">
+                                   <label for="orderSalesPerson" class="control-label">Salesperson
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="salesperson" id="orderSalesPerson" name="ordersalesperson">
+                                    </div>
+                                </div>
+                                
+                                <!-- Order Date -->
+                                <div class="control-group">
+                                   <label for="orderDate" class="control-label">Date
+                                    </label>
+                                    <div class="controls">
+                                        <input type="date" class="form-control" placeholder="salesperson" id="orderDate" name="orderdate">
+                                    </div>
+                                </div>
+
+                                <!-- Order Customer PO# -->
+                                <div class="control-group">
+                                   <label for="orderCustPo" class="control-label">Cust PO#
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Cust PO#" id="orderCustPo" name="custpo">
+                                    </div>
+                                </div>
+
+                                <!-- Order Print Terms -->
+                                <div class="control-group">
+                                   <label for="orderPrintTerms" class="control-label">Print Terms
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="PrintTerms" id="orderPrintTerms" name="printterms">
+                                    </div>
+                                </div>
+
+                                <!-- Order status -->
+                                <div class="control-group">
+                                   <label for="orderStatus" class="control-label">Status
+                                 </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="Status" id="orderStatus" name="status">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderGeneral"></label>
+                                    <div class="controls">
+                                        <button id="orderGeneral" name="orderGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="orderScheduling">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- scheduling -->
+                                <!-- Rental Prep-->
+                                <div class="control-group">
+                                     <label for="orderRentalPrep" class="control-label">Rental Prep
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalPrep" name="orderrentalprep">
+                                    </div>
+                                </div>
+
+                                <!-- Rental Pickup-->
+                                <div class="control-group">
+                                    <label for="orderRentalPickup" class="control-label">Rental Pickup
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalPickup" name="orderrentalpickup">
+                                    </div>
+                                </div>
+
+                                <!-- Rental Return-->
+                                <div class="control-group">
+                                    <label for="orderRentalReturn" class="control-label">
+                                            Rental Return
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="11/06/2016" id="orderRentalReturn" name="orderrentalreturn">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderscheduling"></label>
+                                    <div class="controls">
+                                        <button id="confirmsignup" name="confirmsignup" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="orderBillTO">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Bill To -->
+                                <!-- Location-->
+                                <div class="control-group">
+                                    <label for="orderBillLocation" class="control-label">Location
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillLocation" name="orderbilllocation">
+                                    </div>
+                                </div>
+
+                                <!-- Attn-->
+                                <div class="control-group">
+                                    <label for="orderBillAttn" class="control-label">Attn
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAttn" name="orderbillattn">
+                                    </div>
+                                </div>
+
+                                <!-- Name-->
+                                <div class="control-group">
+                                    <label for="orderBillName" class="control-label">Name
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillName" name="orderbillname">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderBillAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAddress1" name="orderbilladdress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderBillAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderBillAddress2" name="orderbilladdress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="orderBillCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillCity" name="orderbillcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="orderBillCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillCountry" name="orderbillcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="orderBillphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderBillphone" name="orderbillphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderBillTo"></label>
+                                    <div class="controls">
+                                        <button id="orderBillTo" name="orderbillto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="orderShipTo">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- Ship To -->
+                                <!-- Location-->
+                                <div class="control-group">
+                                    <label for="orderShipLocation" class="control-label">Location
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipLocation" name="ordershiplocation">
+                                    </div>
+                                </div>
+
+                                <!-- Attn-->
+                                <div class="control-group">
+                                    <label for="orderShipAttn" class="control-label">Attn
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAttn" name="ordershipattn">
+                                    </div>
+                                </div>
+
+                                <!-- Name-->
+                                <div class="control-group">
+                                    <label for="orderShipName" class="control-label">Name
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipName" name="ordershipname">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress1" class="control-label">Address 1
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress1" name="ordershipaddress1">
+                                    </div>
+                                </div>
+
+                                <!-- Address1-->
+                                <div class="control-group">
+                                    <label for="orderShipAddress2" class="control-label">Address 2
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="" id="orderShipAddress2" name="ordershipaddress2">
+                                    </div>
+                                </div>
+
+                                <!-- City/st/zip-->
+                                <div class="control-group">
+                                    <label for="orderShipCity" class="control-label">City/State/Zip
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCity" name="ordershipcity">
+                                    </div>
+                                </div>
+
+                                <!-- Country-->
+                                <div class="control-group">
+                                    <label for="orderShipCountry" class="control-label">Country
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipCountry" name="ordershipcountry">
+                                    </div>
+                                </div>
+
+                                <!-- phone/email-->
+                                <div class="control-group">
+                                    <label for="orderShipphone" class="control-label">Phone/Email
+                                    </label>
+                                    <div class="controls">
+                                         <input type="text" class="form-control" placeholder="" id="orderShipphone" name="ordershipphone">
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderShipTo"></label>
+                                    <div class="controls">
+                                        <button id="orderShipTo" name="ordershipto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center> -->
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+@media (max-width: 768px) {     
+    .order-modal {
+        width: 26em;
+        top: 9.3em;
+        margin-left: 73px;
+        left: -5em;
+        zoom:92%;
+    }
+}
+</style>

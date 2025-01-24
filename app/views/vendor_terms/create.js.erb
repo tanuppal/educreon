@@ -1,0 +1,10 @@
+$("#vendorTerm").modal('hide');
+ $(".term_content").val('');
+var url = "<%=all_vendor_term_vendor_terms_path%>";
+$.getJSON(url, function(data) {
+	$('#vendor_vendor_term_id').html('<option>Select Vendor term </option>');
+	$.each(data, function(index, term) {   
+	//alert(batch.name); 
+	 $('#vendor_vendor_term_id').append($('<option>', { value : term.id }).text(term.term)); 
+	});
+});

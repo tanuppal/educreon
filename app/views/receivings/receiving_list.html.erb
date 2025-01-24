@@ -1,0 +1,94 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Receiving</li>
+      <li class="breadcrumb-item ">Receiving List</li>
+      <%= link_to "Add Received Details", product_received_receivings_path, :class=>"btn btn-primary btn-xs pull-right" %>
+    </ol>
+    <%#= render  partial: 'receivings/top_manu' %>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table recvng-table-table-icon"></i> Receiving details Table
+            <button class="pull-right btn btn-primary table-print-icon"><i class="fa fa-print"></i></button>
+            <button class="pull-right btn btn-primary table-download-icon"><i class="fa fa-download"></i></button>
+          </div>
+          <div class="grid-view" id="item-grid">
+            <table class="items">
+              <thead>
+                <tr>
+                  <th id="item-grid_c0">Sl.No.</th>
+                  <th id="item-grid_c1">Order NO.</th>
+                  <th id="item-grid_c1">Product Name</th>
+                  <th id="item-grid_c2">Barcode</th>
+                  <!-- <th id="item-grid_c3">Supplier Name</th> -->
+                  <th id="item-grid_c4">Received Date</th>
+                  <th id="item-grid_c5">Received Receipt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%@all_receiving.each_with_index do |x,index|%>
+                  <%
+                    if (index + 1) % 2 == 0
+                      class_name = "even"
+                    else
+                      class_name = "odd"
+                    end
+                  %>
+                  <tr class="<%= class_name%>">
+                    <td width="5%"><%=index+1%></td>
+                    <td width="20%">
+                      <%x.receiving_products.each_with_index do |y, index|%>
+                        <%= index+1%>&nbsp;.&nbsp;&nbsp;<%= y.order.try(:number) if y.order.present?%><br>
+                      <%end%>
+                    </td>
+                    <td width="20%">
+                      <% x.receiving_products.each_with_index do |a, index|%>
+                        <%=index + 1%>&nbsp;.&nbsp;&nbsp;<%= a.product.try(:name) if a.product.present?%><br>
+                      <%end%>
+                    </td>
+                    <td width="20%">
+                      <% x.receiving_products.each_with_index do |a, index|%>
+                        <%=index + 1%>&nbsp;.&nbsp;&nbsp;<%= a.product.try(:barcode) if a.product.present?%><br>
+                      <%end%>
+                    </td>
+                    <!-- <td width="20%">
+
+                    </td> -->
+                    <td width="12%">
+                      <%= x.received_date%>
+                    </td>
+                    <td width="8%">
+                      <a class="btn btn-danger" target="_blank" href="<%=get_received_receipt_receiving_path(x,format: :pdf)%>">Print Receipt&nbsp;&nbsp;<i class="fa fa-print"></i></a> 
+                    </td>
+                  </tr>
+                <%end%>
+              </tbody>
+            </table>
+            <% if @all_receiving.count > 10%>
+              <%if @all_receiving.present?%>
+                <div class="pager">
+                  <%= will_paginate @all_receiving, renderer: BootstrapPagination::Rails %>
+                </div>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<style type="text/css">
+  td.odd {
+    background: #eee !important;
+  }
+  td.even {
+    background: #f9f9f9 !important;
+  }
+</style>

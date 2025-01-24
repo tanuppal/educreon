@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body style="">
+	<div class="hole-recipt">
+		<div style="position: absolute; right: 10%; font-size: 17px; padding: 5px;top: 15px;border: 1px solid #7FB3D5; background-color: #7FB3D5;">Bill NO. : <%= @last_bill.number%></div>
+		<div class="title-section">
+			<table style="width: 100%; margin-bottom: 20px;margin-top: 20px;">
+				<tbody>
+					<tr>
+						<td style="width: 33%;">
+							<%=wicked_pdf_image_tag @company_last.logo.url(:mediumb),:class=>"logo-image"%>
+						</td>
+						<td style="width: 34%;">
+							<center>
+								<span style="margin-bottom: 5px;padding: 10px; "><%=@company_last.address%></span>
+							</center>
+						</td>
+						<td style="width: 33%;">
+							<h2>Order ID : <%= @last_bill.order.try(:number)%></h2>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="next-title">
+			<table style="width: 100%; margin-bottom: 15%;margin-top: 20px;">
+				<tbody>
+					<tr>
+						<td style="width: 33%;">
+							<h3 class="all_h3">Bill To :</h3>
+						</td>
+						<td style="width: 34%;">
+							<h3 class="all_h3">Ship To :</h3>
+						</td>
+						<td style="width: 33%;">
+							<h3 class="all_h3">Order Details :</h3>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 33%;">
+							<span>
+								<strong><span style="text-transform: uppercase;"><%= @last_bill.order.order_bill_to.customer_location.try(:name) if @last_bill.order.order_bill_to.present?%></span></strong><br>
+								<%= @last_bill.order.order_bill_to.customer_location.try(:attn) if @last_bill.order.order_bill_to.present?%><br>
+								<%= @last_bill.order.order_bill_to.customer_location.try(:address_line_1) if @last_bill.order.order_bill_to.present?%><br>
+								<%= @last_bill.order.order_bill_to.customer_location.try(:address_line_2) if @last_bill.order.order_bill_to.present?%><br>
+								<%= @last_bill.order.order_bill_to.customer_location.try(:landmark) if @last_bill.order.order_bill_to.present?%><br>
+								<%= @last_bill.order.order_bill_to.customer_location.country.try(:name) if @last_bill.order.order_bill_to.present? if @last_bill.order.order_bill_to.customer_location.present?%>
+								<%= @last_bill.order.order_bill_to.customer_location.state.try(:name) if @last_bill.order.order_bill_to.present? if @last_bill.order.order_bill_to.customer_location.present?%>
+								<%= @last_bill.order.order_bill_to.customer_location.city.try(:name) if @last_bill.order.order_bill_to.present? if @last_bill.order.order_bill_to.customer_location.present?%><br>
+								<strong><%= @last_bill.order.order_bill_to.customer_location.try(:phone) if @last_bill.order.order_bill_to.present?%></strong>
+							</span>
+						</td>
+						<td style="width: 33%; margin-top: 0px;position: absolute;">
+							<span >
+								<strong><span style="text-transform: uppercase;"><%= @last_bill.order.order_ship_to.customer_location.try(:name) if @last_bill.order.order_ship_to.present?%></span></strong><br>
+								<%= @last_bill.order.order_ship_to.customer_location.try(:attn) if @last_bill.order.order_ship_to.present?%><br>
+								<%= @last_bill.order.order_ship_to.customer_location.try(:address_line_1) if @last_bill.order.order_ship_to.present?%><br>
+								<%= @last_bill.order.order_ship_to.customer_location.try(:address_line_2) if @last_bill.order.order_ship_to.present?%><br>
+								<%= @last_bill.order.order_ship_to.customer_location.try(:landmark) if @last_bill.order.order_ship_to.present?%><br>
+								<%= @last_bill.order.order_ship_to.customer_location.country.try(:name) if @last_bill.order.order_ship_to.present? if @last_bill.order.order_ship_to.customer_location.present?%>
+								<%= @last_bill.order.order_ship_to.customer_location.state.try(:name) if @last_bill.order.order_ship_to.present? if @last_bill.order.order_ship_to.customer_location.present?%>
+								<%= @last_bill.order.order_ship_to.customer_location.city.try(:name) if @last_bill.order.order_ship_to.present? if @last_bill.order.order_ship_to.customer_location.present?%><br>
+								<strong><%= @last_bill.order.order_ship_to.customer_location.try(:phone) if @last_bill.order.order_ship_to.present?%></strong>
+							</span>
+						</td>
+						<td style="width: 34%; margin-top: 0px;position: absolute;right: 0;">
+							<table style="width: 100%;">
+								<tbody>
+									<tr>
+										<td style="width: 50%;">
+											Ordre ID :
+										</td>
+										<td style="width: 50%;">
+											<%= @last_bill.order.try(:number)%>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											PO :
+										</td>
+										<td style="width: 50%;">
+											<%= @last_bill.order.try(:cust_po)%>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Terms :
+										</td>
+										<td style="width: 50%;">
+											<%= @last_bill.order.payment_term.try(:name) if @last_bill.order.present? %>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Order Date :
+										</td>
+										<td style="width: 50%;">
+											<%= @last_bill.order.try(:date).strftime("%d-%b-%Y") if @last_bill.order.present? %>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Ship Via :
+										</td>
+										<td style="width: 50%;">
+											UPS Ground
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;"><br></td>
+										<td style="width: 50%;"><br></td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Inspected By :
+										</td>
+										<td style="width: 50%;">
+											
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Checked in By :
+										</td>
+										<td style="width: 50%;">
+											
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50%;">
+											Date In :
+										</td>
+										<td style="width: 50%;">
+											
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="next-title">
+			<table style="width: 100%; margin-bottom: 20px;margin-top: 20px;">
+				<tbody>
+					<tr class="aaaa">
+						<th width="40%">Item</th>
+						<th width="10%">Order Type</th>
+						<th width="5%">Qty</th>
+						<th width="5%">Days</th>
+						<th width="15%">Replacement Cost</th>
+						<th width="10%">Unit Price/Day</th>
+						<th width="15%">Ext Price Tax</th>
+					</tr>
+					<% @sub_total = 0 %>
+					<% @recp_total = 0%>
+					<%@last_bill.order.order_schedulings.each do |x|%>
+						<tr>
+							<!-- <td width="10%">
+								Tracking
+							</td> -->
+							<td width="40%">
+								<center>
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<span style="font-size: 15px;"><%= x.product.try(:name)%></span>
+												</td>
+											</tr>									</tbody>
+									</table>
+								</center>
+							</td>
+							<td width="10%">
+								<center>
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<span style="font-size: 15px;"><%= x.product.product_type.try(:name)%></span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</center>
+							</td>
+							<td width="5%">
+								<center>
+									1
+								</center>
+							</td>
+							<td width="5%">
+								<center>
+									<%if x.product.product_type.try(:name) == "Sale"%>
+										0
+									<%else%>
+										<% rental_date = total_date_count(x)%>
+										<%= rental_date%>
+									<%end%>
+								</center>
+							</td>
+							<td width="15%">
+								<center>
+									<%if x.product.product_type.try(:name) == "Sale"%>
+									0.0
+									<%else%>
+										<% app_value = x.product.inventory.approx_value%>
+										<% @recp_total += app_value%>
+										<%= app_value%>
+									<%end%>
+								</center>
+							</td>
+							<td width="10%">
+								<center>
+									<%if x.product.product_type.try(:name) == "Sale"%>
+										0.0
+									<%else%>
+										<%
+										pickup_date = x.rental_picup
+										return_date = x.rental_return
+										date_count = (return_date.to_date - pickup_date.to_date).to_i
+										%>
+										<%if date_count > 4%>
+											<%rent = ProductPricingRent.where("name=?",date_count).first%>
+											<%if rent.present?%>
+												<%= rent.price%>
+											<%else%>
+												<%= x.product.product_rental.product_pricing_rents.last.price %>
+											<%end%>
+										<%elsif date_count >= 3 && date_count < 4%>
+											<%= x.product.product_rental.day3 %>
+										<%elsif date_count >= 2 && date_count < 3 && date_count < 7 %>
+											<%= x.product.product_rental.day2 %>
+										<%elsif date_count >= 1 && date_count < 2 && date_count < 3 && date_count < 7 %>
+											<%= x.product.product_rental.day1 %>
+										<%end%>
+									<%end%>
+								</center>
+							</td>
+							<td width="15%">
+								<center>
+									<table>
+										<tbody>
+											<tr>
+												<td>													
+													<%if x.product.product_type.try(:name) == "Sale"%>
+														<% @sub_total += x.product.product_pricing.price.to_i%>
+														<%= x.product.product_pricing.price%>
+													<%else%>
+														<%rental_price = rental_price(x)%>
+														<% @sub_total += rental_price%>
+														<%= rental_price%>
+													<%end%>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</center>
+							</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+		<div class="next-title">
+			<table style="width: 100%; margin-bottom: 20px;margin-top: 20px;">
+				<tbody>
+					<tr>
+						<td width="40%" style="border-top: 2px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;border-left:2px solid #000">
+							<table width="100%">
+								<tbody>
+									<tr>
+										<td width="50%">
+											<strong>Date of Check-Out</strong>
+										</td>
+										<td width="50%">
+											<%if @last_bill.order.order_schedulings.first.present?%>
+												<%= @last_bill.order.order_schedulings.first.rental_picup.strftime("%d-%b-%Y") if @last_bill.order.order_schedulings.first.rental_picup.present?%>
+										<%end%>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<strong>Date of Return</strong>
+										</td>
+										<td width="50%">
+											<%if @last_bill.order.order_schedulings.first.present?%>
+												<%= @last_bill.order.order_schedulings.first.rental_return.strftime("%d-%b-%Y") if @last_bill.order.order_schedulings.first.rental_return.present?%>
+											<%end%>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+						<td width="30%" style="border-top: 2px solid #000;border-right: 1px solid #000;border-bottom: 1px solid #000;">
+							<table width="100%">
+								<tbody>
+									<tr>
+										<td width="50%">
+											<strong>Replacement Cost Total</strong>
+										</td>
+										<td width="50%" style="float: right;">
+											$<%= @recp_total%>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+						<td width="30%" style="border-top: 2px solid #000;border-bottom: 1px solid #000;border-right: 2px solid #000;">
+							<table width="100%">
+								<tbody>
+									<tr>
+										<td width="50%">
+											<strong>Subtotal</strong>
+										</td>
+										<td width="50%" style="text-align: center;">
+											$<%= @sub_total.round(2)%>
+										</td>
+									</tr>
+									<%shipping_charge = @company_last.company_default.shipping_charge%>
+									<tr>
+										<%tax_persion = @company_last.company_default.sales_tax_rate%>
+										<td width="50%">
+											<strong>Tax @ <%= tax_persion%>%</strong>
+										</td>
+										<% sales_tax = sales_tax_report(@sub_total,tax_persion)%>
+										<td width="50%" style="text-align: center;">
+											$<%= sales_tax.round(2)%>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%">
+											<strong>Shipping</strong>
+										</td>
+										<td width="50%" style="text-align: center;">
+											$<%= shipping_charge.round(2)%>
+										</td>
+									</tr>
+									<%total_pay = (@sub_total + shipping_charge + sales_tax).round(2)%>
+									<tr>
+										<td width="50%">
+											<strong>Total</strong>
+										</td>
+										<td width="50%" style="text-align: center;">
+											$<%= total_pay.round(2)%>
+										</td>
+									</tr>
+<!-- 									<tr>
+										<td width="50%">
+											<strong>Payments</strong>
+										</td>
+										<td width="50%" style="float: right;">
+											$0.00
+										</td>
+									</tr> -->
+									<tr width="100%" style="border :1px solid #999; background-color: #999;">
+										<td width="50%" >
+											<strong>Balance</strong>
+										</td>
+										<td width="50%" style="text-align: center;">
+											$<%= total_pay.round(2)%>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="sugnature">
+			Signature & Seal
+		</div>
+
+	</div>
+</body>
+</html>
+<style type="text/css">
+.aaaa {
+	border: 1px solid #999;
+	background-color: #999;
+}
+.all_h3 {
+	border: 1px solid #999;
+	background-color: #eee;
+}
+.sugnature{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: gray;
+	text-align: right;
+	font-size: 20px;
+	padding: 30px;
+}
+
+/*	.next-title{
+		
+		border-bottom: solid 2px gray;
+	}*/
+	.hole-recipt{
+		border: solid 2px gray;
+		height: 100%;
+		padding: 10px;
+		font-size: 16px;
+	}
+	.title-section{
+		width:100%;
+		/*border-bottom: solid 2px gray;*/
+		/*display: inline-flex;*/
+	}
+	.logo-image{
+		width: 250px;
+		height: 100%;
+		padding: 10px;
+	}
+</style>

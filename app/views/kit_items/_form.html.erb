@@ -1,0 +1,32 @@
+    
+    <div class="col-md-12 col-xs-12">
+      <div class="modal fade" id="KitItem" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+         <%= form_for(@kit_item, remote: true) do  |kt| %>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Kit Item</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                 <%=kt.text_field :name, :class=>"form-control term_content",required: true%>
+              </div>
+            </div>
+
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Quantity</label>
+                 <%=kt.text_field :quantity, :class=>"form-control term_content"%>
+                  </div>
+                </div>
+               <div class="modal-footer text-center">
+                 <%=kt.submit "Submit", :class=>"btn btn-info"%>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+         </div>
+       <%end%>
+      </div>
+    </div>

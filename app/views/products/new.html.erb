@@ -1,0 +1,246 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+    <%= form_for @general_product, html: {multipart: true} do |t| %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">
+            	<a href="/products/products_list">products</a>
+            </li>
+            <li class="breadcrumb-item">New</li>
+            <button class="btn btn-primary btn-sm pull-right breadcrumb-button" data-toggle="modal" data-target="">save</button>
+            <!--  <button class="btn btn-primary btn-sm pull-right breadcrumb-button">Add New Product</button> -->
+        </ol>
+        <%= render :partial => "products/form_new" ,locals: {t:t}%>
+    </div>
+    <%end%>
+</div>
+
+<%= render "product_types/product_type_form"%>
+<%= render "product_categories/product_category_form"%>
+<%= render "product_statuses/product_status_form"%>
+<%= render "kit_items/form"%>
+<%= render "track_barcodes/form"%>
+
+<br>
+<br>
+<br>
+
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+    /*.products-general-info{
+				min-height: 497px;
+				max-height: 497px;
+}
+.products-barcodes{
+				min-height: 300px;
+				max-height: 300px;
+}
+.product-pricing{
+				min-height: 229px;
+				max-height: 229px;
+}
+.product-rental-cost{
+				max-height: 199px;
+				min-height: 199px;
+}*/
+</style>
+<script type="text/javascript">
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+<!-- <div class="content-wrapper">
+				<div class="container-fluid">
+								<ol class="breadcrumb">
+												<li class="breadcrumb-item">
+																<a href="index.html">Dashboard</a>
+												</li>
+												<li class="breadcrumb-item active">Vendors</li>
+												<button class="btn btn-primary btn-sm pull-right breadcrumb-button">Add New Vendor</button>
+								</ol>
+								<div class="row">
+												<div class="col-sm-3">
+																<div class="panel panel-info">
+																				<div class="panel-heading text-center">General Info</div>
+																				<div class="panel-body">
+																								<p><b>Name</b><span style="padding-left: 40px;">B&H Photo<hr></span></p>
+																								<p><b>Type</b><span style="padding-left: 40px;">corporation<hr></span></p>
+																								<p><b>Terms</b><span style="padding-left: 40px;">Net24<hr></span></p>
+																								<p><b><a href="">URL</a></b><span style="padding-left: 40px;">corporation.com<hr></span></p>
+																								<p><b>Status</b><span style="padding-left: 40px;">Active<hr></span></p>
+																				</div>
+																</div>
+												</div>
+												<div class="col-sm-3">
+																<div class="row">
+																				<div class="col-xs-12">
+																								<div class="panel panel-info">
+																												<div class="panel-heading text-center">Contact Methods</div>
+																												<div class="panel-body">
+																												</div>
+																								</div>
+																				</div>
+																				<div class="col-xs-12">
+																								<div class="panel panel-info">
+																												<div class="panel-heading text-center">Locations</div>
+																												<div class="panel-body">
+																												</div>
+																								</div>
+																				</div>
+																</div>
+												</div>
+												<div class="col-sm-6">
+																<div class="panel with-nav-tabs panel-info">
+																				<div class="panel-heading">
+																								<ul class="nav nav-tabs">
+																												<li class="active"><a href="#note" data-toggle="tab">Notes</a></li>
+																												<li><a href="#document" data-toggle="tab">Documents</a></li>
+																								</ul>
+																				</div>
+																				<div class="panel-body">
+																								<div class="tab-content">
+																												<div class="tab-pane fade in active" id="note">Info 1</div>
+																												<div class="tab-pane fade" id="document">Info 2</div>
+																								</div>
+																				</div>
+																</div>
+												</div>
+								</div>
+				</div>
+				<div class="container-fluid">
+								<div class="row">
+												<div class="col-sm-3">
+																<div class="panel panel-info">
+																				<div class="panel-heading text-center">vendorPeople</div>
+																				<div class="panel-body">
+																				</div>
+																</div>
+												</div>
+												<div class="col-sm-3">
+																<div class="panel panel-info">
+																				<div class="panel-heading text-center">Products</div>
+																				<div class="panel-body">
+																								<div class="table-responsive">
+																												<table class="table table-bordered ">
+																																<thead class="thead-light">
+																																				<tr>
+																																								<th><a href=""><span class="fa fa-plus"></a></th>
+																																								<th>Activity</th>
+																																								<th>Status</th>
+																																				</tr>
+																																</thead>
+																																<tbody>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																				</tr>
+																																</tbody>
+																												</table>
+																								</div>
+																				</div>
+																</div>
+												</div>
+												<div class="col-sm-6">
+																<div class="panel panel-info">
+																				<div class="panel-heading text-center">Orders</div>
+																				<div class="panel-body">
+																								<div class="table-responsive">
+																												<table class="table table-bordered ">
+																																<thead class="thead-light">
+																																				<tr>
+																																								<th><a href=""><span class="fa fa-plus"></a></th>
+																																								<th>Activity</th>
+																																								<th>Status</th>
+																																								<th>Balance</th>
+																																				</tr>
+																																</thead>
+																																<tbody>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																								<td>$550</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																								<td>$550</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																								<td>$550</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																								<td>$550</td>
+																																				</tr>
+																																				<tr>
+																																								<td><a href="#">120mm</a></td>
+																																								<td>Lens</td>
+																																								<td>available</td>
+																																								<td>$550</td>
+																																				</tr>
+																																</tbody>
+																												</table>
+																								</div>
+																				</div>
+																</div>
+												</div>
+								</div>
+				</div>
+</div>
+<br>
+<br>
+<br>
+<style type="text/css">
+				.panel.with-nav-tabs .panel-heading {
+								padding: 5px 5px 0 5px;
+				}
+				
+				.panel.with-nav-tabs .nav-tabs {
+								border-bottom: none;
+				}
+				
+				.panel.with-nav-tabs .nav-justified {
+								margin-bottom: -1px;
+				}
+</style> -->

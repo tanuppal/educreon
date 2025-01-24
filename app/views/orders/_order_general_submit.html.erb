@@ -1,0 +1,273 @@
+<div class="content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group col-sm-6">
+        <label for="type">Type</label>
+        <%=t.select :order_type_id, options_for_select(@all_order_type.collect{ |u| [u.name, u.id]},@general_order.order_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled"}%>
+        <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#orderType"%>
+      </div>
+        
+      <div class="form-group col-sm-6">
+        <label for="customer">Customer</label>
+        <span class="required_field">*</span>
+        <%=t.select :customer_id, options_for_select(@all_general_customer.collect{ |u| [u.name, u.id]},@general_order.customer_id),{:prompt=>"--Please Select--"}, :class => "form-control edit-field" ,:id=> "select_customer",:disabled=>"disabled",:required=>true%> 
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <!-- <div class="form-group col-sm-6">
+        <label for="number">Order Number</label>
+        <span class="required_field">*</span>
+        <%#=t.text_field :number, :class => "form-control edit-field", :placeholder=>"Number",readonly:true,:required=>true%>
+      </div> -->
+      <div class="form-group col-sm-6">
+        <label for="salesperson">Salesperson</label>
+        <%=t.select :sales_person_id, options_for_select(@all_sales_person.collect{ |u| [u.name, u.id]},@general_order.sales_person_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled"}%>
+        <%= link_to "Add Salesperson", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#orderSalesperson"%>
+      </div>
+      <div class="form-group col-sm-6">
+          <label for="date">Date</label>
+          <span class="required_field">*</span>
+           <%=t.date_field :date, :class => "form-control edit-field", :placeholder=>"Number",readonly:true,:required=>true%>
+      </div>
+    </div>
+    <div class="col-sm-12">      
+      <div class="form-group col-sm-6">
+          <label for="customerpo#">Customer PO#</label>
+           <%=t.text_field :cust_po, :class => "form-control edit-field", :placeholder=>"Number",readonly:true%>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="printterms">Payment Terms</label>
+        <span class="required_field">*</span>
+          <%=t.select :payment_term_id, options_for_select(@all_payment_term.collect{ |u| [u.name, u.id]},@general_order.payment_term_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+          <%= link_to "Add Terms", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#orderPayment"%>
+      </div>
+    </div>
+    <div class="col-sm-12">      
+
+      <div class="form-group col-sm-6">
+        <label for="status">Status</label>
+        <span class="required_field">*</span>
+       <%=t.select :order_status_id, options_for_select(@all_order_status.collect{ |u| [u.status, u.id]},@general_order.order_status_id),{:prompt=>"--Please Select--"}, {:class => "form-control edit-field",:disabled=>"disabled",:required=>true}%>
+       <%= link_to "Add status", "#", :class=>"btn btn-primary btn-xs pull-right edit-field hide", :"data-toggle"=>"modal", :"data-target"=>"#orderStatus"%>
+      </div>
+      <div class ="col-sm-12">
+        <div class="text-right">
+          <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button"%>
+          <%#=t.submit "Submit",:class=>"btn btn-info edit-btn"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 text-center">
+      <h2>Schedulings Product</h2>
+    </div>
+  </div>
+
+  <%# @general_order.order_schedulings.build if @general_order.order_schedulings.blank?%>
+  <%= t.nested_fields_for :order_schedulings do |ff|%>
+    <div class="" style="border: 1px solid #000; padding: 15px; margin-bottom: 10px;">
+      <div class="text-right">
+        <%=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+          <i class="fa fa-trash"></i>
+        <%end%>
+      </div>
+      <div class="row text-center" style="padding: 10px;">
+        <div class="col-sm-6">
+          <h2 class="product_name">
+            <%= ff.object.product.try(:name)%>
+          </h2>
+        </div>
+        <%img_url = ProductImage.find_by_product_id(ff.object.product_id)%>
+        <div class="col-sm-6">
+          <%= image_tag img_url.present? ? img_url.image.url : "", :class=>"product_img", :style=>"width: 150px; height:150px;"%>
+        </div>
+        <div class="col-sm-12">
+          <h4 class="product_mess" style="font-size: 20px;"></h4>
+        </div>
+      </div>
+      <%
+      if ff.object.product.present?
+        if ff.object.product.product_type.name == "Sale"
+          class_name = "hide"
+        else 
+          class_name = ""
+        end
+      else
+        class_name = ""
+      end
+        %>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="rental">Barcode Search</label>
+          <%=ff.text_field :barcode, :class => "form-control barcode-search", :placeholder=>"Barcode" %>
+          <%=ff.hidden_field :product_id, :class => "form-control product_id" %>
+        </div>
+        <div class="form-group col-sm-6 rental_prep_new <%=class_name%>">
+          <label for="rental">Rental prep</label>
+          <%=ff.date_field :rental_prep, :class =>"form-control edit-field1 rental_prep_new1", :placeholder=>"cost",readonly:true%>
+        </div>
+        <div class="form-group col-sm-6 rental_prep_new <%=class_name%>">
+          <label for="rental">Rental Pickup</label>
+          <%=ff.date_field :rental_picup, :class =>"form-control edit-field1 rental_prep_new1", :placeholder=>"cost",readonly:true%>
+        </div>
+        <div class="form-group col-sm-6 rental_prep_new <%=class_name%>">
+          <label for="rental">Rental Return</label>
+          <%=ff.date_field :rental_return, :class =>"form-control edit-field1 rental_prep_new1", :placeholder=>"cost",readonly:true %>
+        </div>
+        <%#end%>
+        <%end%>
+        <div class ="col-sm-12">
+          <div class="text-right">
+            <%=link_to "Edit","javascript:void(0)",:class=>"btn btn-success edit_button1"%>
+            <%#=t.submit "Submit",:class=>"btn btn-info edit-btn"%>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  <div class ="col-sm-12">
+    <%=t.add_nested_fields_link :order_schedulings,  class: 'btn btn-info pull-left', role: 'button' do%>
+      <i class="fa fa-plus-square"></i>
+    <%end%>
+  </div>
+  <div class="text-center">
+    <%=t.submit "Submit",:class=>"btn btn-info"%>
+  </div>
+</div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".edit_button1").click(function(){
+        //alert("hello");
+        $(this).parent().parent().parent().find(".edit-field1").prop("readonly", false);
+        // $(".edit-field").prop("disabled", false);
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+      $( document ).on("blur", ".barcode-search", function(){
+         // $(".barcode-search").blur(function(){
+          var object = $(this);
+          //alert("hello");
+        var url = '/orders/barcode_search'
+        $.ajax({
+          type : "get",
+          url : url ,
+          data : {
+            "barcode" : $(this).val()
+          },
+          success: function(data) { 
+             // object.next().val(data.product.id);
+             // object.parent().parent().parent().find('.product_name').text(data.product.name);
+             // object.parent().parent().parent().find('.product_img').attr("src",data.product_image_url);
+             // object.parent().next().show("slow");
+             // $('.product_img').val(data.product_image.image.url);
+             object.parent().find('.product_id').val(data.product.id);
+             // alert(data.product_type_name);
+             if (data.product_type_name == "Rental") {
+               object.parent().parent().parent().find('.product_name').text(data.product.name);
+               object.parent().parent().parent().find('.product_img').attr("src",data.product_image_url);
+               object.parent().next().show("slow");
+               object.parent().parent().find('.rental_prep_new').show("slow");
+               object.parent().parent().find('.rental_prep_new1').attr('required', 'required');
+
+               object.parent().parent().find('.rental_picup_new').show("slow");
+               object.parent().parent().find('.rental_picup_new1').attr('required', 'required');
+
+               object.parent().parent().find('.rental_return_new').show("slow");
+               object.parent().parent().find('.rental_return_new1').attr('required', 'required');
+             }
+             if (data.product_type_name == "Sale")
+             {
+               if (data.sale_status == true) {
+                 object.parent().parent().parent().find('.product_name').text(data.product.name);
+                 object.parent().parent().parent().find('.product_img').attr("src",data.product_image_url);
+                 object.parent().next().show("slow");
+                 object.parent().parent().find('.rental_prep_new').hide("slow");
+                 object.parent().parent().find('.rental_prep_new1').removeAttr('required');
+
+                 object.parent().parent().find('.rental_picup_new').hide("slow");
+                 object.parent().parent().find('.rental_picup_new1').removeAttr('required');
+
+                 object.parent().parent().find('.rental_return_new').hide("slow");
+                 object.parent().parent().find('.rental_return_new1').removeAttr('required');
+               }
+               if (data.sale_status == false) {
+                 object.parent().find('.product_id').val("");
+                 object.parent().parent().parent().find('.product_name').text(data.product.name);
+                 object.parent().parent().parent().find('.product_img').attr("src",data.product_image_url);
+                 object.parent().next().show("slow");
+                 object.parent().parent().find('.rental_prep_new').hide("slow");
+                 object.parent().parent().find('.rental_prep_new1').removeAttr('required');
+
+                 object.parent().parent().find('.rental_picup_new').hide("slow");
+                 object.parent().parent().find('.rental_picup_new1').removeAttr('required');
+
+                 object.parent().parent().find('.rental_return_new').hide("slow");
+                 object.parent().parent().find('.rental_return_new1').removeAttr('required');
+
+                 object.parent().parent().parent().find('.product_mess').text("This Product is not Available");
+                 object.parent().parent().parent().find('.product_mess').css("color","red");
+               }
+             }
+          },
+          error: function(data) {
+            successmessage = 'Error';
+            $("label#successmessage").text(successmessage);
+          }
+        })
+    });
+
+
+
+   $(document).on('turbolinks:load', function(){
+    $("#select_customer").change(function(){
+      var url = '/orders/get_customers?customer_id=' + $(this).val();
+      $.getJSON(url, function(data) {  
+        $('#inputLocation').val(data.address.name);
+        $('#inputAttn').val(data.address.attn);
+        $('#inputName').val(data.address.name);
+        $('#inputAddress1').val(data.address.address_line_1);
+        $('#inputAddress2').val(data.address.address_line_2);
+        $('#inputCity').val(data.city_name.name);
+        $('#inputCountry').val(data.country_name.name);
+        $('#inputPhone').val(data.address.phone);
+        });
+    });
+  });
+  </script>
+
+  <script type="text/javascript">
+   $(document).on('turbolinks:load', function(){
+    $("#select_customer").change(function(){
+      var url = '/orders/get_customers?customer_id=' + $(this).val();
+      $.getJSON(url, function(data) {  
+        $('#inputLoc').val(data.address.name);
+        $('#inputAtn').val(data.address.attn);
+        $('#inputNam').val(data.address.name);
+        $('#inputAddress0').val(data.address.address_line_1);
+        $('#inputAddress01').val(data.address.address_line_2);
+        $('#inputCty').val(data.city_name.name);
+        $('#inputCtry').val(data.country_name.name);
+        $('#inputPh').val(data.address.phone);
+        });
+    });
+  });
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".edit_button").click(function(){
+      //alert("hello");
+      $(".edit-field").prop("readonly", false);
+      $(".edit-field").prop("disabled", false);
+      $(".edit-field").removeClass("hide");
+    });
+  });
+</script>
+  <style>
+  h2{
+    color:#008000;
+    border-style: dotted solid;
+  }
+  </style>

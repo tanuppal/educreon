@@ -1,0 +1,63 @@
+<div class="form-group">
+    <div class="col-md-4">
+        <%=f.label :Name%>
+        <span class="required_field">*</span>
+        <%=f.text_field :name, :class => "form-control disabled", :placeholder=>"Name",:required=>true%>
+    </div>
+    <div class="col-md-4 col-xs-12">
+        <label for="inputType">Customer type</label>
+        <span class="required_field">*</span>
+        <div class="input-group">
+            <%=f.select :customer_type_id, options_for_select(@all_customer_type.collect{ |u| [u.name, u.id]},@general_customer.customer_type_id),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+        </div>
+        <%= link_to "Add Type", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myModalType"%>
+    </div>
+    <div class="col-md-4"> 
+        <label for="inputTerms">Terms</label>
+        <span class="required_field">*</span>
+        <div class="input-group">
+            <%=f.select :customer_term_id, options_for_select(@all_customer_term.collect{ |u| [u.name, u.id]},@general_customer.customer_term_id),{:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true}%>
+        </div>
+        <%= link_to "Add Term", "#", class: "btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myModalTerm"%>
+    </div>    
+    <div class="col-md-4">    
+        <label for="inputUrl">URL</label>
+       
+        <%=f.url_field :url, :class => "form-control", :placeholder=>"URL"%>
+    </div>
+    <div class="col-md-4">    
+        <label for="inputSource">Source</label>
+        <div class="input-group">
+            <%=f.select :customer_source_id, options_for_select(@all_customer_source.collect{ |u| [u.name, u.id]},@general_customer.customer_source_id), {:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true} %>
+        </div>
+        <%= link_to "Add Source", "#", class: "btn btn-xs btn-primary pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myModalSource"%>
+    </div>
+    <div class="col-md-4">    
+        <label for="inputShipping">Shipping</label>
+        <span class="required_field">*</span>
+        <div class="input-group">
+            <%=f.select :customer_shipping_id, options_for_select(@all_customer_shipping.collect{ |u| [u.name, u.id]},@general_customer.customer_shipping_id), {:prompt=>"--Please Select--"}, {:class => "form-control",:required=>true} %>
+        </div>
+        <%=link_to "Add Shipping", "#", class: "btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myModalShipping"%>
+    </div>    
+</div>
+<div class="form-group">
+    <div class="col-md-4">
+        <label for="inputStatus">Status</label>
+        <span class="required_field">*</span>
+        <%= f.select :status, options_for_select([["Active","Active"],["Inactive","Inactive"]]),{:prompt=>"--Please Select--"}, {:class=>"form-control",:required=>true} %>
+         <%#= link_to "Add Status", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myModalStatus"%>
+    </div>    
+</div>
+    <!-- <div class="row">
+        <div class="col-sm-12 text-center">
+            <%#= f.submit "Submit", :class=>"btn btn-primary"%>
+        </div>
+    </div> -->
+
+<style type="text/css">
+    .fa-plus-square{
+        font-size: 1.5em;
+    }
+</style>
+

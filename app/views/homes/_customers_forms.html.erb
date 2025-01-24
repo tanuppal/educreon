@@ -1,0 +1,578 @@
+<div class="modal fade customers_form" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content customer-modal">
+            <br>
+            <div class="bs-example bs-example-tabs ">
+                <div class="modal-header modal-header-info">
+                    <h2>Customer Form</h2>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#customersGeneral" data-toggle="tab">General</a></li>
+                    <li class=""><a href="#customersNotes" data-toggle="tab">Notes</a></li>
+                    <li class=""><a href="#customersDocuments" data-toggle="tab">Documents</a></li>
+                    <li class=""><a href="#customersPeople" data-toggle="tab">People</a></li>
+                    <li class=""><a href="#customersInsurance" data-toggle="tab">Insurance</a></li>
+                    <li class=""><a href="#customersOrders" data-toggle="tab">Orders</a></li>
+                    <li class=""><a href="#customersInvoices" data-toggle="tab">Invoices</a></li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="customersGeneral">
+                        <form class="form-horizontal well">
+                            <fieldset>
+                                <!-- General -->
+                                <div class="form-inline form-inline-marign">
+                                    <!-- General Name-->
+                                    <div class="control-group">
+                                       <label for="customerName" class="control-label col-md-3 col-md-offset-2">Name</label>
+                                        <div class="controls col-md-5">
+                                            <input type="text" class="form-control" placeholder="Name" id="customerName" name="customername">
+                                        </div>
+                                    </div>
+                                    <!-- General Type-->
+                                    <div class="control-group">
+                                         <label for="customerType" class="control-label col-md-3 col-md-offset-4 general-type">Type</label>
+                                        <div class="controls col-md-5">
+                                            <input type="text" class="form-control" placeholder="Type" id="customerType" name="customerType">
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-inline form-inline-marign">
+                                    <!-- General Terms -->
+                                    <div class="control-group">
+                                        <label for="customerTerms" class="control-label col-md-3 col-md-offset-2">Terms
+                                        </label>
+                                        <div class="controls col-md-5">
+                                            <input type="text" class="form-control" placeholder="Terms" id="customerTerms" name="customerTerms">
+                                        </div>
+                                    </div>
+                                    <!-- General URL -->
+                                    <div class="control-group">
+                                       <label for="customerUrl" class="control-label col-md-3 col-md-offset-4 general-url">URL
+                                        </label>
+                                        <div class="controls col-md-5">
+                                            <input type="text" class="form-control" placeholder="URL" id="customerUrl" name="customerUrl">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-inline form-inline-marign">
+                                    <!-- General Source -->
+                                    <div class="control-group">
+                                       <label for="customerSource" class="control-label col-md-3 col-md-offset-2 general-source">Source
+                                        </label>
+                                        <div class="controls col-md-4">
+                                            <input type="text" class="form-control" placeholder="Source" id="customerSource" name="customerSource">
+                                        </div>
+                                    </div>
+
+                                    <!-- General Shipping -->
+                                    <div class="control-group">
+                                       <label for="customerShipping" class="control-label col-md-3 col-md-offset-4">Shipping
+                                        </label>
+                                        <div class="controls col-md-5">
+                                            <input type="text" class="form-control" placeholder="Shipping" id="customerShipping" name="customerShipping">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-inline form-inline-marign">
+                                    <!-- General Status -->
+                                    <div class="control-group">
+                                       <label for="customerStatus" class="control-label col-md-4 col-md-offset-1 general-status">Status
+                                     </label>
+                                        <div class="controls col-md-5">
+                                             <input type="text" class="form-control" placeholder="Status" id="customerStatus" name="customerStatus">
+                                        </div>
+                                    </div>
+
+                                    <!-- General Phone -->
+                                    <div class="control-group">
+                                       <label for="customerPhone" class="control-label col-md-4 col-md-offset-3 general-phone">Phone
+                                     </label>
+                                        <div class="controls col-md-5">
+                                             <input type="text" class="form-control" placeholder="Phone" id="customerPhone" name="customerPhone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-inline form-inline-marign">
+                                    <!-- General Email -->
+                                    <div class="control-group">
+                                       <label for="customerEmail" class="control-label col-md-4 col-md-offset-2 general-email">Email
+                                     </label>
+                                        <div class="controls col-md-5">
+                                             <input type="text" class="form-control" placeholder="Email" id="customerEmail" name="customerEmail">
+                                        </div>
+                                    </div>
+
+                                    <!-- General Address -->
+                                    <div class="control-group">
+                                       <label for="customerAddress" class="control-label col-md-4 col-md-offset-2 general-address">Address
+                                     </label>
+                                        <div class="controls col-md-5">
+                                             <input type="text" class="form-control" placeholder="Address" id="customerAddress" name="customerAddress">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderGeneral"></label>
+                                    <div class="controls">
+                                        <button id="orderGeneral" name="orderGeneral" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                <div class="tab-pane fade" id="customersNotes">
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#customerNotesMessage">
+                                        Create Notes
+                                    </button>
+                                </div>
+                                <div class="collapse" id="customerNotesMessage">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <form class="form-horizontal">
+                                                <fieldset>
+                                                   
+                                                    <div class="control-group">
+                                                        <label for="customerNotesMessageName" class="control-label col-md-1">Name
+                                                        </label>
+                                                        <div class="controls col-md-4 col-md-offset-1">
+                                                            <input type="text" class="form-control" placeholder="" id="customerNotesMessageName" name="customerNotesMessageName">
+                                                        </div>
+                                                    </div>
+                                                    <!-- Notes Title-->
+                                                        <div class="control-group">
+                                                            <label for="customerNotesMessageTitle" class="control-label col-md-1">Title
+                                                            </label>
+                                                            <div class="controls col-md-4 col-md-offset-1">
+                                                                <input type="text" class="form-control" placeholder="" id="customerNotesMessageTitle" name="customerNotesMessageTitle">
+                                                            </div>
+                                                        </div>
+                                                        <label for="customerNotesMessageTitle" class="control-label col-md-1" style="padding-bottom: 7px;">Notes
+                                                        </label>
+                                                        <textarea class="col-md-12" rows="5">can i write anything here</textarea>
+                                                    </fieldset>
+                                                </form>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <button class="btn btn-primary col-md-offset-10 col-xs-offset-10">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </li>
+                            <li>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover" id="customerNOtesData-Table" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr class="info">
+                                                                <th>MsgNo#</th>
+                                                                <th>Name</th>
+                                                                <th>Message</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Mad Dog Films</td>
+                                                                <td> i hate you</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-xs btn-primary">
+                                                                       <span class="glyphicon glyphicon-edit"></span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-xs btn-danger">
+                                                                       <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Mad Dog Films</td>
+                                                                <td> i hate you</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-xs btn-primary">
+                                                                       <span class="glyphicon glyphicon-edit"></span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-xs btn-danger">
+                                                                       <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>Mad Dog Films</td>
+                                                                <td> i hate you</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-xs btn-primary">
+                                                                       <span class="glyphicon glyphicon-edit"></span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-xs btn-danger">
+                                                                       <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4</td>
+                                                                <td>Mad Dog Films</td>
+                                                                <td> i hate you</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-xs btn-primary">
+                                                                       <span class="glyphicon glyphicon-edit"></span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-xs btn-danger">
+                                                                       <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>           
+                            </li>
+                        </ul>
+                        <!-- Button -->
+                        <div class="control-group">
+                            <center>
+                                <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade in" id="customersDocuments">
+                        <p>under development</p>
+                    </div>
+                    <div class="tab-pane fade in" id="customersPeople">
+                        <p>under development</p>
+                    </div>
+                    <div class="tab-pane fade in" id="customersInsurance">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <!-- Insurance -->
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-3 well">
+                                        <!-- Insurance Provider-->
+                                        <div class="control-group">
+                                            <label for="customersInsurance" class="control-label">Provider
+                                            </label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control customer-insurance-input" placeholder="" id="customersInsurance" name="customersInsurance">
+                                            </div>
+                                        </div>
+                                                
+                                        <!-- Insurance Coverage-->
+           
+                                        <div class="control-group">
+                                            <label for="customerCoverage" class="control-label">Coverage
+                                            </label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control customer-insurance-input" placeholder="" id="customerCoverage" name="customerCoverage">
+                                            </div>
+                                        </div>
+
+                                        <!-- Insurance Expires-->
+
+                                        <div class="control-group">
+                                            <label for="customerExpires" class="control-label">Expires
+                                            </label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control customer-insurance-input" placeholder="" id="customerExpires" name="customerExpires">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="control-group">
+                                    <label class="control-label" for="orderShipTo"></label>
+                                    <div class="controls">
+                                        <button id="orderShipTo" name="ordershipto" class="btn btn-info col-xs-2">Save</button>
+                                    </div>
+                                    <center>
+                                        <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                                    </center>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade in" id="customersOrders">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="customerOrders" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr class="info">
+                                                        <th>OrdNo#</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Balance</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>31/06/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-edit"></span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-xs btn-danger">
+                                                               <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>31/06/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-edit"></span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-xs btn-danger">
+                                                               <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>31/06/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-edit"></span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-xs btn-danger">
+                                                               <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>31/06/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-edit"></span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-xs btn-danger">
+                                                               <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- Button -->
+                        <div class="control-group">
+                            <center>
+                                <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                            </center>
+                        </div> 
+                    </div>
+                    <div class="tab-pane fade in" id="customersInvoices">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="customerInvoices1" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr class="info">
+                                                        <th>#</th>
+                                                        <th>Product Name</th>
+                                                        <th>Vendor Name</th>
+                                                        <th>Invoice Date</th>
+                                                        <th>Status</th>
+                                                        <th>Balance</th>
+                                                        <th>Action   </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>SCARLET-W 5K</td>
+                                                        <td>B&H Photo</td>
+                                                        <td>31/3/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-print"></span>
+                                                            </button>&nbsp;
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>SCARLET-W 5K</td>
+                                                        <td>B&H Photo</td>
+                                                        <td>31/3/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-print"></span>
+                                                            </button>&nbsp;
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>SCARLET-W 5K</td>
+                                                        <td>B&H Photo</td>
+                                                        <td>31/3/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-print"></span>
+                                                            </button>&nbsp;
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>SCARLET-W 5K</td>
+                                                        <td>B&H Photo</td>
+                                                        <td>31/3/2017</td>
+                                                        <td>Returned</td>
+                                                        <td>$4,491.00</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-print"></span>
+                                                            </button>&nbsp;
+                                                            <button type="button" class="btn btn-xs btn-primary">
+                                                               <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- Button -->
+                        <div class="control-group">
+                            <center>
+                                <button type="button" class="btn btn-info col-xs-2 pull-right" data-dismiss="modal">Close</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </center> -->
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.form-inline-marign{
+    margin-bottom: 1.5em;
+}
+
+.general-type{
+    padding-right: 47px;
+} 
+.general-url{
+    padding-right: 45px;
+}
+.general-source{
+    padding-left: 14px;
+    padding-right: 8px;
+}
+.general-status{
+    padding-left: 25px;
+    padding-right: 0px;
+}
+.general-phone{
+    padding-left: 28px;
+    padding-right: 19px;
+}
+.general-email{
+    margin-left: 22px;
+    padding-right:0px;
+}
+.general-address{
+    margin-left: 61px;
+    padding-right:0px;
+    padding-left: 23px;
+    width:106px;
+}
+.customer-insurance-input{
+    max-width: 20em;
+}
+@media (max-width: 768px) {     
+    .customer-modal {
+        width: 26em;
+        top: 9.3em;
+        margin-left: 73px;
+        left: -5em;
+        zoom:92%;
+    }
+    .form-inline-marign{
+    margin-bottom: 0px;
+    }
+    .general-source{
+    padding-left: 16px;
+    }
+    .general-status{
+    padding-left: 14px;
+    }
+    .general-phone{
+    padding-left: 16px;
+   }
+   .general-email{
+    margin-left: 2px;
+    }
+    .general-address{
+    margin-left: -6px;
+    }
+}
+</style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#customerNOtesData-Table').DataTable();
+        $('#customerOrders').DataTable();
+        $('#customerInvoices1').DataTable();
+    });
+</script>

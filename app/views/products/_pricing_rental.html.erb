@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel with-nav-tabs panel-info">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#productRentalr" data-toggle="tab">Rental Rates</a></li>
+          <li><a href="#productrentalc" data-toggle="tab">Rental Cost</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <%= form_for @general_product, html: {multipart: true} do |t| %>
+        <% @general_product.build_product_rental unless @general_product.product_rental %>
+        <%= t.fields_for :product_rental do |ff|%>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="productRentalr">
+            <div class="col-sm-12">
+              <div class="panel panel-info">
+                <div class="panel-heading text-center">Rental Rates</div>
+                <div class="panel-body products-general-info">
+                  <div class="content">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="Day3">1 Day Rate</label>
+                        <%=ff.number_field :day1, :class => "form-control", :placeholder=>"cost" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="day2">2 Day Rate</label>
+                        <%=ff.number_field :day2, :class => "form-control", :placeholder=>"cost" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="week">3 Day Rate</label>
+                        <%=ff.number_field :day3, :class => "form-control", :placeholder=>"cost" %>
+                      </div>
+                      <!-- <div class="form-group">
+                        <label for="weekly">Weekly Rate</label>
+                        <%#=ff.number_field :weekly, :class => "form-control", :placeholder=>"cost" %>
+                      </div> -->
+                      <% ff.object.product_pricing_rents.build if ff.object.product_pricing_rents.blank? %>
+                      <%= ff.nested_fields_for :product_pricing_rents do |fff|%>
+                      <div class="row" style="border: 1px solid #1ABC9C; padding: 5px; margin-bottom: 5px;">
+                        <div class="col-sm-12">
+                          <%=fff.remove_nested_fields_link '', class: 'btn btn-danger pull-right remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+                            <i class="fa fa-trash"></i>
+                          <%end%>
+                        </div>
+                        <div class="form-group col-sm-6">
+                          <label for="Day3">Day of The Rate</label>
+                          <%#= fff.select :name, :class => "form-control", :placeholder=>"Name of the Rate" %>
+                           <%= fff.select(:name, options_for_select([["4 Day Rate","4"],["5 Day Rate","5"],["6 Day Rate","6"],["7 Day Rate","7"],["8 Day Rate","8"],["9 Day Rate","9"],["10 Day Rate","10"],["11 Day Rate","11"],["12 Day Rate","12"],["13 Day Rate","13"],["14 Day Rate","14"],["15 Day Rate","15"],["16 Day Rate","16"],["17 Day Rate","17"],["18 Day Rate","18"],["19 Day Rate","19"],["20 Day Rate","20"],["21 Day Rate","21"],["22 Day Rate","22"],["23 Day Rate","23"],["24 Day Rate","24"],["25 Day Rate","25"],["26 Day Rate","26"],["27 Day Rate","27"],["28 Day Rate","28"],["29 Day Rate","29"],["30 Day Rate","30"]]),{:prompt => "--Select Day Rate--"},{:class=>"form-control"}) %>
+                        </div>
+                        <div class="form-group col-sm-6">
+                          <label for="Day3">Price</label>
+                          <%= fff.number_field :price, :class => "form-control", :placeholder=>"Price Rate" %>
+                        </div>
+                      </div>
+                      <%end%>
+                      <div class="col-sm-12" style="margin-top: 10px;">
+                        <%=ff.add_nested_fields_link :product_pricing_rents,  class: 'btn btn-info pull-right', role: 'button' do%>
+                          <i class="fa fa-plus-square"></i>
+                        <%end%>
+                      </div>
+                      <!-- <%#=t.add_nested_fields_link :product_rentals,  class: 'btn btn-info pull-right', role: 'button' do%>
+                          <i class="fa fa-plus-square"></i>
+                      <%#end%>
+                      <%#=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-left remove_subject', role: 'button', :style=>"margin-top:23px;" do%>
+                        <i class="fa fa-trash"></i>
+                      <%#end%>
+                      <%#= ff.submit "Submit", :class=>"btn btn-primary"%> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="productrentalc">
+            <div class="col-sm-12">
+              <div class="panel panel-info">
+                <div class="panel-heading text-center">Rental Cost</div>
+                <div class="panel-body product-pricing">
+                  <div class="content">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="Dep">Depreciation Years</label>
+                        <!-- <input type="string" class="form-control" id="Dep"> -->
+                        <%=ff.number_field :depreciation_year, :class => "form-control", :placeholder=>"year" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="est">Estimated Rental Days Per Year</label>
+                        <%=ff.number_field :estimated_rental_days_per_year, :class => "form-control", :placeholder=>"year" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="esti">Estimated daily Cost</label>
+                        <%=ff.number_field :estimated_daily_cost, :class => "form-control", :placeholder=>"cost"%>
+                      </div>
+                      
+                      <%#= ff.submit "Submit", :class=>"btn btn-primary"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%end%>
+        </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

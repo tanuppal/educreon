@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = new google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Active Customer',<%=@active%> ],
+      ['Inactive Customer',<%=@inactive%>],
+
+           
+    ]);
+    var options = {
+      title: 'Total Customer',
+      pieHole: 0.4,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('customerpiechart'));
+    chart.draw(data, options);
+  }
+
+</script>
+
+
+
+<!--   <style>
+    .card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    /* padding: 2.25rem; */
+}
+  </style> -->

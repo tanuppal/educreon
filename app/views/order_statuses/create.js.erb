@@ -1,0 +1,10 @@
+$("#orderStatus").modal('hide');
+// $(".term_content").val('');
+var url = "<%=all_order_status_order_statuses_path%>";
+$.getJSON(url, function(data) {
+	$('#order_order_status_id').html('<option>Select Order Statuses</option>');
+	$.each(data, function(index, stat) {   
+	//alert(batch.name);
+	 $('#order_order_status_id').append($('<option>', { value : stat.id }).text(stat.status)); 
+	});
+});

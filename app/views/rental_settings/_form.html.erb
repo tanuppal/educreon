@@ -1,0 +1,73 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel with-nav-tabs panel-info">
+			<div class="panel-heading">
+				<li class="active"><a href="#productGeneral" data-toggle="tab">Rental Setting</a></li>
+			</div>
+			<div class="panel-body">				
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="productGeneral">
+						<div class="col-sm-6">
+							<div class="panel panel-info">
+								<div class="panel-heading text-center">Rental Setting</div>
+									<%= form_for @rental_setting, html: {multipart: true} do |f| %>
+										<div class="panel-body products-general-info">									
+											<div class="content">
+											  <div class="col-sm-12">
+											    <div class="form-group">
+											      <label for="inputManufacturer">Name</label>
+											      <%= f.text_field :name, :class => "form-control", :placeholder=>"Name"%>
+											    </div>
+											    <div class="form-group">
+											      <label for="inputManufacturer">Address</label>
+											      <%= f.text_area :address, :class => "form-control", :placeholder=>"Name"%>
+											    </div>
+											    <div class="form-group">
+											      <label for="inputManufacturer">Logo</label>
+											      	<%=f.file_field :logo%>
+											    </div>
+											  </div>
+											</div>								
+										</div>
+									<div class="row">
+									  <div class="col-sm-12 text-center" style="margin-bottom: 10px;">
+									    <%= f.submit "Submit", :class=>"btn btn-info"%>
+									  </div>
+									</div>
+								<%end%>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-info">
+								<div class="panel-heading text-center">Rental Setting List</div>
+								<div class="grid-view" id="item-grid" style="padding: 10px;">
+								  <table class="items">
+								    <thead>
+								      <tr>
+								        <th id="item-grid_c0">Sl.No.</th>
+								        <th id="item-grid_c1">Name</th>
+								        <th id="item-grid_c2">Address</th>
+								        <th id="item-grid_c3">Logo</th>
+								        <th id="item-grid_c4">Manage</th>
+								      </tr>
+								    </thead>
+								    <tbody>
+								    	<%= render :partial => "rental_settings/setting_list"%>
+								    </tbody>
+								  </table>
+								 	<%if @all_rental_setting.count > 10%>
+									  <%if @all_rental_setting.present?%>
+										   <div class="pager">      
+										    <%= will_paginate @all_rental_setting, renderer: BootstrapPagination::Rails %>
+											 </div>
+										<%end%>
+									<%end%>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

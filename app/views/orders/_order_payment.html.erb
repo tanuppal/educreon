@@ -1,0 +1,45 @@
+<div class="content">
+  <div class="col-sm-12">
+    <% @general_order.build_order_payment unless @general_order.order_payment%>
+    <%= t.fields_for :order_payment do |ff|%>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="orderfilter">Payment Mode</label>
+          <span class="required_field">*</span>
+          <%= ff.select :order_payment_mode_id, options_for_select(@all_order_payment_mode.collect{ |u| [u.name, u.id]},ff.object.order_payment_mode_id),{:prompt => "--Please Select--"},{:class=>"form-control creditCardValue",:required=>true} %>
+          <%= link_to "Add Payment Mode", "#", :class=>"btn btn-primary btn-xs pull-right", :"data-toggle"=>"modal", :"data-target"=>"#myPaymentMode"%>
+        </div>
+        <div class="col-sm-6">
+        </div>
+      </div>  
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <%=render partial: "order_credit_card_Payment", locals: {ff:ff}%>
+        </div>
+      </div>
+
+        <!-- <div class="form-group col-sm-6">
+          <label for="orderfilter">Amount</label>
+          <%#= ff.number_field :amount, :class => 'text_field form-control', :step => 0.5 %>
+        </div> -->
+      </div>
+      <%#= ff.submit "Submit", :class=>"btn btn-primary"%>
+    <%end%>
+  </div>
+</div>
+<script type="text/javascript">
+    $(".creditCard").hide();
+  $(document).on("change",".creditCardValue",function(){
+    var value = $(".creditCardValue option:selected").text();
+    // alert(value);
+    if (value == "Credit Card")
+        {
+          $(".creditCard").show(2500);
+        }
+    else
+       {
+        $(".creditCard").hide(2500);
+       } 
+
+  });
+</script>

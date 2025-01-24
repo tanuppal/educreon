@@ -1,0 +1,16 @@
+<div class="row">
+    <% @general_product.product_descriptions.build if @general_product.product_descriptions.blank? %>
+    <div class="col-sm-12">
+        <%= t.nested_fields_for :product_descriptions do |ff|%>
+            <div class="form-group">
+                <%= ff.label :description%>
+                    <%= ff.text_area :description, :class=>"form-control"%>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <%#= ff.submit "Save All", :class=>"btn btn-primary"%>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>

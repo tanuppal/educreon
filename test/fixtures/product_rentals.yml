@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  day3: 1.5
+  day2: 1.5
+  week: 1.5
+  depreciation_year: 1.5
+  estimated_rental_days_per_year: 1.5
+  estimated_daily_cost: 1.5
+
+two:
+  product: two
+  day3: 1.5
+  day2: 1.5
+  week: 1.5
+  depreciation_year: 1.5
+  estimated_rental_days_per_year: 1.5
+  estimated_daily_cost: 1.5

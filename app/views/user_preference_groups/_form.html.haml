@@ -1,0 +1,32 @@
+=form_for @user_preferences_group, html: {multipart: true} do |f|
+	.row
+		.col-md-6
+			%label
+				Name  of group
+			=f.text_field :name,{:class=> "form-control",:required=>true}	
+	- @user_preferences_group.child_preferences.build if @user_preferences_group.child_preferences.blank?
+	.hole_child
+		= f.nested_fields_for :child_preferences do |ff|
+			=ff.remove_nested_fields_link '', class: 'btn btn-danger pull-right edit-field', role: 'button' do
+				%i{:class=>"fa fa-minus-square"}
+			.row
+				.col-md-12
+					%label
+						Action Name
+					=ff.select :controller_name,options_for_select([["Order","orders"],["Product","products"],["Customers","customers"],["Vendors","vendors"],["Bills","bills"],["Order Receivings","receivings"],["Company Preferences","companies"],["User","users"]],ff.object.controller_name),{:prompt=>"Select one action"},{:class=>"form-control",:required=>true}	
+		=f.add_nested_fields_link :child_preferences,  class: 'btn btn-info edit-field normal-class-brn', role: 'button' do
+			%i{:class => "fa fa-plus-square"}
+		.row
+			.col-md-12.text-center.button_div
+				=f.submit "Save", {:class=> "btn btn-primary"}			
+:css
+	.button_div{
+		margin-top:20px;
+	}
+	.normal-class-brn{
+		margin-top:20px;
+		float:right;
+	}
+	.hole_child{
+		margin-top:10px;
+	}

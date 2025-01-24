@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel with-nav-tabs panel-info">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#productGeneral" data-toggle="tab">General</a></li>
+          <li><a href="#productPricing" data-toggle="tab">Pricing</a></li>
+
+          <li><a href="#productImage" data-toggle="tab">Image</a></li>
+          <li><a href="#productDescription" data-toggle="tab">Description</a></li>
+          <!-- <li><a href="#productAvailability" data-toggle="tab">Availability</a></li> -->
+          <li><a href="#productBarcode" data-toggle="tab">Inventory</a></li>
+          <!-- <li><a href="#productOrders" data-toggle="tab">Orders</a></li> -->
+          <!-- <li><a href="#productBills" data-toggle="tab">Bills</a></li> -->
+          <li id="pricingRentalHide"><a href="#pricingRental" data-toggle="tab">Pricing Rental</a></li>
+          <li id="productSaleHide"><a href="#productSale" data-toggle="tab">Product Sale</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <%#= form_for @general_product, html: {multipart: true} do |t| %>
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="productGeneral">
+              <div class="col-sm-12">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">General</div>
+                  <div class="panel-body products-general-info">
+                    <%= render  partial: 'products/product_general', :locals=> {:t=> t} %>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-sm-7">
+              <%#= render  partial: 'products/product_general_new' %>
+              </div>  -->
+            </div>
+
+            <div class="tab-pane fade" id="productPricing">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Pricings</div>
+                  <div class="panel-body product-pricing">
+                    <%= render  partial: 'products/product_pricing', :locals=> {:t=> t} %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>
+              <!--  <div class="col-sm-7">
+              <%#= render  partial: 'products/product_pricing_new' %>
+              </div>  -->
+            </div>
+
+            <div class="tab-pane fade" id="productImage">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Image</div>
+                  <div class="panel-body product-pricing">
+                    <%= render  partial: 'products/product_image', :locals=> {:t=> t} %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>
+              <!--  <div class="col-sm-7">
+              <%#= render  partial: 'products/product_image_new' %>
+              </div> -->
+            </div>
+
+            <div class="tab-pane fade" id="productDescription">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Description</div>
+                  <div class="panel-body product-pricing">
+                    <%= render  partial: 'products/product_description', :locals=> {:t=> t} %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>
+              <!--  <div class="col-sm-7">
+              <%#= render  partial: 'products/product_description_new' %>
+              </div> -->
+            </div>
+
+            <!-- <div class="tab-pane fade" id="productAvailability">
+            <div class="col-sm-6">
+            <div class="panel panel-info">
+            <div class="panel-heading text-center">Availability</div>
+            <div class="panel-body product-pricing">
+            <%#= render  partial: 'products/product_availaiablity', :locals=> {:t=> t} %>
+            </div>
+            </div>
+            </div>
+            </div> -->
+
+            <div class="tab-pane fade" id="productBarcode">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Inventory Details</div>
+                  <div class="panel-body products-general-info">
+                    <%= render  partial: 'products/product_barcode' , :locals=> {:t=> t} %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>
+            </div>
+
+            <!-- <div class="tab-pane fade" id="productOrders">
+            <div class="col-sm-6">
+            <div class="panel panel-info">
+            <div class="panel-heading text-center">Orders</div>
+            <div class="panel-body products-general-info">
+            <%#= render  partial: 'products/product_orders' %>
+            </div>
+            </div>
+            </div>
+            </div> -->
+
+            <!-- <div class="tab-pane fade" id="productBills">
+            <div class="col-sm-6">
+            <div class="panel panel-info">
+            <div class="panel-heading text-center">Bills</div>
+            <div class="panel-body products-general-info">
+            <%#= render  partial: 'products/product_bills' %>
+            </div>
+            </div>
+            </div>
+            </div> -->
+            <div class="tab-pane fade" id="pricingRental">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Rental</div>
+                  <div class="panel-body product-pricing">
+                    <%= render 'products/pricing_rental' , :locals=> {:t=> t}%>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>                     
+            </div>
+
+            <div class="tab-pane fade" id="productSale">
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading text-center">Sale Details</div>
+                  <div class="panel-body product-pricing">
+                    <%= render partial:'products/pricing_sale', :locals=>{:t=> t}%>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6"></div>                     
+            </div>
+          </div>
+        <%#end%>
+      </div>
+    </div>
+  </div>
+</div>

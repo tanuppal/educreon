@@ -1,0 +1,70 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/homes/home">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <a href="/customers/customers_list">Customer List</a> 
+      </li>
+      <li class="breadcrumb-item customerEdit active">
+        Show
+      </li><li class="breadcrumb-item customerEdit1 active hide">
+        Edit
+      </li>
+      <%= link_to '/customers/new' do%>
+        <button class="btn btn-primary btn-sm pull-right breadcrumb-button customerEdit" data-toggle="modal" data-target=".vendor_form">Add New Customer</button>
+      <%end%>
+    </ol>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= render :partial => "customers/form_show"%>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="col-md-12 col-xs-12">
+    <%= render partial: "customer_types/customer_general_type_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+    <%= render partial: "customer_terms/customer_general_term_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_sources/customer_general_source_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_shippings/customer_general_shipping_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "customer_statuses/customer_general_status_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "contact_method_types/customer_contact_method_type_form"%>
+</div>
+<div class="col-md-12 col-xs-12">
+  <%= render partial: "document_types/customer_document_type_form"%>
+</div>
+<style type="text/css">
+    .panel.with-nav-tabs .panel-heading {
+        padding: 5px 5px 0 5px;
+    }
+    
+    .panel.with-nav-tabs .nav-tabs {
+        border-bottom: none;
+    }
+    
+    .panel.with-nav-tabs .nav-justified {
+        margin-bottom: -1px;
+    }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".edit_button").click(function(){
+    $(".customerEdit").addClass("hide");
+    $(".customerEdit1").removeClass("hide");
+  });
+});
+</script>

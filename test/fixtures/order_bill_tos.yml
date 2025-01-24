@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_location: one
+  country: one
+  state: 
+  city: one
+
+two:
+  customer_location: two
+  country: two
+  state: 
+  city: two

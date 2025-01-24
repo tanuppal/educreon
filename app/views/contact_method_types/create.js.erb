@@ -1,0 +1,10 @@
+$("#customerContactMethodType").modal('hide');
+$(".term_content").val('');
+var url = "<%=all_customer_contact_method_type_contact_method_types_path%>";
+$.getJSON(url, function(data) {
+	// $('.customerContactMethodType').html('<option>Select Contact Type</option>');
+	$.each(data, function(index, contact_method_type) {   
+	//alert(batch.name);
+	 $('.customerContactMethodType').append($('<option>', { value : contact_method_type.id }).text(contact_method_type.name)); 
+	});
+});

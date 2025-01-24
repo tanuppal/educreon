@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InventoryTracker</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <%= stylesheet_link_tag    'useradmincss/useradmin', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'useradminjs/useradminjs', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render :partial => 'user_dashboards/navigation'%>
+    <%#= render :partial => 'user_dashboards/user_admin_right_panel' %>
+      <%= yield %>
+    <%= render :partial => 'user_dashboards/footer'%>   
+  </body>
+</html>
