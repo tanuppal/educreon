@@ -14646,9 +14646,7 @@ const sanitizeHtml = require('sanitize-html');
 			return _empty(data) ?
 				data :
 				typeof data === 'string' ?
-					data
-						.replace( _re_new_lines, " " )
-						.replace( _re_html, "" ) :
+					sanitizeHtml(data.replace( _re_new_lines, " ")) :
 					'';
 		},
 	
